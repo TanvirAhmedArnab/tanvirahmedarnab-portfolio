@@ -1,0 +1,97 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 2017 >>
+stream
+BT
+/F2 24 Tf
+1 0 0 1 56 748 Tm
+(Taarn) Tj
+/F1 12 Tf
+1 0 0 1 56 728 Tm
+(Unity Gameplay Developer | C# | Toronto, ON) Tj
+/F1 12 Tf
+1 0 0 1 56 712 Tm
+(hello@taarn.dev | github.com/taarn | linkedin.com/in/taarn-dev) Tj
+/F2 15 Tf
+1 0 0 1 56 676 Tm
+(Profile) Tj
+/F1 11 Tf
+1 0 0 1 56 658 Tm
+(Entry-level Unity developer focused on readable gameplay systems, responsive combat feel, and) Tj
+/F1 11 Tf
+1 0 0 1 56 644 Tm
+(tools that help small teams iterate faster. Comfortable owning prototyping, UI feedback, and debugging.) Tj
+/F2 15 Tf
+1 0 0 1 56 612 Tm
+(Skills) Tj
+/F1 11 Tf
+1 0 0 1 56 594 Tm
+(Unity, C#, gameplay systems, enemy AI, UI implementation, ScriptableObjects, input tuning,) Tj
+/F1 11 Tf
+1 0 0 1 56 580 Tm
+(state-driven architecture, debugging tools, Git, playtest iteration, production communication) Tj
+/F2 15 Tf
+1 0 0 1 56 548 Tm
+(Selected Projects) Tj
+/F2 12 Tf
+1 0 0 1 56 530 Tm
+(Skyline Siege) Tj
+/F1 11 Tf
+1 0 0 1 168 530 Tm
+(Solo Unity tactics-defense prototype. Built wave tools, lane telegraphs, AI state logic, and HUD feedback.) Tj
+/F2 12 Tf
+1 0 0 1 56 512 Tm
+(Ritual Runner) Tj
+/F1 11 Tf
+1 0 0 1 168 512 Tm
+(Fast 2D action platformer slice. Implemented movement feel, buffered inputs, combat timing, and checkpoints.) Tj
+/F2 12 Tf
+1 0 0 1 56 494 Tm
+(Signal Bloom) Tj
+/F1 11 Tf
+1 0 0 1 168 494 Tm
+(Narrative puzzle exploration game. Owned dialogue state, save/load flow, and branch-debug tooling.) Tj
+/F2 15 Tf
+1 0 0 1 56 462 Tm
+(Experience Highlights) Tj
+/F1 11 Tf
+1 0 0 1 56 444 Tm
+(- Shipped multiple portfolio-ready Unity slices from prototype through polish.) Tj
+/F1 11 Tf
+1 0 0 1 56 430 Tm
+(- Built designer-friendly balancing and debugging tools to reduce iteration time.) Tj
+/F1 11 Tf
+1 0 0 1 56 416 Tm
+(- Comfortable translating playtest feedback into concrete movement, UI, and pacing improvements.) Tj
+/F2 15 Tf
+1 0 0 1 56 384 Tm
+(Education) Tj
+/F1 11 Tf
+1 0 0 1 56 366 Tm
+(Game development training and self-directed portfolio work with a focus on Unity and C# production skills.) Tj
+ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n `n0000000058 00000 n `n0000000115 00000 n `n0000000251 00000 n `n0000000321 00000 n `n0000000396 00000 n `ntrailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+2464
+%%EOF

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sample portfolio case study for Signal Bloom, used as placeholder content on Tanvir Ahmed Arnab's Unity game developer portfolio.">
+  <meta name="theme-color" content="#101412">
+  <link rel="canonical" href="https://www.tanvirahmedarnab.com/signal-bloom.html">
+  <title>Signal Bloom | Tanvir Ahmed Arnab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html">Tanvir Ahmed Arnab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="assets/tanvir-ahmed-arnab-resume-placeholder.pdf" download>Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="project-page">
+    <section class="project-hero" style="--hero-image: url('assets/media/signal-bloom-01.png');">
+      <div class="inner project-hero-inner">
+        <p class="eyebrow">Sample supporting case study</p>
+        <h1>Signal Bloom</h1>
+        <p class="hero-copy">
+          This is sample placeholder content for a narrative or systems-heavy project page. The goal is to prove out the portfolio format before replacing it with a real production case study.
+        </p>
+        <p class="site-note">Placeholder content: use this page structure later for a real project with state logic, UI, or systems work.</p>
+        <div class="meta-grid">
+          <div>
+            <span class="meta-label">Role</span>
+            <span>Gameplay and UI programmer</span>
+          </div>
+          <div>
+            <span class="meta-label">Team size</span>
+            <span>4</span>
+          </div>
+          <div>
+            <span class="meta-label">Duration</span>
+            <span>6 weeks</span>
+          </div>
+          <div>
+            <span class="meta-label">Tools</span>
+            <span>Unity, C#, state-driven UI, Git</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="inner project-layout">
+        <div class="project-main">
+          <div class="project-reel reveal" aria-label="Looping gameplay preview">
+            <img src="assets/media/signal-bloom-01.png" alt="Signal Bloom room state layout with dialogue panel and node markers.">
+            <img src="assets/media/signal-bloom-02.png" alt="Signal Bloom conversation graph and debugging overlay.">
+            <img src="assets/media/signal-bloom-03.png" alt="Signal Bloom room graph with revisit logic and stable save-state callout.">
+          </div>
+
+          <section class="content-block reveal">
+            <h2>What I owned</h2>
+            <ul class="detail-list">
+              <li>Implemented dialogue state handling, revisit checks, and interaction prompts tied to current player knowledge.</li>
+              <li>Built save/load support so branch state stayed stable across reloads and revisits.</li>
+              <li>Created debug overlays for conversation branches and room state transitions.</li>
+              <li>Worked with writing and design to make sure narrative intent stayed aligned with actual game state.</li>
+              <li>Hooked the same state model into UI so prompts and response choices stayed in sync.</li>
+            </ul>
+          </section>
+
+          <section class="content-block reveal">
+            <h2>Challenge</h2>
+            <p>
+              The biggest risk was invisible breakage. A player could revisit a room, trigger a conversation in a different order, and quietly push the project into an inconsistent state that only showed up much later.
+            </p>
+          </section>
+
+          <section class="content-block reveal">
+            <h2>How I solved it</h2>
+            <p>
+              I moved the project toward a single source of truth for room and conversation state. That meant branching checks, interaction prompts, and save data all resolved through the same evaluator, with a debug layer that made hidden dependencies visible during testing.
+            </p>
+          </section>
+
+          <section class="content-block reveal">
+            <h2>Outcome</h2>
+            <p>
+              Writers could test branches more independently, bug reports became easier to reproduce, and the project gained a calmer sense of continuity. It is the strongest example in the portfolio of building systems that support both players and teammates.
+            </p>
+          </section>
+
+          <section class="content-block reveal">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+              <figure>
+                <img src="assets/media/signal-bloom-01.png" alt="Signal Bloom scene with room map, node markers, and dialogue box.">
+                <figcaption>Interaction flow anchored by room state and current player knowledge.</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/media/signal-bloom-02.png" alt="Signal Bloom conversation graph showing branch debugging tools.">
+                <figcaption>Branch debugging view that helped keep writer intent aligned with implementation.</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/media/signal-bloom-03.png" alt="Signal Bloom state graph showing save-safe revisit logic across rooms.">
+                <figcaption>Shared state model used for room transitions, save data, and revisit stability.</figcaption>
+              </figure>
+            </div>
+          </section>
+        </div>
+
+        <aside class="project-side reveal">
+          <section class="content-block">
+            <h2>Project links</h2>
+            <div class="stacked-links">
+              <a class="button button-primary" href="assets/tanvir-ahmed-arnab-resume-placeholder.pdf" download>Placeholder resume</a>
+              <a class="button button-secondary" href="index.html#work">Back to portfolio</a>
+            </div>
+          </section>
+          <section class="content-block">
+            <h2>Replace later</h2>
+            <ul class="detail-list">
+              <li>Replace with a real narrative, tools, or systems-focused case study.</li>
+              <li>Add actual branch logic examples, screenshots, and debugging notes.</li>
+              <li>Link real repositories or demos when they exist.</li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner footer-content">
+      <p>Tanvir Ahmed Arnab - Unity Game Developer Portfolio</p>
+      <p><span id="current-year"></span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
