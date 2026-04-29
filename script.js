@@ -2,6 +2,40 @@ const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const yearTarget = document.querySelector("#current-year");
 const revealItems = document.querySelectorAll(".reveal");
+const viewToggle = document.querySelector("[data-view-toggle]");
+const viewStorageKey = "portfolio-view-mode";
+
+const setRecruiterView = (isRecruiterView) => {
+  document.body.classList.toggle("recruiter-view", isRecruiterView);
+
+  if (viewToggle) {
+    viewToggle.setAttribute("aria-pressed", String(isRecruiterView));
+    viewToggle.textContent = isRecruiterView ? "Immersive View" : "Recruiter View";
+  }
+};
+
+if (viewToggle) {
+  let savedMode = null;
+
+  try {
+    savedMode = window.localStorage.getItem(viewStorageKey);
+  } catch (error) {
+    savedMode = null;
+  }
+
+  setRecruiterView(savedMode === "recruiter");
+
+  viewToggle.addEventListener("click", () => {
+    const nextState = !document.body.classList.contains("recruiter-view");
+    setRecruiterView(nextState);
+
+    try {
+      window.localStorage.setItem(viewStorageKey, nextState ? "recruiter" : "immersive");
+    } catch (error) {
+      // Ignore storage failures and keep the toggle working for the current session.
+    }
+  });
+}
 
 if (menuToggle && siteNav) {
   menuToggle.addEventListener("click", () => {
