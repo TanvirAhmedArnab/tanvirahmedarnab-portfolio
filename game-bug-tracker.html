@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Game Bug Tracker is a .NET 10 Razor Pages project by Tanvir Ahmed Arnab focused on organizing bug reports for a game project with a clear internal triage workflow.">
+  <meta name="theme-color" content="#101412">
+  <link rel="canonical" href="https://www.tanvirahmedarnab.com/game-bug-tracker.html">
+  <title>Game Bug Tracker | Tanvir Ahmed Arnab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html">Tanvir Ahmed Arnab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="mailto:contact@tanvirahmedarnab.com?subject=Resume%20Request">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="project-page">
+    <section class="project-hero project-hero--tracker">
+      <div class="inner project-hero-inner">
+        <p class="eyebrow">Software project / internal tooling</p>
+        <h1>Game Bug Tracker</h1>
+        <p class="hero-copy">
+          Game Bug Tracker is a .NET 10 Razor Pages app I am building to organize bug reports for a single game project. The current phase is about getting the tracker foundation right before expanding into a fuller reporting and update workflow.
+        </p>
+        <p class="site-note">Current state: app shell, bug-report model, project scope, and V1 workflow targets are in place. CRUD pages and persistence are the next milestone.</p>
+        <div class="meta-grid">
+          <div>
+            <span class="meta-label">Role</span>
+            <span>Solo developer</span>
+          </div>
+          <div>
+            <span class="meta-label">Stack</span>
+            <span>ASP.NET Core Razor Pages, C#, .NET 10, Bootstrap</span>
+          </div>
+          <div>
+            <span class="meta-label">Focus</span>
+            <span>Internal game-project bug triage</span>
+          </div>
+          <div>
+            <span class="meta-label">Status</span>
+            <span>Active work in progress</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="inner project-layout">
+        <div class="project-main">
+          <section class="content-block reveal">
+            <h2>Project goal</h2>
+            <p>
+              The goal for version 1 is to create a simple internal tracker for one game project. Instead of starting with a broad public-facing system, I am focusing first on the workflow a developer actually needs during active production: logging issues, keeping status readable, and building a clear backlog of what needs attention next.
+            </p>
+          </section>
+
+          <section class="content-block reveal">
+            <h2>What is implemented right now</h2>
+            <ul class="detail-list">
+              <li>An ASP.NET Core Razor Pages application targeting .NET 10 with HTTPS-ready startup configuration.</li>
+              <li>A shared layout and navigation structure that establishes the shell for the tracker interface.</li>
+              <li>A <code>BugReport</code> model with title, description, severity, status, and created timestamp fields.</li>
+              <li>Enum types for <code>BugSeverity</code> and <code>BugStatus</code> to keep report state consistent.</li>
+              <li>A project homepage that defines the version 1 scope and clarifies the first workflow goals.</li>
+            </ul>
+          </section>
+
+          <section class="content-block reveal">
+            <h2>Version 1 roadmap</h2>
+            <ul class="detail-list">
+              <li>List bug reports in a clean internal dashboard.</li>
+              <li>Create new bug reports without needing to edit code directly.</li>
+              <li>Open a detail view for individual reports.</li>
+              <li>Update bug status and severity as issues move through triage.</li>
+            </ul>
+          </section>
+
+          <section class="content-block reveal">
+            <h2>Why this project matters to the portfolio</h2>
+            <p>
+              This project connects two things I care about: game development and practical software workflows. It is not just about storing bug data. It is about designing a tool that helps a real project stay organized, keeps priorities visible, and supports the less glamorous but very important side of actually shipping and maintaining work.
+            </p>
+          </section>
+
+          <section class="content-block reveal">
+            <h2>What comes next</h2>
+            <p>
+              The next major step is moving from scope and model design into the actual CRUD flow: pages for listing, creating, viewing, and updating reports. After that, I want to improve persistence, filtering, and eventually explore how player-submitted bug reports could fit into a later version without overcomplicating the early build.
+            </p>
+          </section>
+        </div>
+
+        <aside class="project-side reveal">
+          <section class="content-block">
+            <h2>Project links</h2>
+            <div class="stacked-links">
+              <a class="button button-primary" href="https://github.com/TanvirAhmedArnab/game-bug-tracker" target="_blank" rel="noreferrer">View GitHub Repo</a>
+              <a class="button button-secondary" href="index.html#work">Back to portfolio</a>
+            </div>
+          </section>
+          <section class="content-block">
+            <h2>Truthful scope</h2>
+            <ul class="detail-list">
+              <li>This case study reflects current progress, not a finished production release.</li>
+              <li>The data model and project direction are real and already implemented.</li>
+              <li>The main UI workflow is the next concrete milestone.</li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner footer-content">
+      <p>Tanvir Ahmed Arnab - Unity Game Developer Portfolio</p>
+      <p><a class="inline-link" href="mailto:contact@tanvirahmedarnab.com">contact@tanvirahmedarnab.com</a></p>
+      <p><span id="current-year"></span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

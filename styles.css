@@ -194,6 +194,23 @@ ul {
     center;
 }
 
+.project-hero--tracker::before {
+  background:
+    linear-gradient(130deg, rgba(7, 11, 10, 0.94) 0%, rgba(10, 16, 14, 0.82) 44%, rgba(7, 11, 10, 0.94) 100%),
+    radial-gradient(circle at 24% 28%, rgba(95, 211, 158, 0.16), transparent 20%),
+    radial-gradient(circle at 76% 34%, rgba(239, 156, 93, 0.16), transparent 18%),
+    linear-gradient(rgba(143, 216, 191, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 216, 191, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, #0e1412 0%, #090c0b 100%);
+  background-size:
+    auto,
+    auto,
+    auto,
+    42px 42px,
+    42px 42px,
+    auto;
+}
+
 .hero::after,
 .project-hero::after {
   content: "";
@@ -368,6 +385,15 @@ ul {
 .meta-grid span,
 .gallery-grid figcaption {
   color: var(--text-soft);
+}
+
+.content-block code {
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.35rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--accent-soft);
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.95em;
 }
 
 .proof-kicker,
