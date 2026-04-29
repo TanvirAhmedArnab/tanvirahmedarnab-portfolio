@@ -1,41 +1,45 @@
-# GoDaddy Deployment Notes
+# Domain and Deployment Notes
 
-## Best path if you stay on the free GoDaddy website plan
+## Current setup
 
-Use GoDaddy only for the domain and point the DNS to an external static host.
+This portfolio is currently set up as:
 
-Recommended static hosts:
-- GitHub Pages
-- Netlify
-- Vercel
+- `GitHub Pages` for hosting
+- `GoDaddy` for domain registration and DNS
+- custom domain: `www.tanvirahmedarnab.com`
 
-This folder is already set up for that style of deployment:
-- custom `CNAME`
+That means GoDaddy is handling the domain layer, while the actual site files are published from this repository.
+
+## Files that matter for GitHub Pages
+
+- `CNAME`
+- `.nojekyll`
 - `robots.txt`
 - `sitemap.xml`
 - `404.html`
 
-## If you upgrade GoDaddy Websites + Marketing
-
-You can rebuild this layout inside the GoDaddy editor, or use custom code sections for selected parts of the site.
-
-Suggested page structure inside GoDaddy:
-- Home
-- Flagship project
-- Supporting project 1
-- Supporting project 2
-
-Suggested replacement order:
-1. Replace the placeholder resume PDF
-2. Replace the homepage hero text
-3. Replace the three sample projects with real projects
-4. Add real screenshots, gameplay clips, and external links
-5. Add final contact details
-
-## Current placeholder files to replace later
+## Current site pages
 
 - `index.html`
+- `game-bug-tracker.html`
+- `genericrpg-in-csharp.html`
+
+Legacy placeholder case-study pages still exist in the repo for reference and old URL continuity, but they are not part of the main sitemap:
+
 - `skyline-siege.html`
 - `ritual-runner.html`
 - `signal-bloom.html`
-- `assets/tanvir-ahmed-arnab-resume-placeholder.pdf`
+
+## If the site ever moves off GitHub Pages
+
+If hosting changes later, keep these ideas in mind:
+
+1. Keep the custom domain records updated in DNS.
+2. Recreate the custom `404` page on the new host.
+3. Preserve canonical URLs for existing public pages when possible.
+4. Move only the site files that are actually still in use.
+5. Replace placeholder assets with real project media before any larger platform migration.
+
+## Email note
+
+Custom domain email is independent from GitHub Pages hosting. Email DNS changes should not overwrite the website `A` and `CNAME` records used by the portfolio.
