@@ -30,7 +30,7 @@ html {
 
 body {
   margin: 0;
-  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Space Grotesk", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   background:
     radial-gradient(circle at top, rgba(95, 211, 158, 0.05), transparent 28%),
@@ -58,6 +58,7 @@ h3 {
   margin: 0;
   line-height: 1.08;
   letter-spacing: 0;
+  font-family: "Chakra Petch", "Space Grotesk", sans-serif;
 }
 
 ul {
@@ -120,6 +121,18 @@ ul {
   text-decoration: none;
 }
 
+.inline-link {
+  color: var(--accent-soft);
+  text-decoration: none;
+}
+
+.inline-link:hover,
+.inline-link:focus-visible {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
 .site-nav a:hover,
 .site-nav a:focus-visible {
   color: var(--text);
@@ -155,6 +168,30 @@ ul {
     var(--hero-image) center / cover no-repeat;
   transform: scale(1.03);
   z-index: -2;
+}
+
+.hero::before {
+  background:
+    linear-gradient(120deg, rgba(6, 10, 9, 0.92) 0%, rgba(7, 11, 10, 0.72) 42%, rgba(7, 11, 10, 0.92) 100%),
+    radial-gradient(circle at 18% 22%, rgba(95, 211, 158, 0.18), transparent 22%),
+    radial-gradient(circle at 80% 30%, rgba(239, 156, 93, 0.14), transparent 20%),
+    linear-gradient(rgba(143, 216, 191, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 216, 191, 0.07) 1px, transparent 1px),
+    linear-gradient(180deg, #121916 0%, #0b0f0d 100%);
+  background-size:
+    auto,
+    auto,
+    auto,
+    58px 58px,
+    58px 58px,
+    auto;
+  background-position:
+    center,
+    center,
+    center,
+    center,
+    center,
+    center;
 }
 
 .hero::after,
@@ -206,6 +243,11 @@ ul {
   background: rgba(7, 11, 9, 0.54);
   color: var(--accent-soft);
   font-size: 0.95rem;
+}
+
+.hero .site-note {
+  border-color: rgba(239, 156, 93, 0.28);
+  background: rgba(13, 19, 17, 0.72);
 }
 
 .hero-actions,
@@ -434,6 +476,7 @@ ul {
 
 .footer-content {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 1rem;
   color: var(--text-muted);
