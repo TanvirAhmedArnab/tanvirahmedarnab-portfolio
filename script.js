@@ -43,3 +43,55 @@ if (revealItems.length) {
 
   revealItems.forEach((item) => observer.observe(item));
 }
+
+const previewRoot = document.querySelector("[data-chapter-preview]");
+
+if (previewRoot) {
+  const previewButtons = Array.from(previewRoot.querySelectorAll("[data-preview-target]"));
+  const previewPanels = Array.from(previewRoot.querySelectorAll("[data-preview-panel]"));
+  const prevButton = previewRoot.querySelector("[data-preview-prev]");
+  const nextButton = previewRoot.querySelector("[data-preview-next]");
+  let activeIndex = Math.max(
+    0,
+    previewButtons.findIndex((button) => button.classList.contains("is-active")),
+  );
+
+  const setActivePreview = (nextIndex) => {
+    const safeIndex = (nextIndex + previewPanels.length) % previewPanels.length;
+    activeIndex = safeIndex;
+
+    previewButtons.forEach((button, index) => {
+      const isActive = index === safeIndex;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-selected", String(isActive));
+    });
+
+    previewPanels.forEach((panel, index) => {
+      const isActive = index === safeIndex;
+      panel.classList.toggle("is-active", isActive);
+      panel.hidden = !isActive;
+    });
+  };
+
+  previewButtons.forEach((button, index) => {
+    button.addEventListener("click", () => setActivePreview(index));
+  });
+
+  if (prevButton) {
+    prevButton.addEventListener("click", () => setActivePreview(activeIndex - 1));
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", () => setActivePreview(activeIndex + 1));
+  }
+
+  setActivePreview(activeIndex);
+}
+
+const guardedPreview = document.querySelector("[data-guard-preview]");
+
+if (guardedPreview) {
+  guardedPreview.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+  });
+}
