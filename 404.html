@@ -11,22 +11,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <main class="section">
-    <div class="inner" style="max-width: 42rem;">
-      <a class="brand" href="index.html" aria-label="Tanvir Ahmed Arnab home" style="margin-bottom: 2rem;">
+<body class="error-page">
+  <main class="error-shell">
+    <div class="inner error-grid">
+      <a class="brand error-brand" href="index.html" aria-label="Tanvir Ahmed Arnab home">
         <img class="brand-mark" src="assets/logo-mark.svg" alt="">
         <span class="brand-lockup">
           <span class="brand-name">Tanvir Ahmed Arnab</span>
           <span class="brand-role">Gameplay Systems</span>
         </span>
       </a>
-      <p class="eyebrow">404</p>
-      <h1>That page does not exist.</h1>
-      <p class="hero-copy" style="margin-bottom: 1.5rem;">
-        Head back to the portfolio home page.
-      </p>
-      <a class="button button-primary" href="index.html">Go home</a>
+
+      <div class="error-console">
+        <p class="eyebrow">404 / Unknown Region</p>
+        <h1>You entered an unmapped sector.</h1>
+        <p class="hero-copy">
+          That route does not exist in the current build. Return to the main map, reopen a live dossier, or head back to the contact channel.
+        </p>
+        <ul class="dossier-list error-dossier">
+          <li><span>Status</span><strong>Route missing</strong></li>
+          <li><span>Recovery</span><strong>Return to mission map</strong></li>
+          <li><span>Primary contact</span><strong>contact@tanvirahmedarnab.com</strong></li>
+        </ul>
+        <div class="hero-actions error-actions">
+          <a class="button button-primary" href="index.html">Return to main map</a>
+          <a class="button button-secondary" href="index.html#work">Open projects</a>
+          <a class="button button-secondary" href="mailto:contact@tanvirahmedarnab.com">Contact</a>
+        </div>
+      </div>
     </div>
   </main>
 </body>

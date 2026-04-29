@@ -371,3 +371,100 @@ if (tiltCards.length && !prefersReducedMotion) {
     });
   });
 }
+
+const filterButtons = Array.from(document.querySelectorAll("[data-skill-filter]"));
+const projectCards = Array.from(document.querySelectorAll("[data-project-card]"));
+const skillStatus = document.querySelector("[data-skill-status]");
+
+if (filterButtons.length && projectCards.length) {
+  const applySkillFilter = (filterValue, filterLabel) => {
+    let matchCount = 0;
+
+    projectCards.forEach((card) => {
+      const tags = (card.getAttribute("data-skill-tags") || "").split(/\s+/).filter(Boolean);
+      const isMatch = filterValue === "all" || tags.includes(filterValue);
+
+      card.classList.toggle("is-filtered-out", !isMatch);
+      card.classList.toggle("is-filter-match", filterValue !== "all" && isMatch);
+
+      if (isMatch) {
+        matchCount += 1;
+      }
+    });
+
+    filterButtons.forEach((button) => {
+      const isActive = button.getAttribute("data-skill-filter") === filterValue;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    if (skillStatus) {
+      skillStatus.textContent = filterValue === "all"
+        ? `Showing all ${projectCards.length} mission nodes.`
+        : `Showing ${matchCount} mission node${matchCount === 1 ? "" : "s"} tagged ${filterLabel}.`;
+    }
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filterValue = button.getAttribute("data-skill-filter") || "all";
+      const filterLabel = button.textContent?.trim() || "selected skill";
+      applySkillFilter(filterValue, filterLabel);
+    });
+  });
+
+  applySkillFilter("all", "All projects");
+}
+
+const dossierButtons = Array.from(document.querySelectorAll("[data-dossier-toggle]"));
+
+if (dossierButtons.length) {
+  const closeDossier = (button) => {
+    const targetId = button.getAttribute("data-dossier-toggle");
+    const panel = targetId ? document.getElementById(targetId) : null;
+
+    if (!panel) {
+      return;
+    }
+
+    panel.hidden = true;
+    panel.classList.remove("is-open");
+    button.setAttribute("aria-expanded", "false");
+  };
+
+  const openDossier = (button) => {
+    const targetId = button.getAttribute("data-dossier-toggle");
+    const panel = targetId ? document.getElementById(targetId) : null;
+
+    if (!panel) {
+      return;
+    }
+
+    dossierButtons.forEach((otherButton) => {
+      if (otherButton !== button) {
+        closeDossier(otherButton);
+      }
+    });
+
+    panel.hidden = false;
+    panel.classList.add("is-open");
+    button.setAttribute("aria-expanded", "true");
+  };
+
+  dossierButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-dossier-toggle");
+      const panel = targetId ? document.getElementById(targetId) : null;
+
+      if (!panel) {
+        return;
+      }
+
+      if (panel.hidden) {
+        openDossier(button);
+      } else {
+        closeDossier(button);
+      }
+    });
+  });
+}

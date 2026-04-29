@@ -171,8 +171,8 @@
         <span class="mission-route mission-route-alpha" aria-hidden="true"></span>
         <span class="mission-route mission-route-beta" aria-hidden="true"></span>
 
-        <article class="project-card mission-node mission-node-primary reveal" data-tilt>
-          <a class="project-card-link mission-card" href="game-bug-tracker.html">
+        <article class="project-card mission-node mission-node-primary reveal" data-tilt data-project-card data-skill-tags="csharp dotnet git tooling architecture">
+          <div class="project-card-link mission-card">
             <div class="mission-card-media">
               <img src="assets/game-bug-tracker-temp.svg" alt="Stylized dashboard art representing the Game Bug Tracker project.">
               <span class="mission-card-node">Node 01</span>
@@ -189,18 +189,49 @@
                 <span>.NET 10</span>
                 <span>Internal tooling</span>
               </div>
+              <div class="project-telemetry">
+                <span>Difficulty: Intermediate</span>
+                <span>Focus: Tooling / Architecture</span>
+                <span>Last updated: April 2026</span>
+              </div>
               <p class="project-summary">A game-focused Razor Pages tool for organizing bug reports, keeping severity and status readable, and building a more practical internal triage workflow for active projects.</p>
-              <ul class="project-points">
-                <li>Built around bug-report modeling, project scope, and the developer workflow version 1 should support</li>
-                <li>Uses software structure to support game production rather than treating tooling as an afterthought</li>
-                <li>Will expand into CRUD flows, persistence, filtering, and future player-report intake</li>
-              </ul>
-              <span class="text-link">Read current progress</span>
+              <div class="project-actions">
+                <a class="button button-secondary project-action-button" href="game-bug-tracker.html">Full case study</a>
+                <button class="button button-ghost project-action-button dossier-toggle" type="button" data-dossier-toggle="dossier-bug-tracker" aria-expanded="false" aria-controls="dossier-bug-tracker">View dossier</button>
+              </div>
+              <div class="dossier-drawer" id="dossier-bug-tracker" hidden>
+                <div class="dossier-grid">
+                  <article>
+                    <span>Problem</span>
+                    <p>Bug intake for game projects quickly becomes noisy when severity, ownership, and project context are not obvious at a glance.</p>
+                  </article>
+                  <article>
+                    <span>My solution</span>
+                    <p>Build a focused Razor Pages tracker that treats bug triage like part of production workflow, not just a generic CRUD list.</p>
+                  </article>
+                  <article>
+                    <span>Tech used</span>
+                    <p>C#, ASP.NET Core Razor Pages, .NET 10, Git, structured model-first planning.</p>
+                  </article>
+                  <article>
+                    <span>What I learned</span>
+                    <p>Scoping tools work well means deciding early which game-production behaviors deserve structure and which can stay lightweight.</p>
+                  </article>
+                  <article class="dossier-wide">
+                    <span>Next improvements</span>
+                    <ul class="compact-list">
+                      <li>Add implemented create, edit, and status-change flows.</li>
+                      <li>Support filtering by severity, project, and owner.</li>
+                      <li>Layer in screenshots once the UI reaches a stronger milestone.</li>
+                    </ul>
+                  </article>
+                </div>
+              </div>
             </div>
-          </a>
+          </div>
         </article>
 
-        <article class="project-card mission-node mission-node-secondary reveal" data-tilt>
+        <article class="project-card mission-node mission-node-secondary reveal" data-tilt data-project-card data-skill-tags="csharp unity git game-logic ai">
           <div class="project-card-link mission-card mission-card-locked" aria-disabled="true">
             <div class="mission-card-media">
               <img src="assets/unity-rpg-prototype-temp.svg" alt="Temporary concept art for the Unity RPG prototype.">
@@ -218,19 +249,50 @@
                 <span>Combat structure</span>
                 <span>Future flagship</span>
               </div>
+              <div class="project-telemetry">
+                <span>Difficulty: Advanced target</span>
+                <span>Focus: Game Logic / Combat Feel</span>
+                <span>Last updated: April 2026</span>
+              </div>
               <p class="project-summary">A developing Unity prototype focused on RPG combat, progression, exploration flow, and the moment-to-moment decisions that make a game worth tuning repeatedly.</p>
-              <ul class="project-points">
-                <li>Designed to become the strongest visual and mechanical centerpiece of the portfolio</li>
-                <li>Centered on combat readability, game feel, and systems that invite iteration</li>
-                <li>Detailed case study will follow once the prototype has presentable media and milestone depth</li>
-              </ul>
-              <span class="text-link">Flagship gameplay dossier syncing after next media capture</span>
+              <div class="project-actions">
+                <a class="button button-secondary project-action-button" href="mailto:contact@tanvirahmedarnab.com?subject=Unity%20RPG%20Prototype%20Inquiry">Ask about the build</a>
+                <button class="button button-ghost project-action-button dossier-toggle" type="button" data-dossier-toggle="dossier-unity-rpg" aria-expanded="false" aria-controls="dossier-unity-rpg">Open roadmap</button>
+              </div>
+              <div class="dossier-drawer" id="dossier-unity-rpg" hidden>
+                <div class="dossier-grid">
+                  <article>
+                    <span>Problem</span>
+                    <p>RPG systems can become unreadable fast if combat feedback, enemy behavior, and progression pacing are tuned in isolation.</p>
+                  </article>
+                  <article>
+                    <span>My solution</span>
+                    <p>Prototype the combat loop, encounter pressure, and progression structure together so the final build feels responsive under stress.</p>
+                  </article>
+                  <article>
+                    <span>Tech used</span>
+                    <p>Unity, C#, encounter scripting, AI behavior planning, and temporary concept art for visual framing.</p>
+                  </article>
+                  <article>
+                    <span>What I learned</span>
+                    <p>The strongest flagship project needs not just code depth, but media proof that clearly communicates game feel and decision clarity.</p>
+                  </article>
+                  <article class="dossier-wide">
+                    <span>Next improvements</span>
+                    <ul class="compact-list">
+                      <li>Capture real gameplay screenshots and short clips.</li>
+                      <li>Lock a stronger enemy behavior slice and encounter loop.</li>
+                      <li>Turn the prototype into a full flagship case-study page.</li>
+                    </ul>
+                  </article>
+                </div>
+              </div>
             </div>
           </div>
         </article>
 
-        <article class="project-card mission-node mission-node-tertiary reveal" data-tilt>
-          <a class="project-card-link mission-card" href="genericrpg-in-csharp.html">
+        <article class="project-card mission-node mission-node-tertiary reveal" data-tilt data-project-card data-skill-tags="csharp dotnet git architecture game-logic">
+          <div class="project-card-link mission-card">
             <div class="mission-card-media">
               <img src="assets/genericrpg-series-temp.svg" alt="Temporary series art for the GenericRPG in C# publishing project.">
               <span class="mission-card-node">Node 03</span>
@@ -247,15 +309,46 @@
                 <span>200 chapters</span>
                 <span>Paperback first</span>
               </div>
+              <div class="project-telemetry">
+                <span>Difficulty: Architecture focus</span>
+                <span>Focus: C# / Game Logic</span>
+                <span>Last updated: April 2026</span>
+              </div>
               <p class="project-summary">A long-form technical book series teaching C#, software architecture, and game development through one cumulative RPG build that grows from first principles into full platform thinking.</p>
-              <ul class="project-points">
-                <li>Volume 1 is built around the release title <code>Learn C#, Software Architecture, and Game Development</code></li>
-                <li>The curriculum spans console fundamentals, architecture, testing, multiplayer, <code>ASP.NET Core</code>, and <code>Blazor</code></li>
-                <li>The portfolio page includes a limited 5-chapter web preview plus the Amazon-first release path</li>
-              </ul>
-              <span class="text-link">Open book dossier</span>
+              <div class="project-actions">
+                <a class="button button-secondary project-action-button" href="genericrpg-in-csharp.html">Open book dossier</a>
+                <button class="button button-ghost project-action-button dossier-toggle" type="button" data-dossier-toggle="dossier-genericrpg" aria-expanded="false" aria-controls="dossier-genericrpg">View dossier</button>
+              </div>
+              <div class="dossier-drawer" id="dossier-genericrpg" hidden>
+                <div class="dossier-grid">
+                  <article>
+                    <span>Problem</span>
+                    <p>Many beginner programming paths teach syntax without showing how architecture and game systems scale together over time.</p>
+                  </article>
+                  <article>
+                    <span>My solution</span>
+                    <p>Write one cumulative 8-volume RPG-centered curriculum that starts with fundamentals and grows into architecture, tooling, and web delivery.</p>
+                  </article>
+                  <article>
+                    <span>Tech used</span>
+                    <p>C#, software architecture patterns, testing strategy, RPG system design, ASP.NET Core, and Blazor curriculum planning.</p>
+                  </article>
+                  <article>
+                    <span>What I learned</span>
+                    <p>Long-form teaching gets stronger when examples stay cumulative, coherent, and anchored to one evolving project instead of disconnected lessons.</p>
+                  </article>
+                  <article class="dossier-wide">
+                    <span>Next improvements</span>
+                    <ul class="compact-list">
+                      <li>Replace Amazon search links with direct product pages once live.</li>
+                      <li>Add final covers and launch metadata for each released volume.</li>
+                      <li>Link the book series more tightly to the Unity prototype and console-RPG lineage.</li>
+                    </ul>
+                  </article>
+                </div>
+              </div>
             </div>
-          </a>
+          </div>
         </article>
       </div>
     </section>
@@ -264,6 +357,25 @@
       <div class="inner section-heading">
         <p class="eyebrow">Developer loadout</p>
         <h2>A character-sheet view of the work: what I build, how I tend to work, and where the strongest portfolio proof is heading next.</h2>
+      </div>
+
+      <div class="inner skill-map-panel reveal">
+        <div class="skill-map-copy">
+          <p class="proof-kicker">Interactive skill map</p>
+          <h3>Click a signal to highlight matching mission nodes.</h3>
+          <p>This filter keeps the portfolio readable for recruiters and collaborators who want to scan projects by engine, stack, or systems focus.</p>
+        </div>
+        <div class="skill-chip-list" role="toolbar" aria-label="Filter projects by skill">
+          <button class="skill-chip is-active" type="button" data-skill-filter="all" aria-pressed="true">All projects</button>
+          <button class="skill-chip" type="button" data-skill-filter="csharp" aria-pressed="false">C#</button>
+          <button class="skill-chip" type="button" data-skill-filter="dotnet" aria-pressed="false">.NET</button>
+          <button class="skill-chip" type="button" data-skill-filter="unity" aria-pressed="false">Unity</button>
+          <button class="skill-chip" type="button" data-skill-filter="git" aria-pressed="false">Git</button>
+          <button class="skill-chip" type="button" data-skill-filter="architecture" aria-pressed="false">Architecture</button>
+          <button class="skill-chip" type="button" data-skill-filter="game-logic" aria-pressed="false">Game Logic</button>
+          <button class="skill-chip" type="button" data-skill-filter="tooling" aria-pressed="false">Tooling</button>
+        </div>
+        <p class="skill-filter-status" data-skill-status>Showing all mission nodes.</p>
       </div>
 
       <div class="inner loadout-grid">
@@ -324,6 +436,56 @@
             <li><span>Next</span><strong>Expand the bug tracker dossier with implemented pages, filters, and screenshots</strong></li>
             <li><span>Later</span><strong>Publish the first book release and swap in direct Amazon product links</strong></li>
           </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="inner section-heading">
+        <p class="eyebrow">Build journey</p>
+        <h2>A simple timeline of how the work evolved from C# foundations into gameplay systems, tooling, publishing, and a live portfolio.</h2>
+      </div>
+
+      <div class="inner journey-grid">
+        <article class="journey-step reveal">
+          <span class="journey-index">01</span>
+          <div class="journey-copy">
+            <p class="proof-kicker">Started with C#</p>
+            <h3>Learned fundamentals through console programs and first-principles systems thinking.</h3>
+            <p>The early focus was clarity: understand how programs run, how state changes, and how game logic can stay readable before visuals get involved.</p>
+          </div>
+        </article>
+        <article class="journey-step reveal">
+          <span class="journey-index">02</span>
+          <div class="journey-copy">
+            <p class="proof-kicker">Console RPG systems</p>
+            <h3>Used one cumulative RPG build to connect syntax, architecture, and long-form technical writing.</h3>
+            <p>That work eventually became the <code>GenericRPG in C#</code> series and shaped how I think about layering mechanics and teaching progression together.</p>
+          </div>
+        </article>
+        <article class="journey-step reveal">
+          <span class="journey-index">03</span>
+          <div class="journey-copy">
+            <p class="proof-kicker">Tooling discipline</p>
+            <h3>Built workflow support around game production instead of treating internal tools as separate from design.</h3>
+            <p>The Game Bug Tracker exists because readable production flow matters just as much as player-facing systems when a project starts growing.</p>
+          </div>
+        </article>
+        <article class="journey-step reveal">
+          <span class="journey-index">04</span>
+          <div class="journey-copy">
+            <p class="proof-kicker">Unity focus</p>
+            <h3>Shifted toward combat feel, AI behavior, and readable encounter design in a flagship RPG prototype.</h3>
+            <p>This is where the portfolio is headed visually too: real captures, stronger case studies, and proof that the systems read well in motion.</p>
+          </div>
+        </article>
+        <article class="journey-step reveal">
+          <span class="journey-index">05</span>
+          <div class="journey-copy">
+            <p class="proof-kicker">Current build</p>
+            <h3>Turning the work into a live dossier that feels like a game developer’s interface, not a generic card deck.</h3>
+            <p>The next step is replacing temporary art with real media and deepening the flagship case studies without losing the honesty of the current build.</p>
+          </div>
         </article>
       </div>
     </section>
