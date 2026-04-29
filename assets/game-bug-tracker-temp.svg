@@ -1,0 +1,67 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" rx="32" fill="#08101C"/>
+  <rect x="28" y="28" width="1544" height="844" rx="22" stroke="rgba(103,215,255,0.18)" stroke-width="2"/>
+  <rect x="86" y="86" width="1428" height="728" rx="28" fill="url(#a)"/>
+  <rect x="120" y="124" width="1360" height="64" rx="18" fill="#121B32"/>
+  <circle cx="160" cy="156" r="8" fill="#FF5FA7"/>
+  <circle cx="188" cy="156" r="8" fill="#FFB25F"/>
+  <circle cx="216" cy="156" r="8" fill="#67D7FF"/>
+  <rect x="266" y="140" width="240" height="32" rx="16" fill="#1A2748"/>
+  <rect x="1184" y="140" width="124" height="30" rx="15" fill="#17253E"/>
+  <rect x="1328" y="140" width="124" height="30" rx="15" fill="#17253E"/>
+  <rect x="126" y="228" width="268" height="552" rx="22" fill="#10192F"/>
+  <rect x="428" y="228" width="640" height="552" rx="22" fill="#10192F"/>
+  <rect x="1102" y="228" width="344" height="552" rx="22" fill="#10192F"/>
+  <rect x="156" y="266" width="208" height="18" rx="9" fill="#D2F1FF"/>
+  <rect x="156" y="302" width="144" height="12" rx="6" fill="#30456E"/>
+  <rect x="456" y="266" width="282" height="18" rx="9" fill="#D2F1FF"/>
+  <rect x="1132" y="266" width="196" height="18" rx="9" fill="#D2F1FF"/>
+  <g opacity="0.94">
+    <rect x="156" y="350" width="208" height="96" rx="20" fill="#182646"/>
+    <rect x="156" y="466" width="208" height="96" rx="20" fill="#182646"/>
+    <rect x="156" y="582" width="208" height="96" rx="20" fill="#182646"/>
+    <rect x="180" y="376" width="124" height="12" rx="6" fill="#D7F8FF"/>
+    <rect x="180" y="408" width="68" height="10" rx="5" fill="#67D7FF"/>
+    <rect x="272" y="408" width="72" height="10" rx="5" fill="#FFB25F"/>
+    <rect x="180" y="492" width="118" height="12" rx="6" fill="#D7F8FF"/>
+    <rect x="180" y="524" width="84" height="10" rx="5" fill="#FF5FA7"/>
+    <rect x="180" y="608" width="102" height="12" rx="6" fill="#D7F8FF"/>
+    <rect x="180" y="640" width="94" height="10" rx="5" fill="#67D7FF"/>
+  </g>
+  <g opacity="0.94">
+    <rect x="456" y="328" width="584" height="126" rx="22" fill="#15223F"/>
+    <rect x="456" y="484" width="584" height="126" rx="22" fill="#15223F"/>
+    <rect x="456" y="640" width="584" height="104" rx="22" fill="#15223F"/>
+    <rect x="486" y="360" width="214" height="14" rx="7" fill="#F8FAFF"/>
+    <rect x="486" y="392" width="146" height="10" rx="5" fill="#3A4B73"/>
+    <rect x="736" y="360" width="122" height="14" rx="7" fill="#F8FAFF"/>
+    <rect x="878" y="360" width="132" height="14" rx="7" fill="#F8FAFF"/>
+    <rect x="486" y="516" width="196" height="14" rx="7" fill="#F8FAFF"/>
+    <rect x="486" y="548" width="114" height="10" rx="5" fill="#3A4B73"/>
+    <rect x="486" y="670" width="156" height="14" rx="7" fill="#F8FAFF"/>
+    <rect x="486" y="702" width="410" height="10" rx="5" fill="#30456E"/>
+    <rect x="918" y="388" width="92" height="28" rx="14" fill="#182646"/>
+    <rect x="918" y="544" width="92" height="28" rx="14" fill="#182646"/>
+    <rect x="924" y="394" width="44" height="16" rx="8" fill="#67D7FF"/>
+    <rect x="924" y="550" width="44" height="16" rx="8" fill="#FF5FA7"/>
+  </g>
+  <g opacity="0.94">
+    <rect x="1132" y="332" width="284" height="150" rx="22" fill="#15223F"/>
+    <rect x="1132" y="512" width="284" height="232" rx="22" fill="#15223F"/>
+    <path d="M1164 426L1216 392L1272 408L1338 358L1388 386" stroke="#67D7FF" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="1216" cy="392" r="12" fill="#67D7FF"/>
+    <circle cx="1272" cy="408" r="12" fill="#FFB25F"/>
+    <circle cx="1338" cy="358" r="12" fill="#FF5FA7"/>
+    <rect x="1164" y="546" width="252" height="22" rx="11" fill="#243558"/>
+    <rect x="1164" y="584" width="196" height="18" rx="9" fill="#67D7FF"/>
+    <rect x="1164" y="620" width="164" height="18" rx="9" fill="#FFB25F"/>
+    <rect x="1164" y="656" width="216" height="18" rx="9" fill="#8A73FF"/>
+  </g>
+  <text fill="#DDF6FF" font-family="'IBM Plex Mono', monospace" font-size="28" font-weight="600" letter-spacing="2" x="134" y="114">GAME BUG TRACKER / INTERNAL TRIAGE VIEW</text>
+  <defs>
+    <linearGradient id="a" x1="800" y1="86" x2="800" y2="814" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D1427"/>
+      <stop offset="1" stop-color="#0A101E"/>
+    </linearGradient>
+  </defs>
+</svg>

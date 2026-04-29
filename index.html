@@ -62,41 +62,71 @@
         </div>
 
         <aside class="hero-visual reveal">
-          <div class="signal-panel">
+          <div class="signal-panel command-panel">
             <div class="signal-header">
-              <p class="panel-label">Current transmission</p>
-              <span class="signal-state">Live build</span>
+              <p class="panel-label">Playable micro showcase</p>
+              <span class="signal-state">Rift trial 01</span>
+            </div>
+            <div class="showcase-frame" data-showcase-root>
+              <canvas
+                class="showcase-canvas"
+                width="560"
+                height="320"
+                aria-label="Playable dodge showcase. Use WASD or arrow keys to move and avoid the incoming drones."
+              ></canvas>
+              <div class="showcase-overlay">
+                <p class="showcase-title">Move the runner. Dodge the drones.</p>
+                <p class="showcase-help">WASD or arrow keys. If you do nothing, the scene runs in attract mode.</p>
+              </div>
+            </div>
+            <div class="showcase-readout">
+              <article>
+                <span>Input</span>
+                <strong>WASD / Arrows</strong>
+              </article>
+              <article>
+                <span>Pressure</span>
+                <strong data-showcase-pressure>Calm</strong>
+              </article>
+              <article>
+                <span>Hits</span>
+                <strong data-showcase-hits>0</strong>
+              </article>
+              <article>
+                <span>State</span>
+                <strong data-showcase-state>Attract mode</strong>
+              </article>
             </div>
             <h2>Portfolio command deck</h2>
             <p class="signal-copy">
-              A sci-fi dossier for gameplay programming work: systems design, encounter clarity, prototype structure, and the quieter tooling work that keeps production sane.
+              A live sci-fi dossier for gameplay programming work: systems design, encounter clarity, prototype structure, and the quieter tooling work that keeps production sane.
             </p>
             <div class="metric-grid">
               <article class="metric-card">
-                <span>Active builds</span>
+                <span>Mission nodes</span>
                 <strong>03</strong>
-                <small>real portfolio projects in motion</small>
+                <small>live, in development, and publishing soon</small>
               </article>
               <article class="metric-card">
-                <span>Primary engine</span>
-                <strong>Unity</strong>
-                <small>gameplay, systems, and feel-first iteration</small>
+                <span>Flagship target</span>
+                <strong>RPG</strong>
+                <small>Unity combat, feel, and exploration flow</small>
               </article>
               <article class="metric-card">
                 <span>Support stack</span>
-                <strong>.NET</strong>
+                <strong>C# / .NET</strong>
                 <small>internal workflows and tooling discipline</small>
               </article>
               <article class="metric-card">
-                <span>Contact path</span>
-                <strong>Live</strong>
-                <small>contact@tanvirahmedarnab.com</small>
+                <span>Publication track</span>
+                <strong>200</strong>
+                <small>chapters mapped across 8 volumes</small>
               </article>
             </div>
             <ul class="dossier-list">
-              <li><span>Flagship target</span><strong>Unity RPG Prototype</strong></li>
               <li><span>Current case study</span><strong>Game Bug Tracker</strong></li>
-              <li><span>Secondary pillar</span><strong>GenericRPG in C#</strong></li>
+              <li><span>Public channel</span><strong>contact@tanvirahmedarnab.com</strong></li>
+              <li><span>Next upgrade</span><strong>replace temp art with real RPG captures</strong></li>
             </ul>
           </div>
         </aside>
@@ -126,16 +156,32 @@
     <section class="section" id="work">
       <div class="inner section-heading">
         <p class="eyebrow">Current projects</p>
-        <h2>Real work in progress, framed like a systems dossier instead of a placeholder portfolio shell.</h2>
+        <h2>Select a mission node to open the work that is already live, publishing soon, or waiting on its next visual milestone.</h2>
       </div>
 
-      <div class="inner project-grid">
-        <article class="project-card project-card-featured reveal">
-          <a class="project-card-link" href="game-bug-tracker.html">
-            <div class="project-copy">
+      <div class="inner">
+        <div class="mission-legend reveal">
+          <span><i class="legend-dot legend-dot-live"></i> live case study</span>
+          <span><i class="legend-dot legend-dot-build"></i> in development</span>
+          <span><i class="legend-dot legend-dot-publish"></i> publishing path</span>
+        </div>
+      </div>
+
+      <div class="inner mission-map">
+        <span class="mission-route mission-route-alpha" aria-hidden="true"></span>
+        <span class="mission-route mission-route-beta" aria-hidden="true"></span>
+
+        <article class="project-card mission-node mission-node-primary reveal" data-tilt>
+          <a class="project-card-link mission-card" href="game-bug-tracker.html">
+            <div class="mission-card-media">
+              <img src="assets/game-bug-tracker-temp.svg" alt="Stylized dashboard art representing the Game Bug Tracker project.">
+              <span class="mission-card-node">Node 01</span>
+              <span class="mission-card-aura mission-card-aura-live"></span>
+            </div>
+            <div class="project-copy mission-copy">
               <div class="project-meta-row">
                 <p class="project-label">Current case study</p>
-                <span class="project-status project-status-live">Playable workflow soon</span>
+                <span class="project-status project-status-live">Live dossier</span>
               </div>
               <h3>Game Bug Tracker</h3>
               <div class="project-badges">
@@ -154,9 +200,14 @@
           </a>
         </article>
 
-        <article class="project-card reveal">
-          <div class="project-card-link">
-            <div class="project-copy">
+        <article class="project-card mission-node mission-node-secondary reveal" data-tilt>
+          <div class="project-card-link mission-card mission-card-locked" aria-disabled="true">
+            <div class="mission-card-media">
+              <img src="assets/unity-rpg-prototype-temp.svg" alt="Temporary concept art for the Unity RPG prototype.">
+              <span class="mission-card-node">Node 02</span>
+              <span class="mission-card-aura mission-card-aura-build"></span>
+            </div>
+            <div class="project-copy mission-copy">
               <div class="project-meta-row">
                 <p class="project-label">Flagship game build</p>
                 <span class="project-status">In development</span>
@@ -173,14 +224,19 @@
                 <li>Centered on combat readability, game feel, and systems that invite iteration</li>
                 <li>Detailed case study will follow once the prototype has presentable media and milestone depth</li>
               </ul>
-              <span class="text-link">Flagship gameplay dossier in progress</span>
+              <span class="text-link">Flagship gameplay dossier syncing after next media capture</span>
             </div>
           </div>
         </article>
 
-        <article class="project-card reveal">
-          <a class="project-card-link" href="genericrpg-in-csharp.html">
-            <div class="project-copy">
+        <article class="project-card mission-node mission-node-tertiary reveal" data-tilt>
+          <a class="project-card-link mission-card" href="genericrpg-in-csharp.html">
+            <div class="mission-card-media">
+              <img src="assets/genericrpg-series-temp.svg" alt="Temporary series art for the GenericRPG in C# publishing project.">
+              <span class="mission-card-node">Node 03</span>
+              <span class="mission-card-aura mission-card-aura-publish"></span>
+            </div>
+            <div class="project-copy mission-copy">
               <div class="project-meta-row">
                 <p class="project-label">Publishing project</p>
                 <span class="project-status project-status-warm">Launch prep</span>
@@ -206,25 +262,68 @@
 
     <section class="section section-contrast" id="skills">
       <div class="inner section-heading">
-        <p class="eyebrow">Skills</p>
-        <h2>The technical habits and project instincts I want this site to communicate quickly.</h2>
+        <p class="eyebrow">Developer loadout</p>
+        <h2>A character-sheet view of the work: what I build, how I tend to work, and where the strongest portfolio proof is heading next.</h2>
       </div>
 
-      <div class="inner skill-groups">
-        <article class="skill-group reveal">
-          <p class="proof-kicker">Toolset</p>
-          <h3>Core tools</h3>
-          <p>Unity, C#, Git, .NET, rapid prototyping, workflow tooling, and debug-first iteration.</p>
+      <div class="inner loadout-grid">
+        <article class="skill-group loadout-card reveal">
+          <p class="proof-kicker">Role sheet</p>
+          <h3>Gameplay programmer with a tools-and-systems bend.</h3>
+          <ul class="loadout-list">
+            <li><span>Class</span><strong>Gameplay Systems Builder</strong></li>
+            <li><span>Primary engine</span><strong>Unity / C#</strong></li>
+            <li><span>Support path</span><strong>.NET tooling / Razor / internal workflow design</strong></li>
+            <li><span>Current quest</span><strong>Build a flagship RPG case study with stronger media proof</strong></li>
+          </ul>
+          <div class="loadout-badges">
+            <span>combat readability</span>
+            <span>AI behavior</span>
+            <span>tooling discipline</span>
+            <span>technical writing</span>
+          </div>
         </article>
-        <article class="skill-group reveal">
-          <p class="proof-kicker">Player-facing work</p>
-          <h3>Gameplay systems</h3>
-          <p>Combat feel, readable encounters, player feedback, enemy behavior, progression logic, and gameplay pacing.</p>
+
+        <article class="skill-group stat-sheet reveal">
+          <p class="proof-kicker">Developer stats</p>
+          <h3>Specialization attributes</h3>
+          <div class="stat-list">
+            <div class="stat-row">
+              <span>Gameplay systems</span>
+              <div class="stat-meter"><span style="--meter: 91%"></span></div>
+              <strong>Core</strong>
+            </div>
+            <div class="stat-row">
+              <span>Combat readability</span>
+              <div class="stat-meter"><span style="--meter: 89%"></span></div>
+              <strong>Core</strong>
+            </div>
+            <div class="stat-row">
+              <span>Tools and workflow</span>
+              <div class="stat-meter"><span style="--meter: 84%"></span></div>
+              <strong>High</strong>
+            </div>
+            <div class="stat-row">
+              <span>AI / behaviors</span>
+              <div class="stat-meter"><span style="--meter: 76%"></span></div>
+              <strong>Growing</strong>
+            </div>
+            <div class="stat-row">
+              <span>Technical writing</span>
+              <div class="stat-meter"><span style="--meter: 95%"></span></div>
+              <strong>Elite</strong>
+            </div>
+          </div>
         </article>
-        <article class="skill-group reveal">
-          <p class="proof-kicker">Production style</p>
-          <h3>Working rhythm</h3>
-          <p>Long-form discipline, scoped iteration, clean communication, and building structures that can survive growth.</p>
+
+        <article class="skill-group quest-card reveal">
+          <p class="proof-kicker">Quest log</p>
+          <h3>Immediate progression targets</h3>
+          <ul class="quest-list">
+            <li><span>Now</span><strong>Replace temporary RPG art with captured gameplay shots and clips</strong></li>
+            <li><span>Next</span><strong>Expand the bug tracker dossier with implemented pages, filters, and screenshots</strong></li>
+            <li><span>Later</span><strong>Publish the first book release and swap in direct Amazon product links</strong></li>
+          </ul>
         </article>
       </div>
     </section>
