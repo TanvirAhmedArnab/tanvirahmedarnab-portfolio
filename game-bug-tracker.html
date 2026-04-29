@@ -6,10 +6,11 @@
   <meta name="description" content="Game Bug Tracker is a .NET 10 Razor Pages project by Tanvir Ahmed Arnab focused on organizing bug reports for a game project with a clear internal triage workflow.">
   <meta name="theme-color" content="#101412">
   <link rel="canonical" href="https://www.tanvirahmedarnab.com/game-bug-tracker.html">
+  <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml">
   <title>Game Bug Tracker | Tanvir Ahmed Arnab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,7 +18,13 @@
 
   <header class="site-header">
     <div class="inner">
-      <a class="brand" href="index.html">Tanvir Ahmed Arnab</a>
+      <a class="brand" href="index.html" aria-label="Tanvir Ahmed Arnab home">
+        <img class="brand-mark" src="assets/logo-mark.svg" alt="">
+        <span class="brand-lockup">
+          <span class="brand-name">Tanvir Ahmed Arnab</span>
+          <span class="brand-role">Gameplay Systems</span>
+        </span>
+      </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
         Menu
       </button>
@@ -39,6 +46,12 @@
         <p class="hero-copy">
           Game Bug Tracker is a .NET 10 Razor Pages app I am building to organize bug reports for a single game project. The current phase is about getting the tracker foundation right before expanding into a fuller reporting and update workflow.
         </p>
+        <div class="badge-row">
+          <span class="status-chip">ASP.NET Core</span>
+          <span class="status-chip">Razor Pages</span>
+          <span class="status-chip">.NET 10</span>
+          <span class="status-chip">Internal tooling</span>
+        </div>
         <p class="site-note">Current state: app shell, bug-report model, project scope, and V1 workflow targets are in place. CRUD pages and persistence are the next milestone.</p>
         <div class="meta-grid">
           <div>

@@ -22,6 +22,10 @@ if (yearTarget) {
 }
 
 if (revealItems.length) {
+  revealItems.forEach((item, index) => {
+    item.style.transitionDelay = `${Math.min((index % 4) * 70, 210)}ms`;
+  });
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
