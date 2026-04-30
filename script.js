@@ -560,3 +560,80 @@ if (dossierButtons.length) {
     });
   });
 }
+
+const zoomableShots = Array.from(document.querySelectorAll("[data-zoomable]"));
+
+if (zoomableShots.length) {
+  const lightbox = document.createElement("div");
+  lightbox.className = "media-lightbox";
+  lightbox.hidden = true;
+  lightbox.innerHTML = `
+    <div class="media-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Expanded project screenshot">
+      <div class="media-lightbox-toolbar">
+        <span class="media-lightbox-label">Expanded screenshot</span>
+        <button class="button button-secondary media-lightbox-close" type="button" aria-label="Close expanded screenshot">Close</button>
+      </div>
+      <div class="media-lightbox-frame">
+        <img alt="">
+      </div>
+      <p class="media-lightbox-caption"></p>
+    </div>
+  `;
+
+  document.body.appendChild(lightbox);
+
+  const lightboxImage = lightbox.querySelector("img");
+  const lightboxCaption = lightbox.querySelector(".media-lightbox-caption");
+  const lightboxClose = lightbox.querySelector(".media-lightbox-close");
+  const lightboxDialog = lightbox.querySelector(".media-lightbox-dialog");
+  let lastFocusedImage = null;
+
+  const closeLightbox = () => {
+    lightbox.hidden = true;
+    document.body.classList.remove("lightbox-open");
+    if (lastFocusedImage) {
+      lastFocusedImage.focus();
+    }
+  };
+
+  const openLightbox = (image) => {
+    const figure = image.closest("figure");
+    const caption = figure?.querySelector("figcaption")?.textContent?.trim() || image.alt || "";
+
+    lightboxImage.src = image.currentSrc || image.src;
+    lightboxImage.alt = image.alt || "";
+    lightboxCaption.textContent = caption;
+    lightbox.hidden = false;
+    document.body.classList.add("lightbox-open");
+    lastFocusedImage = image;
+    lightboxClose.focus();
+  };
+
+  zoomableShots.forEach((image) => {
+    image.tabIndex = 0;
+    image.setAttribute("role", "button");
+    image.setAttribute("aria-label", `${image.alt || "Project screenshot"}. Click to expand.`);
+
+    image.addEventListener("click", () => openLightbox(image));
+    image.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openLightbox(image);
+      }
+    });
+  });
+
+  lightboxClose?.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", (event) => {
+    if (!lightboxDialog?.contains(event.target)) {
+      closeLightbox();
+    }
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (!lightbox.hidden && event.key === "Escape") {
+      closeLightbox();
+    }
+  });
+}

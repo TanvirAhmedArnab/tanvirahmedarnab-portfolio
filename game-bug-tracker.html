@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Game Bug Tracker is a public-safe ASP.NET Core Razor Pages bug tracking app by Tanvir Ahmed Arnab, built for game project workflows with C#, .NET 10, EF Core, and SQLite.">
+  <meta name="description" content="Game Bug Tracker is a public-demo-safe ASP.NET Core bug tracker for game production workflows with Razor Pages, EF Core, SQLite, and owner-only write access.">
   <meta name="theme-color" content="#101412">
   <link rel="canonical" href="https://www.tanvirahmedarnab.com/game-bug-tracker.html">
   <link rel="icon" href="assets/branding/logo-mark.svg" type="image/svg+xml">
@@ -39,51 +39,47 @@
     </div>
   </header>
 
-  <main id="main" class="project-page">
+  <main id="main" class="project-page project-page--tracker-detail">
     <section class="project-hero project-hero--tracker">
       <div class="inner tracker-hero-grid">
         <div class="project-hero-inner reveal">
           <p class="eyebrow">Tooling / workflow mission</p>
           <h1>Game Bug Tracker</h1>
           <p class="hero-copy">
-            A public-safe ASP.NET Core Razor Pages bug tracker built for game production workflows. Visitors can browse issues anonymously, while authenticated owner access controls creation and edits.
+            A public-demo-safe ASP.NET Core bug tracker for game production workflows. Built with Razor Pages, EF Core, SQLite, and owner-only write access.
           </p>
           <div class="badge-row">
             <span class="status-chip">C#</span>
+            <span class="status-chip">ASP.NET Core</span>
             <span class="status-chip">Razor Pages</span>
-            <span class="status-chip">.NET 10</span>
             <span class="status-chip">EF Core</span>
             <span class="status-chip">SQLite</span>
+            <span class="status-chip">Bootstrap</span>
           </div>
-          <p class="site-note">Version 1 is ready: public home and bug list, bug details, owner-only create and edit flows, validation, EF Core migrations, and automatic demo-data seeding are all in place.</p>
           <div class="meta-grid">
             <div>
               <span class="meta-label">Role</span>
-              <span>Solo .NET developer</span>
+              <span>Sole developer</span>
             </div>
             <div>
               <span class="meta-label">Stack</span>
-              <span>C#, ASP.NET Core Razor Pages, EF Core, SQLite, Bootstrap</span>
+              <span>ASP.NET Core, Razor Pages, EF Core, SQLite</span>
             </div>
             <div>
-              <span class="meta-label">Access model</span>
-              <span>Public read / owner write</span>
+              <span class="meta-label">Access</span>
+              <span>Public read, owner write</span>
             </div>
             <div>
               <span class="meta-label">Status</span>
-              <span>Version 1 ready</span>
+              <span>Version 1 complete</span>
             </div>
           </div>
         </div>
         <aside class="tracker-hero-shot reveal">
           <figure>
-            <img src="assets/projects/game-bug-tracker/bug-report-list.png" alt="Featured Game Bug Tracker screenshot showing the public bug report list with severity, status, and created columns.">
-            <figcaption><strong>Featured interface proof.</strong> The public bug list is the clearest single-screen summary of the app's version-1 workflow.</figcaption>
+            <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/home-page.png" alt="Featured Game Bug Tracker screenshot showing the public demo home page with primary actions and version-1 explanation.">
+            <figcaption><strong>Homepage preview.</strong> Public demo overview with direct entry points into the tracker. Click to expand.</figcaption>
           </figure>
-          <div class="tracker-hero-proof">
-            <span class="meta-label">Hero proof</span>
-            <p>Anonymous visitors can inspect real seeded issues immediately, while the protected owner flows stay behind sign-in.</p>
-          </div>
         </aside>
       </div>
     </section>
@@ -92,228 +88,79 @@
       <div class="inner project-layout">
         <div class="project-main">
           <section class="content-block reveal">
-            <h2>Overview</h2>
+            <h2>Project Summary</h2>
             <p>
-              Game Bug Tracker is a portfolio project focused on production-support tooling for games. Instead of building a generic dashboard, I used this app to show that I can design a small but real workflow system with clear authorization boundaries, practical persistence, and safe public visibility.
+              Game Bug Tracker is a portfolio project built around a practical game-production workflow instead of a generic dashboard. The app allows public browsing for recruiters and interviewers while protecting create and edit actions behind owner sign-in. It demonstrates page-driven ASP.NET Core development, EF Core persistence, validation, migrations, and deployment-aware configuration.
             </p>
           </section>
 
           <section class="content-block reveal">
-            <h2>Why I built it</h2>
-            <p>
-              Game teams need simple ways to capture issues, review severity, and track progress without turning the workflow into a mess. I built this project to practice clean C# web development around a real game-production use case: tracking bugs in a structured, understandable way that can be shown publicly without exposing admin control.
-            </p>
-          </section>
-
-          <section class="content-block reveal">
-            <h2>Version 1 scope</h2>
+            <h2>Key Highlights</h2>
             <ul class="detail-list">
-              <li>Public home page with a clear explanation of the demo and version-1 goal.</li>
-              <li>Public bug list with title, severity, status, and created timestamp.</li>
-              <li>Public bug details page for individual issue review.</li>
-              <li>Owner-only create bug page.</li>
-              <li>Owner-only edit bug page.</li>
-              <li>Validation for required bug titles and descriptions.</li>
-              <li>Entity Framework Core migrations on startup.</li>
-              <li>Automatic demo-data seeding when the database is empty.</li>
+              <li>Public home, bug list, and bug details pages</li>
+              <li>Owner-only create and edit flows</li>
+              <li>Validation for required titles and descriptions</li>
+              <li>EF Core migrations and SQLite persistence</li>
+              <li>Automatic seeded demo data for first-run usability</li>
+              <li>Public repository with environment-based secret handling</li>
             </ul>
           </section>
 
           <section class="content-block reveal">
-            <h2>Core workflow</h2>
-            <div class="dossier-grid">
-              <article>
-                <span>Step 01</span>
-                <p>Browse the public bug list to review current issues.</p>
-              </article>
-              <article>
-                <span>Step 02</span>
-                <p>Open an individual bug page to inspect severity, status, description, and creation time.</p>
-              </article>
-              <article>
-                <span>Step 03</span>
-                <p>The owner signs in through a dedicated auth page when updates are needed.</p>
-              </article>
-              <article>
-                <span>Step 04</span>
-                <p>Create new reports or edit existing ones with validated form input and enum-driven state values.</p>
-              </article>
-            </div>
-          </section>
-
-          <section class="content-block reveal">
-            <h2>Current interface coverage</h2>
-            <div class="dossier-grid">
-              <article>
-                <span>Home Page</span>
-                <p>Introduces the tool, explains the public-demo model, and points visitors to the bug list or owner sign-in flow.</p>
-              </article>
-              <article>
-                <span>Bug List</span>
-                <p>Shows the active reports table with title, severity, status, and created date for quick triage scanning.</p>
-              </article>
-              <article>
-                <span>Bug Details</span>
-                <p>Presents the report title, severity, status, creation timestamp, and full description in one clean view.</p>
-              </article>
-              <article>
-                <span>Create / Edit Forms</span>
-                <p>Use validated title and description fields plus enum-backed severity and status controls.</p>
-              </article>
-              <article class="dossier-wide">
-                <span>Owner Sign In</span>
-                <p>The login page explains the public-safe model clearly and even handles the case where an admin password has not yet been configured in the environment.</p>
-              </article>
-            </div>
-          </section>
-
-          <section class="content-block reveal">
-            <h2>Version 1 screenshots</h2>
+            <h2>Selected Screens</h2>
+            <p>Click any screenshot to expand it for a closer look.</p>
             <div class="gallery-grid gallery-grid-two">
               <figure>
-                <img src="assets/projects/game-bug-tracker/home-page.png" alt="Game Bug Tracker home page showing the public demo explanation and main call to action.">
-                <figcaption><strong>Home page.</strong> Introduces the public demo model, version-1 goal, and main navigation path into the tracker.</figcaption>
+                <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/home-page.png" alt="Game Bug Tracker home page showing the public demo explanation and main call to action.">
+                <figcaption><strong>Home page.</strong> Introduces the demo model, V1 scope, and main entry points.</figcaption>
               </figure>
               <figure>
-                <img src="assets/projects/game-bug-tracker/bug-report-list.png" alt="Game Bug Tracker bug list showing report titles, severity, status, and created dates.">
-                <figcaption><strong>Bug list.</strong> Displays the active issue table with severity, status, and timestamp columns for quick scanning.</figcaption>
+                <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/bug-report-list.png" alt="Game Bug Tracker bug list showing report titles, severity, status, and created dates.">
+                <figcaption><strong>Bug list.</strong> Shows active reports with severity, status, and created date for quick scanning.</figcaption>
               </figure>
               <figure>
-                <img src="assets/projects/game-bug-tracker/bug-details.png" alt="Game Bug Tracker bug details page showing severity, status, created date, and full description.">
-                <figcaption><strong>Bug details.</strong> Gives a focused single-report view with full context instead of forcing users to stay inside the list.</figcaption>
+                <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/bug-details.png" alt="Game Bug Tracker bug details page showing severity, status, created date, and full description.">
+                <figcaption><strong>Bug details.</strong> Presents a single report with full context, status, and description.</figcaption>
               </figure>
               <figure>
-                <img src="assets/projects/game-bug-tracker/new-bug-report.png" alt="Game Bug Tracker new bug report form with validated fields for title, description, severity, and status.">
-                <figcaption><strong>Create form.</strong> Owner-only flow for adding new issues with validated title and description fields plus enum-backed state values.</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/projects/game-bug-tracker/edit-bug-report.png" alt="Game Bug Tracker edit bug report form for updating title, description, severity, and status.">
-                <figcaption><strong>Edit form.</strong> Protected update screen for refining bug information as triage decisions change over time.</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/projects/game-bug-tracker/owner-sign-in.png" alt="Game Bug Tracker owner sign-in page explaining that public visitors can browse while only the owner can create or edit reports.">
-                <figcaption><strong>Owner sign-in.</strong> Makes the public-safe model explicit: anyone can browse, but only the owner account can write.</figcaption>
+                <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/owner-sign-in.png" alt="Game Bug Tracker owner sign-in page explaining that public visitors can browse while only the owner can create or edit reports.">
+                <figcaption><strong>Owner sign-in.</strong> Protects write access while keeping the tracker publicly viewable.</figcaption>
               </figure>
             </div>
           </section>
 
           <section class="content-block reveal">
-            <h2>Workflow diagram</h2>
-            <div class="workflow-diagram" aria-label="Game Bug Tracker workflow diagram">
-              <article class="workflow-step">
-                <span>01</span>
-                <h3>Public Home</h3>
-                <p>Explain the demo and direct visitors into the tracker.</p>
-              </article>
-              <div class="workflow-arrow" aria-hidden="true">&rarr;</div>
-              <article class="workflow-step">
-                <span>02</span>
-                <h3>Bug List</h3>
-                <p>Scan titles, severity, status, and created timestamps.</p>
-              </article>
-              <div class="workflow-arrow" aria-hidden="true">&rarr;</div>
-              <article class="workflow-step">
-                <span>03</span>
-                <h3>Bug Details</h3>
-                <p>Inspect full issue context and reproduction notes.</p>
-              </article>
-              <div class="workflow-arrow" aria-hidden="true">&rarr;</div>
-              <article class="workflow-step">
-                <span>04</span>
-                <h3>Owner Sign In</h3>
-                <p>Authenticate only when write access is needed.</p>
-              </article>
-              <div class="workflow-arrow" aria-hidden="true">&rarr;</div>
-              <article class="workflow-step">
-                <span>05</span>
-                <h3>Create / Edit</h3>
-                <p>Capture or update reports with validated state controls.</p>
-              </article>
-            </div>
-          </section>
-
-          <section class="content-block reveal">
-            <h2>Security model</h2>
+            <h2>Architecture and Access Model</h2>
             <ul class="detail-list">
-              <li>Anonymous visitors can browse the tracker without signing in.</li>
-              <li>Only the owner account can create or edit bug reports.</li>
-              <li>The owner password is not stored in source control.</li>
-              <li>Credentials are expected to come from environment configuration.</li>
-              <li>Cookie authentication is configured with secure defaults like <code>HttpOnly</code>, HTTPS-only cookies, and a fixed login path.</li>
+              <li>Built with ASP.NET Core Razor Pages for a clear page-driven workflow</li>
+              <li>EF Core manages persistence and schema changes through migrations</li>
+              <li>SQLite keeps Version 1 lightweight and easy to demo</li>
+              <li>Cookie authentication protects create and edit actions</li>
+              <li>Owner credentials come from environment configuration, not source control</li>
+              <li>Seeded startup data prevents an empty first-run experience</li>
             </ul>
           </section>
 
           <section class="content-block reveal">
-            <h2>Architecture notes</h2>
+            <h2>Next Steps</h2>
             <ul class="detail-list">
-              <li>ASP.NET Core Razor Pages keeps the workflow page-driven and easy to follow.</li>
-              <li>Entity Framework Core handles persistence and schema updates through migrations.</li>
-              <li>SQLite keeps version 1 lightweight and demo-friendly for a single-instance deployment.</li>
-              <li>The <code>BugReport</code> model uses explicit validation for title and description lengths.</li>
-              <li><code>BugSeverity</code> and <code>BugStatus</code> enums keep report state consistent across the UI.</li>
-              <li>Startup seeding creates a useful first-run demo instead of leaving the project empty.</li>
-            </ul>
-          </section>
-
-          <section class="content-block reveal">
-            <h2>What this project proves</h2>
-            <ul class="detail-list">
-              <li>I can build a real .NET web app around a practical workflow instead of a toy example.</li>
-              <li>I understand public-safe app design and authorization boundaries.</li>
-              <li>I can use EF Core and SQLite in a clean small-project architecture.</li>
-              <li>I can prepare a portfolio project for demo use with seeded data, migrations, and deployment-aware configuration.</li>
-            </ul>
-          </section>
-
-          <section class="content-block reveal">
-            <h2>What I learned</h2>
-            <p>
-              This project taught me how much professionalism comes from the boundaries around a tool, not just the forms inside it. Public visibility, protected write access, seeded state, and environment-driven secrets all mattered just as much as the page flow.
-            </p>
-          </section>
-
-          <section class="content-block reveal">
-            <h2>Next improvements</h2>
-            <ul class="detail-list">
-              <li>Status and severity filters for faster scanning.</li>
-              <li>Search and pagination for larger bug sets.</li>
-              <li>Screenshot attachments or reproduction media for reports.</li>
-              <li>Comments, activity history, or an audit trail.</li>
-              <li>Assignment / ownership fields for team workflow.</li>
-              <li>A hosted database option beyond SQLite for a more serious deployment.</li>
+              <li>Search and filtering</li>
+              <li>Player-submitted bug reports</li>
+              <li>Comments or activity history</li>
+              <li>Screenshot attachments</li>
+              <li>Hosted database for broader deployment</li>
             </ul>
           </section>
         </div>
 
         <aside class="project-side reveal">
           <section class="content-block">
-            <h2>Project links</h2>
+            <h2>Project Links</h2>
             <div class="stacked-links">
-              <a class="button button-primary" href="https://github.com/TanvirAhmedArnab/game-bug-tracker" target="_blank" rel="noreferrer">View GitHub Repo</a>
-              <a class="button button-secondary" href="mailto:contact@tanvirahmedarnab.com?subject=Game%20Bug%20Tracker%20Version%201">Ask about the build</a>
-              <a class="button button-secondary" href="index.html#work">Back to portfolio</a>
+              <a class="button button-primary" href="https://github.com/TanvirAhmedArnab/game-bug-tracker" target="_blank" rel="noreferrer">Source Code</a>
+              <a class="button button-secondary" href="https://github.com/TanvirAhmedArnab/game-bug-tracker#readme" target="_blank" rel="noreferrer">Project README</a>
+              <a class="button button-secondary" href="index.html#work">Back to Portfolio</a>
             </div>
-          </section>
-          <section class="content-block">
-            <h2>Version 1 at a glance</h2>
-            <ul class="detail-list">
-              <li>Public browsing is enabled.</li>
-              <li>Owner-only create and edit flows are protected.</li>
-              <li>Demo content appears automatically on a fresh database.</li>
-              <li>The repository is intentionally public, but secrets are not.</li>
-              <li>The app is ready for a single-owner public demo deployment.</li>
-            </ul>
-          </section>
-          <section class="content-block">
-            <h2>Proof pack</h2>
-            <ul class="detail-list">
-              <li>Home page</li>
-              <li>Bug list</li>
-              <li>Bug details</li>
-              <li>Create form</li>
-              <li>Edit form</li>
-              <li>Owner sign-in</li>
-            </ul>
           </section>
         </aside>
       </div>
