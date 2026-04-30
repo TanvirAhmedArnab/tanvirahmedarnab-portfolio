@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" role="img" aria-labelledby="title desc">
+  <title id="title">Operator silhouette</title>
+  <desc id="desc">A stylized dark sci-fi silhouette used in the character dossier card.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#67d7ff" stop-opacity="0.25" />
+      <stop offset="55%" stop-color="#8a73ff" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#ff5fa7" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9be9ff" />
+      <stop offset="100%" stop-color="#b3a6ff" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f1428" />
+      <stop offset="100%" stop-color="#090d18" />
+    </linearGradient>
+  </defs>
+  <rect x="16" y="16" width="288" height="368" rx="24" fill="url(#panel)" stroke="url(#stroke)" stroke-opacity="0.45"/>
+  <rect x="28" y="28" width="264" height="344" rx="18" fill="url(#bg)" opacity="0.75"/>
+  <g fill="none" stroke="#67d7ff" stroke-opacity="0.25" stroke-width="1">
+    <path d="M50 72h220" />
+    <path d="M50 328h220" />
+    <path d="M78 48v304" />
+    <path d="M242 48v304" />
+  </g>
+  <g fill="none" stroke="url(#stroke)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M160 92c-28 0-50 23-50 51 0 18 8 31 22 41 7 5 12 13 14 21l4 18h20l4-18c2-8 7-16 14-21 14-10 22-23 22-41 0-28-22-51-50-51z" />
+    <path d="M132 196c8 8 17 12 28 12s20-4 28-12" opacity="0.6" />
+    <path d="M122 236h76" opacity="0.7" />
+    <path d="M104 276c14-24 31-34 56-34s42 10 56 34" />
+    <path d="M88 332c10-34 36-54 72-54s62 20 72 54" />
+  </g>
+  <g fill="#d2f1ff" opacity="0.88">
+    <circle cx="140" cy="136" r="5" />
+    <circle cx="180" cy="136" r="5" />
+  </g>
+  <g fill="none" stroke="#ffb25f" stroke-opacity="0.7" stroke-width="2">
+    <path d="M128 162c10 7 22 10 32 10s22-3 32-10" />
+  </g>
+  <g fill="none" stroke="#67d7ff" stroke-opacity="0.7" stroke-width="1.5">
+    <path d="M64 96l28 0" />
+    <path d="M64 116l18 0" />
+    <path d="M228 96l28 0" />
+    <path d="M238 116l18 0" />
+    <path d="M64 304l36 0" />
+    <path d="M64 324l22 0" />
+    <path d="M220 304l36 0" />
+    <path d="M234 324l22 0" />
+  </g>
+</svg>

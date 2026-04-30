@@ -409,6 +409,44 @@ if (tiltCards.length && !prefersReducedMotion) {
 const filterButtons = Array.from(document.querySelectorAll("[data-skill-filter]"));
 const projectCards = Array.from(document.querySelectorAll("[data-project-card]"));
 const skillStatus = document.querySelector("[data-skill-status]");
+const skillReset = document.querySelector("[data-skill-reset]");
+const skillProofTitle = document.querySelector("[data-skill-proof-title]");
+const skillProofCopy = document.querySelector("[data-skill-proof-copy]");
+
+const skillProofMap = {
+  all: {
+    title: "All proof channels online",
+    copy: "Browse all mission nodes or select a skill node to isolate the projects that prove it.",
+  },
+  csharp: {
+    title: "C# is the clearest cross-portfolio signal",
+    copy: "The Unity RPG prototype, Game Bug Tracker, and GenericRPG in C# all use C# as the primary implementation and teaching language.",
+  },
+  unity: {
+    title: "Unity proof routes to the flagship mission",
+    copy: "Unity currently maps to the RPG prototype, where combat feel, encounter structure, and gameplay readability are the central proof targets.",
+  },
+  dotnet: {
+    title: ".NET proof routes to structured application work",
+    copy: "The bug tracker and supporting web work show .NET used for tools, workflow structure, and practical internal production support.",
+  },
+  tooling: {
+    title: "Tooling proof highlights workflow thinking",
+    copy: "Game Bug Tracker is the strongest current tooling signal: structured bug triage, practical workflows, and architecture decisions aimed at real production support.",
+  },
+  "game-logic": {
+    title: "Gameplay proof centers on state clarity",
+    copy: "Unity RPG and GenericRPG in C# both point to combat flow, interaction rules, and gameplay structure that stay understandable as systems grow.",
+  },
+  architecture: {
+    title: "Architecture connects every major mission",
+    copy: "All three flagship missions prove architecture thinking: readable growth in Unity systems, maintainable tooling boundaries, and long-form curriculum structure.",
+  },
+  "technical-writing": {
+    title: "Technical writing proof routes to the book project",
+    copy: "GenericRPG in C# is the clearest writing signal, proving long-form communication, curriculum discipline, and system explanation at scale.",
+  },
+};
 
 if (filterButtons.length && projectCards.length) {
   const applySkillFilter = (filterValue, filterLabel) => {
@@ -437,6 +475,20 @@ if (filterButtons.length && projectCards.length) {
         ? `Showing all ${projectCards.length} mission nodes.`
         : `Showing ${matchCount} mission node${matchCount === 1 ? "" : "s"} tagged ${filterLabel}.`;
     }
+
+    if (skillReset) {
+      skillReset.hidden = filterValue === "all";
+    }
+
+    const proofDetails = skillProofMap[filterValue] || skillProofMap.all;
+
+    if (skillProofTitle) {
+      skillProofTitle.textContent = proofDetails.title;
+    }
+
+    if (skillProofCopy) {
+      skillProofCopy.textContent = proofDetails.copy;
+    }
   };
 
   filterButtons.forEach((button) => {
@@ -446,6 +498,12 @@ if (filterButtons.length && projectCards.length) {
       applySkillFilter(filterValue, filterLabel);
     });
   });
+
+  if (skillReset) {
+    skillReset.addEventListener("click", () => {
+      applySkillFilter("all", "All proof");
+    });
+  }
 
   applySkillFilter("all", "All projects");
 }
