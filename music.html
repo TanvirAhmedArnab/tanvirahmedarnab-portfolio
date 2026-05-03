@@ -420,6 +420,81 @@
       line-height: 1.65;
     }
 
+    .music-setup-visual {
+      margin-bottom: 1rem;
+      border: 1px solid rgba(191, 191, 191, 0.16);
+      border-radius: 1.2rem;
+      background: rgba(13, 13, 13, 0.76);
+      padding: 1rem;
+    }
+
+    .music-setup-figure {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 1rem;
+      background: #0D0D0D;
+    }
+
+    .music-setup-figure img {
+      width: 100%;
+      height: auto;
+    }
+
+    .music-spec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .music-spec-card {
+      border: 1px solid rgba(191, 191, 191, 0.16);
+      border-radius: 1.2rem;
+      background: rgba(13, 13, 13, 0.76);
+      padding: 1.15rem;
+    }
+
+    .music-spec-card--wide {
+      grid-column: 1 / -1;
+    }
+
+    .music-spec-card h4 {
+      margin: 0 0 0.7rem;
+      color: #F2F2F2;
+      font-family: "Chakra Petch", "Sora", sans-serif;
+      font-size: 1.08rem;
+      line-height: 1.2;
+    }
+
+    .music-spec-card h5 {
+      margin: 0.95rem 0 0.4rem;
+      color: #F2F2F2;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .music-spec-card h5:first-of-type {
+      margin-top: 0;
+    }
+
+    .music-spec-card p {
+      margin: 0;
+      color: #BFBFBF;
+      font-size: 0.94rem;
+      line-height: 1.68;
+    }
+
+    .music-spec-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: #BFBFBF;
+      display: grid;
+      gap: 0.42rem;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
     .music-playlist-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
@@ -508,7 +583,8 @@
 
       .music-setup-grid,
       .music-media-grid,
-      .music-playlist-grid {
+      .music-playlist-grid,
+      .music-spec-grid {
         grid-template-columns: minmax(0, 1fr);
       }
 
@@ -584,32 +660,88 @@
       <div class="music-slider-stage" data-music-slider-stage>
         <section class="music-slider-panel is-active" id="panel-setup" role="tabpanel" aria-labelledby="tab-setup" data-music-panel="setup">
           <div class="music-panel-header">
-            <span class="music-panel-label">Drum Setup</span>
-            <h3>Current loadout and essential hardware.</h3>
-            <p>A clean place for the exact kit, cymbals, pedals, sticks, and accessories behind the sound.</p>
+            <h3>TAMA / PAISTE</h3>
           </div>
 
-          <div class="music-setup-grid">
-            <article class="music-setup-card">
-              <h4>Documented piece</h4>
-              <p>The first piece already anchored here is your 18-inch Paiste PST 5 Medium Crash, the cymbal that started the path and still carries emotional weight in your story.</p>
-            </article>
-            <article class="music-setup-card">
-              <h4>Kit and hardware</h4>
-              <ul class="music-setup-list">
-                <li>Shell pack and finish</li>
-                <li>Pedal setup and throne</li>
-                <li>Snare, tom, and kick configuration</li>
-                <li>Hardware stands and mounting choices</li>
+          <div class="music-setup-visual">
+            <figure class="music-setup-figure">
+              <img src="assets/music/my-drum-setup.png" alt="Top-view diagram of Tanvir Ahmed Arnab's Tama and Paiste black metal drum setup.">
+            </figure>
+          </div>
+
+          <div class="music-spec-grid">
+            <article class="music-spec-card">
+              <h4>Drums</h4>
+              <p>TAMA Starclassic Performer Series<br>Maple / Birch Shells</p>
+              <ul class="music-spec-list">
+                <li>10" x 7" Rack Tom</li>
+                <li>12" x 8" Rack Tom</li>
+                <li>14" x 12" Floor Tom</li>
+                <li>16" x 14" Floor Tom</li>
+                <li>22" x 16" Bass Drum</li>
               </ul>
             </article>
-            <article class="music-setup-card">
-              <h4>Accessories</h4>
-              <ul class="music-setup-list">
-                <li>Stick models and backup pairs</li>
-                <li>Practice pad and rehearsal tools</li>
-                <li>Monitoring, ear protection, and recording extras</li>
-                <li>Any additional black-metal-specific live essentials</li>
+
+            <article class="music-spec-card">
+              <h4>Snare</h4>
+              <p>Mapex Black Panther Persuader Hammered Brass Snare</p>
+              <ul class="music-spec-list">
+                <li>14" x 6.5"</li>
+              </ul>
+            </article>
+
+            <article class="music-spec-card music-spec-card--wide">
+              <h4>Cymbals</h4>
+              <p>Paiste RUDE</p>
+              <h5>Hi-Hats</h5>
+              <ul class="music-spec-list">
+                <li>14" Paiste RUDE Sound Edge Hi-Hats</li>
+              </ul>
+              <h5>Crashes</h5>
+              <ul class="music-spec-list">
+                <li>18" Paiste RUDE Thin Crash</li>
+                <li>19" Paiste RUDE Wild Crash</li>
+                <li>20" Paiste RUDE Crash</li>
+              </ul>
+              <h5>Ride</h5>
+              <ul class="music-spec-list">
+                <li>22" Paiste RUDE Power Ride</li>
+              </ul>
+              <h5>Chinas</h5>
+              <ul class="music-spec-list">
+                <li>18" Paiste RUDE China</li>
+                <li>20" Paiste RUDE Novo China</li>
+              </ul>
+              <h5>FX</h5>
+              <ul class="music-spec-list">
+                <li>12" Paiste RUDE Shred Bell</li>
+              </ul>
+            </article>
+
+            <article class="music-spec-card">
+              <h4>Pedals and Hardware</h4>
+              <h5>Pedals</h5>
+              <ul class="music-spec-list">
+                <li>TAMA Dyna-Sync Double Bass Drum Pedal</li>
+              </ul>
+              <h5>Hardware</h5>
+              <ul class="music-spec-list">
+                <li>TAMA Iron Cobra HH905D Lever Glide Hi-Hat Stand</li>
+                <li>TAMA HC83BW Roadpro Boom Cymbal Stand x6</li>
+                <li>TAMA HS80W Roadpro Snare Stand</li>
+                <li>TAMA HT430B 1st Chair Round Rider Drum Throne</li>
+              </ul>
+            </article>
+
+            <article class="music-spec-card">
+              <h4>Drumheads</h4>
+              <p>Evans Drumheads</p>
+              <ul class="music-spec-list">
+                <li>Bass Drum: Evans EMAD2 Clear</li>
+                <li>Toms Batter: Evans G2 Clear</li>
+                <li>Toms Resonant: Evans G1 Clear</li>
+                <li>Snare Batter: Evans HD Dry</li>
+                <li>Snare Resonant: Evans Hazy 300</li>
               </ul>
             </article>
           </div>
@@ -649,35 +781,18 @@
 
         <section class="music-slider-panel" id="panel-media" role="tabpanel" aria-labelledby="tab-media" data-music-panel="media">
           <div class="music-panel-header">
-            <span class="music-panel-label">Media Archive</span>
-            <h3>Your own photos, clips, audio, and performance fragments.</h3>
-            <p>A reserved place for your own images, recordings, and video fragments once you decide what should go live.</p>
+            <h3>Content will be added soon.</h3>
           </div>
 
           <div class="music-media-grid">
             <article class="music-media-card">
-              <h4>Photo gallery</h4>
-              <ul class="music-media-list">
-                <li>Live shots behind the kit</li>
-                <li>Practice-room and rehearsal stills</li>
-                <li>Atmospheric portraits or monochrome session images</li>
-              </ul>
+              <h4>Photo</h4>
             </article>
             <article class="music-media-card">
-              <h4>Audio fragments</h4>
-              <ul class="music-media-list">
-                <li>Short drum ideas</li>
-                <li>Atmosphere sketches and rough demos</li>
-                <li>Early black-metal writing excerpts</li>
-              </ul>
+              <h4>Audio</h4>
             </article>
             <article class="music-media-card">
-              <h4>Video clips</h4>
-              <ul class="music-media-list">
-                <li>Performance footage</li>
-                <li>Playthrough excerpts</li>
-                <li>Studio or rehearsal process clips</li>
-              </ul>
+              <h4>Video</h4>
             </article>
           </div>
         </section>
