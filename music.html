@@ -44,6 +44,9 @@
     }
 
     .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
       border-bottom: 1px solid rgba(115, 115, 115, 0.16);
       background: rgba(13, 13, 13, 0.82);
       backdrop-filter: blur(18px);
@@ -259,6 +262,227 @@
       color: #F2F2F2;
     }
 
+    .music-sections {
+      position: relative;
+      z-index: 1;
+      width: min(calc(100% - 2.5rem), 1260px);
+      margin: -39rem auto 4rem;
+      padding-bottom: 3rem;
+    }
+
+    .music-slider-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .music-slider-tab {
+      min-height: 2.85rem;
+      padding: 0.72rem 1.05rem;
+      border: 1px solid rgba(191, 191, 191, 0.24);
+      border-radius: 999px;
+      background: rgba(13, 13, 13, 0.68);
+      color: #BFBFBF;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
+    .music-slider-tab:hover,
+    .music-slider-tab:focus-visible {
+      background: rgba(38, 38, 38, 0.92);
+      border-color: rgba(242, 242, 242, 0.82);
+      color: #F2F2F2;
+      outline: none;
+    }
+
+    .music-slider-tab.is-active {
+      background: rgba(38, 38, 38, 0.96);
+      border-color: rgba(242, 242, 242, 0.82);
+      color: #F2F2F2;
+      box-shadow: inset 0 0 0 1px rgba(242, 242, 242, 0.1);
+    }
+
+    .music-slider-stage {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(191, 191, 191, 0.16);
+      background:
+        linear-gradient(180deg, rgba(38, 38, 38, 0.42), rgba(13, 13, 13, 0.92)),
+        linear-gradient(90deg, rgba(242, 242, 242, 0.03) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(242, 242, 242, 0.03) 1px, transparent 1px);
+      background-size: auto, 3rem 3rem, 3rem 3rem;
+      box-shadow: 0 22px 64px rgba(0, 0, 0, 0.28);
+    }
+
+    .music-slider-panel {
+      display: none;
+      padding: 1.45rem;
+    }
+
+    .music-slider-panel.is-active {
+      display: block;
+      animation: fadePanel 220ms ease;
+    }
+
+    @keyframes fadePanel {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .music-panel-header {
+      display: grid;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .music-panel-label {
+      color: #737373;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .music-panel-header h3 {
+      margin: 0;
+      color: #F2F2F2;
+      font-family: "Chakra Petch", "Sora", sans-serif;
+      font-size: clamp(1.5rem, 2.4vw, 2.15rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .music-panel-header p {
+      margin: 0;
+      color: #BFBFBF;
+      font-size: 0.94rem;
+      line-height: 1.72;
+      max-width: 54rem;
+    }
+
+    .music-setup-grid,
+    .music-media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .music-setup-card,
+    .music-media-card,
+    .music-playlist-card,
+    .music-playlist-list {
+      border: 1px solid rgba(191, 191, 191, 0.16);
+      border-radius: 1.2rem;
+      background: rgba(13, 13, 13, 0.76);
+      padding: 1.15rem;
+    }
+
+    .music-setup-card h4,
+    .music-media-card h4,
+    .music-playlist-list h4 {
+      margin: 0 0 0.55rem;
+      color: #F2F2F2;
+      font-family: "Chakra Petch", "Sora", sans-serif;
+      font-size: 1.04rem;
+      line-height: 1.2;
+    }
+
+    .music-setup-card p,
+    .music-media-card p {
+      margin: 0;
+      color: #BFBFBF;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    .music-setup-list,
+    .music-media-list {
+      margin: 0.85rem 0 0;
+      padding-left: 1.1rem;
+      color: #BFBFBF;
+      display: grid;
+      gap: 0.5rem;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+    .music-playlist-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .music-player-caption {
+      margin: 0 0 0.8rem;
+      color: #BFBFBF;
+      font-size: 0.92rem;
+      line-height: 1.68;
+    }
+
+    .music-player-frame {
+      width: 100%;
+      min-height: 352px;
+      border: 0;
+      border-radius: 1rem;
+      background: #0D0D0D;
+    }
+
+    .music-track-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.42rem;
+    }
+
+    .music-track-item {
+      margin: 0;
+    }
+
+    .music-track-button {
+      width: 100%;
+      padding: 0.7rem 0.85rem;
+      border: 1px solid rgba(191, 191, 191, 0.12);
+      border-radius: 0.9rem;
+      background: rgba(13, 13, 13, 0.55);
+      color: #BFBFBF;
+      font: inherit;
+      font-size: 0.94rem;
+      line-height: 1.5;
+      text-align: left;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
+    .music-track-button:hover,
+    .music-track-button:focus-visible {
+      background: rgba(38, 38, 38, 0.92);
+      border-color: rgba(242, 242, 242, 0.24);
+      color: #F2F2F2;
+      outline: none;
+    }
+
+    .music-track-button.is-active {
+      background: rgba(38, 38, 38, 0.96);
+      border-color: rgba(242, 242, 242, 0.36);
+      color: #F2F2F2;
+    }
+
     @media (max-width: 920px) {
       .music-hero::after {
         inset: 38% 0 0 0;
@@ -275,6 +499,17 @@
         margin: 0 auto;
         padding: 1.75rem 0 3rem;
         transform: none;
+      }
+
+      .music-sections {
+        width: min(calc(100% - 2.5rem), 920px);
+        margin: 0 auto 3rem;
+      }
+
+      .music-setup-grid,
+      .music-media-grid,
+      .music-playlist-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .site-header .inner {
@@ -338,6 +573,116 @@
         </div>
       </div>
     </section>
+
+    <section class="music-sections" aria-label="Music sections">
+      <div class="music-slider-nav" role="tablist" aria-label="Music section switcher">
+        <button class="music-slider-tab is-active" id="tab-setup" type="button" role="tab" aria-selected="true" aria-controls="panel-setup" data-music-panel-trigger="setup">Drum Setup</button>
+        <button class="music-slider-tab" id="tab-rotation" type="button" role="tab" aria-selected="false" aria-controls="panel-rotation" data-music-panel-trigger="rotation">Currently Listening To</button>
+        <button class="music-slider-tab" id="tab-media" type="button" role="tab" aria-selected="false" aria-controls="panel-media" data-music-panel-trigger="media">Media Archive</button>
+      </div>
+
+      <div class="music-slider-stage" data-music-slider-stage>
+        <section class="music-slider-panel is-active" id="panel-setup" role="tabpanel" aria-labelledby="tab-setup" data-music-panel="setup">
+          <div class="music-panel-header">
+            <span class="music-panel-label">Drum Setup</span>
+            <h3>Current loadout and essential hardware.</h3>
+            <p>A clean place for the exact kit, cymbals, pedals, sticks, and accessories behind the sound.</p>
+          </div>
+
+          <div class="music-setup-grid">
+            <article class="music-setup-card">
+              <h4>Documented piece</h4>
+              <p>The first piece already anchored here is your 18-inch Paiste PST 5 Medium Crash, the cymbal that started the path and still carries emotional weight in your story.</p>
+            </article>
+            <article class="music-setup-card">
+              <h4>Kit and hardware</h4>
+              <ul class="music-setup-list">
+                <li>Shell pack and finish</li>
+                <li>Pedal setup and throne</li>
+                <li>Snare, tom, and kick configuration</li>
+                <li>Hardware stands and mounting choices</li>
+              </ul>
+            </article>
+            <article class="music-setup-card">
+              <h4>Accessories</h4>
+              <ul class="music-setup-list">
+                <li>Stick models and backup pairs</li>
+                <li>Practice pad and rehearsal tools</li>
+                <li>Monitoring, ear protection, and recording extras</li>
+                <li>Any additional black-metal-specific live essentials</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="music-slider-panel" id="panel-rotation" role="tabpanel" aria-labelledby="tab-rotation" data-music-panel="rotation">
+          <div class="music-panel-header">
+            <h3>Thirteen songs that have been feeding my ears lately.</h3>
+          </div>
+
+          <div class="music-playlist-grid">
+            <article class="music-playlist-card">
+              <p class="music-player-caption">Choose a song from the list and it will load here.</p>
+              <iframe class="music-player-frame" src="https://open.spotify.com/embed/track/79rCZ7KrkgpT2k6wXVjxiL?utm_source=generator" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture" loading="lazy" title="Embedded music player" data-music-player></iframe>
+            </article>
+
+            <article class="music-playlist-list">
+              <h4>13-song list</h4>
+              <ol class="music-track-list">
+                <li class="music-track-item"><button class="music-track-button is-active" type="button" data-track-embed="https://open.spotify.com/embed/track/79rCZ7KrkgpT2k6wXVjxiL?utm_source=generator">Cradle of Filth — Nymphetamine</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0ic01l4KwKPiEkMMnNT5XG?utm_source=generator">Cryptopsy — The Pestilence That Walketh in Darkness</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/2MYdLzcBnDnk97PutLCRWP?utm_source=generator">Behemoth — Conquer All</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/6qHI9eKtpdWLpfcftkykCg?utm_source=generator">Rammstein — Mein Herz Brennt</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/4Tg06Sex4LzwcgVdfRrHlp?theme=0">Deathstars — No Light</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/5A5ixwUtbW01F4vFDYKRjS?utm_source=generator">Marilyn Manson — Third Day of a Seven Day Binge</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/5ceYVTBWOXrxuwzkrkS4ob?utm_source=generator">Sentenced — Killing Me Killing You</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0gmbgwZ8iqyMPmXefof8Yf?utm_source=generator">Nickelback — How You Remind Me</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0M955bMOoilikPXwKLYpoi?utm_source=generator">Three Days Grace — I Hate Everything About You</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/album/7pcT84mVo6uuy0m2Xkpcwx?theme=0">Dying Fetus — Your Treachery Will Die with You</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/7kozeGeawfP7IEEL6dddrM?theme=0">Kataklysm — Push the Venom</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/0iGkBvuI18nxqJR8Ipg1cu?theme=0">Einherjer — Ironbound</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0m6fGE8vJepX0AeiFVXb9A?utm_source=generator">Slayer — Bloodline</button></li>
+              </ol>
+            </article>
+          </div>
+        </section>
+
+        <section class="music-slider-panel" id="panel-media" role="tabpanel" aria-labelledby="tab-media" data-music-panel="media">
+          <div class="music-panel-header">
+            <span class="music-panel-label">Media Archive</span>
+            <h3>Your own photos, clips, audio, and performance fragments.</h3>
+            <p>A reserved place for your own images, recordings, and video fragments once you decide what should go live.</p>
+          </div>
+
+          <div class="music-media-grid">
+            <article class="music-media-card">
+              <h4>Photo gallery</h4>
+              <ul class="music-media-list">
+                <li>Live shots behind the kit</li>
+                <li>Practice-room and rehearsal stills</li>
+                <li>Atmospheric portraits or monochrome session images</li>
+              </ul>
+            </article>
+            <article class="music-media-card">
+              <h4>Audio fragments</h4>
+              <ul class="music-media-list">
+                <li>Short drum ideas</li>
+                <li>Atmosphere sketches and rough demos</li>
+                <li>Early black-metal writing excerpts</li>
+              </ul>
+            </article>
+            <article class="music-media-card">
+              <h4>Video clips</h4>
+              <ul class="music-media-list">
+                <li>Performance footage</li>
+                <li>Playthrough excerpts</li>
+                <li>Studio or rehearsal process clips</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
 
   <script>
@@ -396,6 +741,80 @@
       audio.addEventListener('play', syncToggle);
       audio.addEventListener('pause', syncToggle);
       syncToggle();
+    })();
+
+    (() => {
+      const triggers = Array.from(document.querySelectorAll('[data-music-panel-trigger]'));
+      const panels = Array.from(document.querySelectorAll('[data-music-panel]'));
+      const stage = document.querySelector('[data-music-slider-stage]');
+      if (!triggers.length || !panels.length || !stage) return;
+
+      let activeIndex = 0;
+      let intervalId = null;
+
+      const setActivePanel = (index) => {
+        activeIndex = index;
+
+        triggers.forEach((trigger, triggerIndex) => {
+          const isActive = triggerIndex === index;
+          trigger.classList.toggle('is-active', isActive);
+          trigger.setAttribute('aria-selected', String(isActive));
+          trigger.tabIndex = isActive ? 0 : -1;
+        });
+
+        panels.forEach((panel, panelIndex) => {
+          const isActive = panelIndex === index;
+          panel.classList.toggle('is-active', isActive);
+        });
+      };
+
+      const startRotation = () => {
+        clearInterval(intervalId);
+        intervalId = window.setInterval(() => {
+          const nextIndex = (activeIndex + 1) % panels.length;
+          setActivePanel(nextIndex);
+        }, 9000);
+      };
+
+      triggers.forEach((trigger, index) => {
+        trigger.addEventListener('click', () => {
+          setActivePanel(index);
+          startRotation();
+        });
+      });
+
+      stage.addEventListener('mouseenter', () => {
+        clearInterval(intervalId);
+      });
+
+      stage.addEventListener('mouseleave', () => {
+        startRotation();
+      });
+
+      setActivePanel(0);
+      startRotation();
+    })();
+
+    (() => {
+      const player = document.querySelector('[data-music-player]');
+      const trackButtons = Array.from(document.querySelectorAll('[data-track-embed]'));
+      if (!player || !trackButtons.length) return;
+
+      const setActiveTrack = (button) => {
+        const embed = button.getAttribute('data-track-embed');
+        if (!embed) return;
+
+        player.src = embed;
+        trackButtons.forEach((trackButton) => {
+          trackButton.classList.toggle('is-active', trackButton === button);
+        });
+      };
+
+      trackButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          setActiveTrack(button);
+        });
+      });
     })();
   </script>
 </body>
