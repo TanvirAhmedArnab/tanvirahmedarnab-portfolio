@@ -637,3 +637,300 @@ if (zoomableShots.length) {
     }
   });
 }
+
+const audioToggle = document.querySelector("[data-audio-toggle]");
+const audioStatus = document.querySelector("[data-audio-status]");
+
+if (audioToggle && audioStatus) {
+  const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
+  let audioContext = null;
+  let musicNodes = null;
+  let musicIntervalId = null;
+  let isMusicOn = false;
+
+  const setAudioUi = (active, message) => {
+    isMusicOn = active;
+    audioToggle.setAttribute("aria-pressed", String(active));
+    audioToggle.textContent = active ? "Disable placeholder music" : "Enable placeholder music";
+    audioStatus.textContent = message;
+  };
+
+  const clearMusicInterval = () => {
+    if (musicIntervalId) {
+      window.clearInterval(musicIntervalId);
+      musicIntervalId = null;
+    }
+  };
+
+  const destroyMusic = () => {
+    clearMusicInterval();
+
+    if (!musicNodes) {
+      return;
+    }
+
+    musicNodes.drones.forEach((oscillator) => {
+      try {
+        oscillator.stop();
+      } catch (error) {
+        // Oscillator may already be stopped.
+      }
+      oscillator.disconnect();
+    });
+
+    musicNodes.droneGains.forEach((gainNode) => gainNode.disconnect());
+    musicNodes.filter?.disconnect();
+    musicNodes.master?.disconnect();
+    musicNodes = null;
+  };
+
+  const buildMusic = () => {
+    if (!AudioContextCtor) {
+      setAudioUi(false, "Placeholder music is not supported in this browser.");
+      audioToggle.disabled = true;
+      return false;
+    }
+
+    if (!audioContext) {
+      audioContext = new AudioContextCtor();
+    }
+
+    const master = audioContext.createGain();
+    const filter = audioContext.createBiquadFilter();
+
+    master.gain.value = 0;
+    filter.type = "lowpass";
+    filter.frequency.value = 1800;
+    filter.Q.value = 0.4;
+
+    const droneSettings = [
+      { type: "triangle", frequency: 110, volume: 0.032 },
+      { type: "sine", frequency: 164.81, volume: 0.021 },
+      { type: "sine", frequency: 220, volume: 0.014 },
+    ];
+
+    const drones = [];
+    const droneGains = [];
+
+    droneSettings.forEach((setting) => {
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+
+      oscillator.type = setting.type;
+      oscillator.frequency.value = setting.frequency;
+      gainNode.gain.value = setting.volume;
+
+      oscillator.connect(gainNode);
+      gainNode.connect(filter);
+      oscillator.start();
+
+      drones.push(oscillator);
+      droneGains.push(gainNode);
+    });
+
+    filter.connect(master);
+    master.connect(audioContext.destination);
+
+    musicNodes = {
+      drones,
+      droneGains,
+      master,
+      filter,
+    };
+
+    return true;
+  };
+
+  const playBellTone = (frequency, duration = 0.9) => {
+    if (!audioContext || !musicNodes) {
+      return;
+    }
+
+    const now = audioContext.currentTime;
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+
+    oscillator.type = "triangle";
+    oscillator.frequency.setValueAtTime(frequency, now);
+    gainNode.gain.setValueAtTime(0.0001, now);
+    gainNode.gain.linearRampToValueAtTime(0.1, now + 0.02);
+    gainNode.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+    oscillator.connect(gainNode);
+    gainNode.connect(musicNodes.filter);
+    oscillator.start(now);
+    oscillator.stop(now + duration + 0.05);
+  };
+
+  const schedulePlaceholderMusic = () => {
+    clearMusicInterval();
+
+    const motif = [220, 261.63, 329.63, 293.66, 392.0, 329.63];
+    let step = 0;
+
+    playBellTone(motif[0], 1.1);
+    step = 1;
+
+    musicIntervalId = window.setInterval(() => {
+      playBellTone(motif[step], step % 3 === 0 ? 1.1 : 0.78);
+      step = (step + 1) % motif.length;
+    }, 920);
+  };
+
+  const startMusic = async () => {
+    if (!buildMusic()) {
+      return;
+    }
+
+    if (audioContext?.state === "suspended") {
+      await audioContext.resume();
+    }
+
+    if (!musicNodes) {
+      return;
+    }
+
+    const now = audioContext.currentTime;
+    musicNodes.master.gain.cancelScheduledValues(now);
+    musicNodes.master.gain.setValueAtTime(musicNodes.master.gain.value, now);
+    musicNodes.master.gain.linearRampToValueAtTime(0.17, now + 0.7);
+    schedulePlaceholderMusic();
+
+    setAudioUi(true, "Placeholder music is active. Click again to mute it.");
+  };
+
+  const stopMusic = async () => {
+    if (!audioContext || !musicNodes) {
+      setAudioUi(false, "Placeholder music is optional and starts only with interaction.");
+      return;
+    }
+
+    const now = audioContext.currentTime;
+    musicNodes.master.gain.cancelScheduledValues(now);
+    musicNodes.master.gain.setValueAtTime(musicNodes.master.gain.value, now);
+    musicNodes.master.gain.linearRampToValueAtTime(0.0001, now + 0.55);
+
+    window.setTimeout(() => {
+      destroyMusic();
+    }, 650);
+
+    setAudioUi(false, "Placeholder music is optional and starts only with interaction.");
+  };
+
+  audioToggle.addEventListener("click", async () => {
+    try {
+      if (isMusicOn) {
+        await stopMusic();
+      } else {
+        await startMusic();
+      }
+    } catch (error) {
+      destroyMusic();
+      setAudioUi(false, "Placeholder music could not start in this browser session.");
+    }
+  });
+}
+
+const musicPageAudio = document.querySelector("[data-music-page-audio]");
+const musicPageToggle = document.querySelector("[data-music-page-toggle]");
+const musicPageStatus = document.querySelector("[data-music-page-status]");
+
+if (musicPageAudio && musicPageToggle && musicPageStatus) {
+  const musicPreferenceKey = "taa-music-page-autoplay";
+
+  musicPageAudio.volume = 0.62;
+
+  const setMusicPageUi = (playing, message) => {
+    musicPageToggle.setAttribute("aria-pressed", String(playing));
+    musicPageToggle.textContent = playing ? "MUSIC ON" : "MUSIC OFF";
+    musicPageStatus.textContent = message;
+  };
+
+  const attemptMusicPlay = async (remember = false) => {
+    try {
+      await musicPageAudio.play();
+      if (remember) {
+        window.localStorage.setItem(musicPreferenceKey, "on");
+      }
+      setMusicPageUi(true, "Music is playing. Your preference will be remembered on this browser.");
+      return true;
+    } catch (error) {
+      setMusicPageUi(false, "Autoplay was blocked. Press Enable Music to start playback.");
+      return false;
+    }
+  };
+
+  const pauseMusic = (remember = false) => {
+    musicPageAudio.pause();
+    if (remember) {
+      window.localStorage.setItem(musicPreferenceKey, "off");
+    }
+    setMusicPageUi(false, "Music is paused.");
+  };
+
+  musicPageAudio.addEventListener("play", () => {
+    musicPageToggle.setAttribute("aria-pressed", "true");
+    musicPageToggle.textContent = "MUSIC ON";
+  });
+
+  musicPageAudio.addEventListener("pause", () => {
+    if (musicPageAudio.currentTime > 0 && !musicPageAudio.ended) {
+      musicPageToggle.setAttribute("aria-pressed", "false");
+      musicPageToggle.textContent = "MUSIC OFF";
+    }
+  });
+
+  musicPageToggle.addEventListener("click", async () => {
+    if (musicPageAudio.paused) {
+      await attemptMusicPlay(true);
+    } else {
+      pauseMusic(true);
+    }
+  });
+
+  window.addEventListener("load", async () => {
+    const storedPreference = window.localStorage.getItem(musicPreferenceKey);
+
+    if (storedPreference === "off") {
+      setMusicPageUi(false, "Music is paused.");
+      return;
+    }
+
+    if (storedPreference === "on") {
+      await attemptMusicPlay(false);
+      return;
+    }
+
+    await attemptMusicPlay(false);
+  });
+}
+
+const musicTabs = Array.from(document.querySelectorAll("[data-music-tab]"));
+const musicPanels = Array.from(document.querySelectorAll("[data-music-panel]"));
+
+if (musicTabs.length && musicPanels.length) {
+  const activateMusicPanel = (target) => {
+    musicTabs.forEach((tab) => {
+      const isActive = tab.getAttribute("data-music-tab") === target;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", String(isActive));
+    });
+
+    musicPanels.forEach((panel) => {
+      const isActive = panel.getAttribute("data-music-panel") === target;
+      panel.classList.toggle("is-active", isActive);
+      panel.hidden = !isActive;
+    });
+  };
+
+  musicTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const target = tab.getAttribute("data-music-tab");
+      if (target) {
+        activateMusicPanel(target);
+      }
+    });
+  });
+
+  activateMusicPanel("gear");
+}

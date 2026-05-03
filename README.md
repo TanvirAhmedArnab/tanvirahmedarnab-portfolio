@@ -15,9 +15,10 @@ The site is intentionally static: `HTML`, `CSS`, and `JavaScript` only. That kee
 
 ## Live sections
 
-- Home / mission-map style overview
+- Home / character dossier overview
 - `Game Bug Tracker` case study
 - `GenericRPG in C#` publishing project page
+- plain HTML resume page
 - custom `404` page
 
 ## Repository structure
@@ -26,38 +27,44 @@ The site is intentionally static: `HTML`, `CSS`, and `JavaScript` only. That kee
 .
 |-- 404.html
 |-- CNAME
-|-- DEPLOY-GODADDY.md
 |-- game-bug-tracker.html
 |-- genericrpg-in-csharp.html
 |-- index.html
+|-- resume.html
 |-- robots.txt
 |-- script.js
 |-- sitemap.xml
 |-- styles.css
+|-- docs
+|   |-- planning
+|   |   |-- WEBSITE-BUILD-DOCUMENTATION.md
+|   |   |-- WEBSITE-DECISION-SHEET.md
+|   |   |-- WEBSITE-DESIGN-PLAN.md
+|   |   |-- WEBSITE-FINAL-BLUEPRINT.md
+|   |   |-- WEBSITE-MASTER-SPEC.md
+|   |   `-- WEBSITE-PLAN-COMPILATION.md
+|   `-- setup
+|       `-- DEPLOY-GODADDY.md
 `-- assets
     |-- branding
     |-- books
     `-- projects
         |-- placeholders
-        `-- sample-media
+        `-- game-bug-tracker
 ```
 
 ## Asset notes
 
 - `assets/branding/` holds shared visual identity files such as the logo.
 - `assets/books/` holds book-related visuals.
-- `assets/projects/placeholders/` holds temporary project artwork that can be replaced later with real screenshots or captures.
-- `assets/projects/sample-media/` holds archived sample visuals used by older noindexed placeholder project pages.
+- `assets/projects/placeholders/` holds temporary project artwork that is still in active use on the homepage.
+- `assets/projects/game-bug-tracker/` holds the current real screenshots used by the bug tracker homepage card and case-study page.
 
-## Archived placeholder pages
+## Documentation
 
-The following pages are still in the repository as layout references and legacy URLs, but they are marked `noindex` and are not included in the main sitemap:
-
-- `skyline-siege.html`
-- `ritual-runner.html`
-- `signal-bloom.html`
-
-They can be replaced or removed later once real project pages fully take over their role.
+- Planning and design documents live in `docs/planning/`.
+- Deployment and DNS notes live in `docs/setup/`.
+- The repo root is intentionally kept focused on the public site files and shared assets.
 
 ## Deployment
 
@@ -65,7 +72,7 @@ They can be replaced or removed later once real project pages fully take over th
 - Domain DNS: `GoDaddy`
 - Email: custom domain email configured separately from site hosting
 
-The current repository is published directly from the main GitHub Pages site source. Domain and DNS notes are kept in [DEPLOY-GODADDY.md](DEPLOY-GODADDY.md).
+The current repository is published directly from the main GitHub Pages site source. Domain and DNS notes are kept in [docs/setup/DEPLOY-GODADDY.md](docs/setup/DEPLOY-GODADDY.md).
 
 ## Local editing
 
@@ -81,3 +88,4 @@ There is no build step required.
 - Do not commit private resume drafts unless you explicitly want them public.
 - Prefer replacing placeholder artwork with real project media over adding more decorative effects.
 - Keep project copy honest about current progress, scope, and what is still in development.
+- Prefer archiving planning documents under `docs/` instead of adding more root-level clutter.

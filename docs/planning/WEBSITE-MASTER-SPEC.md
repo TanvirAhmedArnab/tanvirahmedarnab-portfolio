@@ -285,17 +285,7 @@ This page should eventually be one of the strongest parts of the portfolio.
 
 ## 6.3 Legacy / archived pages
 
-These exist temporarily:
-
-- `skyline-siege.html`
-- `ritual-runner.html`
-- `signal-bloom.html`
-
-They should:
-
-- stay out of primary navigation
-- remain `noindex`
-- be treated as temporary reference pages only
+These were removed during the Desktop repo cleanup and should now be considered retired artifacts from an earlier placeholder phase.
 
 Long term they should either:
 

@@ -158,13 +158,7 @@ Some section names are themed; the actual content inside them stays professional
 
 ### Legacy / archived placeholder pages
 
-These still exist in the repository as reference layouts and legacy URLs, but they are not the main live focus:
-
-- `skyline-siege.html`
-- `ritual-runner.html`
-- `signal-bloom.html`
-
-These are effectively archived sample pages and should eventually be replaced or removed.
+The earlier sample placeholder pages were removed during the Desktop repo cleanup. They are no longer part of the active repository structure and should be treated as retired references from an older portfolio phase.
 
 ---
 
@@ -646,17 +640,13 @@ This is a small but useful polish feature.
 
 ## 11. Archived Sample Pages
 
-The following files exist as legacy or sample pages:
+The earlier sample case-study pages were removed during cleanup.
 
-- `skyline-siege.html`
-- `ritual-runner.html`
-- `signal-bloom.html`
+### Historical role
 
-### Current role
+Before removal, they were not part of the main live portfolio focus.
 
-They are not the main live portfolio focus.
-
-They mainly exist as:
+They mainly existed as:
 
 - layout references
 - legacy URL support
@@ -851,8 +841,8 @@ That means:
 - `assets/projects/placeholders/`
   - temporary project visuals
 
-- `assets/projects/sample-media/`
-  - sample / archived media
+- `assets/projects/game-bug-tracker/`
+  - real screenshots for the live bug tracker project
 
 ### Planning docs
 
@@ -917,4 +907,3 @@ If refining the website later, the highest-value upgrades are:
 ## 19. One-Sentence Summary
 
 The website is currently built as a **professional C# gameplay programmer portfolio presented through a dark sci-fi technical dossier theme**, with a clear top-down structure, game-like interaction layers, recruiter-friendly resume access, and room to deepen into real project proof as more media and case-study content becomes available.
-

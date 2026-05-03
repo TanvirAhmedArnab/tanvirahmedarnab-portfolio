@@ -159,15 +159,7 @@ Future page:
 
 ### Legacy reference pages
 
-Keep temporarily but treat as archived:
-
-- `/skyline-siege.html`
-- `/ritual-runner.html`
-- `/signal-bloom.html`
-
-These should remain:
-
-- `noindex`
+These were removed during the Desktop repo cleanup after they stopped serving an active portfolio purpose.
 - out of main nav
 - out of homepage emphasis
 
