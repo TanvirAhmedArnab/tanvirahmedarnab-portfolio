@@ -27,10 +27,8 @@
       min-height: 100vh;
       font-family: "Sora", "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 50% 14%, rgba(242, 242, 242, 0.12) 0%, rgba(191, 191, 191, 0.1) 10%, rgba(115, 115, 115, 0.2) 24%, rgba(38, 38, 38, 0.78) 48%, #0D0D0D 76%),
-        radial-gradient(circle at 18% 24%, rgba(191, 191, 191, 0.08), transparent 24%),
-        radial-gradient(circle at 82% 20%, rgba(191, 191, 191, 0.06), transparent 22%),
-        linear-gradient(180deg, #262626 0%, #0D0D0D 36%, #0D0D0D 100%);
+        radial-gradient(circle at 50% 10%, rgba(38, 38, 38, 0.14), transparent 26%),
+        linear-gradient(180deg, #0D0D0D 0%, #0D0D0D 100%);
     }
 
     img {
@@ -192,9 +190,9 @@
       position: absolute;
       left: 50%;
       right: auto;
-      bottom: clamp(31rem, 56vw, 43rem);
+      bottom: clamp(12rem, 18vw, 18rem);
       z-index: 1;
-      width: min(calc(100% - 3rem), 1260px);
+      width: min(calc(100% - 3rem), 1120px);
       transform: translateX(-50%);
       display: grid;
       gap: 1.2rem;
@@ -212,7 +210,7 @@
 
     .music-copy-shell p {
       margin: 0;
-      max-width: 78rem;
+      max-width: 62rem;
       color: #BFBFBF;
       font-size: clamp(0.94rem, 1.12vw, 1.02rem);
       line-height: 1.72;
@@ -225,8 +223,10 @@
     }
 
     .music-collab {
-      display: grid;
-      gap: 0.7rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.9rem 1rem;
       padding-top: 0.45rem;
     }
 
@@ -246,6 +246,7 @@
       min-height: 3.2rem;
       width: fit-content;
       padding: 0.85rem 1.2rem;
+      margin: 0;
       border-radius: 0.9rem;
       border: 1px solid rgba(191, 191, 191, 0.24);
       background: rgba(13, 13, 13, 0.7);
@@ -266,7 +267,7 @@
       position: relative;
       z-index: 1;
       width: min(calc(100% - 2.5rem), 1260px);
-      margin: -39rem auto 4rem;
+      margin: clamp(-18rem, -14vw, -9rem) auto 4rem;
       padding-bottom: 3rem;
     }
 
@@ -558,9 +559,64 @@
       color: #F2F2F2;
     }
 
+    @media (min-width: 1600px) {
+      .music-copy-shell {
+        bottom: clamp(34rem, 38vw, 42rem);
+        width: min(calc(100% - 2rem), 1320px);
+        gap: 0.9rem;
+      }
+
+      .music-copy-shell p {
+        max-width: 100%;
+        line-height: 1.58;
+      }
+
+      .music-sections {
+        width: min(calc(100% - 2rem), 1320px);
+        margin: -40.25rem auto 4rem;
+      }
+    }
+
+    @media (max-width: 1440px) {
+      .music-copy-shell {
+        bottom: clamp(9rem, 14vw, 13rem);
+        width: min(calc(100% - 2.5rem), 980px);
+      }
+
+      .music-copy-shell p {
+        max-width: 56rem;
+      }
+
+      .music-sections {
+        width: min(calc(100% - 2.5rem), 1120px);
+        margin: clamp(-12rem, -10vw, -6rem) auto 4rem;
+      }
+    }
+
+    @media (max-width: 1180px) {
+      .music-copy-shell {
+        bottom: clamp(5rem, 9vw, 8rem);
+        width: min(calc(100% - 2rem), 820px);
+      }
+
+      .music-copy-shell h1 {
+        font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+      }
+
+      .music-copy-shell p {
+        max-width: 46rem;
+        font-size: 0.95rem;
+      }
+
+      .music-sections {
+        width: min(calc(100% - 2rem), 980px);
+        margin: clamp(-5rem, -6vw, -2rem) auto 3rem;
+      }
+    }
+
     @media (max-width: 920px) {
       .music-hero::after {
-        inset: 38% 0 0 0;
+        inset: 48% 0 0 0;
       }
 
       .music-audio-panel {
@@ -572,7 +628,7 @@
         position: static;
         width: min(calc(100% - 2.5rem), 920px);
         margin: 0 auto;
-        padding: 1.75rem 0 3rem;
+        padding: 1.6rem 0 2.4rem;
         transform: none;
       }
 
@@ -602,6 +658,79 @@
 
       .site-nav a.is-current::after {
         bottom: -0.35rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .inner {
+        width: min(calc(100% - 1.4rem), 1480px);
+      }
+
+      .site-header .inner {
+        gap: 0.9rem;
+        min-height: auto;
+        padding: 0.9rem 0;
+      }
+
+      .brand {
+        gap: 0.7rem;
+      }
+
+      .brand-mark {
+        width: 2.3rem;
+        height: 2.3rem;
+      }
+
+      .brand-name {
+        font-size: 0.92rem;
+      }
+
+      .brand-role {
+        font-size: 0.64rem;
+        letter-spacing: 0.2em;
+      }
+
+      .site-nav {
+        gap: 0.75rem 1rem;
+      }
+
+      .site-nav a {
+        font-size: 0.88rem;
+      }
+
+      .music-copy-shell {
+        width: min(calc(100% - 1.4rem), 920px);
+      }
+
+      .music-copy-shell h1 {
+        font-size: 1.55rem;
+      }
+
+      .music-copy-shell p,
+      .music-collab-title {
+        font-size: 0.92rem;
+        line-height: 1.65;
+      }
+
+      .music-contact-button {
+        min-height: 2.95rem;
+        font-size: 0.95rem;
+      }
+
+      .music-sections {
+        width: min(calc(100% - 1.4rem), 920px);
+      }
+
+      .music-slider-panel {
+        padding: 1rem;
+      }
+
+      .music-panel-header h3 {
+        font-size: 1.35rem;
+      }
+
+      .music-player-frame {
+        min-height: 232px;
       }
     }
   </style>
