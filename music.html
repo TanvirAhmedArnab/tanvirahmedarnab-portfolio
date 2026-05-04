@@ -3,753 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Music page for Tanvir Ahmed Arnab covering drumming, current listening, and the heavier personal world behind the portfolio.">
   <meta name="theme-color" content="#0D0D0D">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://www.tanvirahmedarnab.com/music.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Music | Tanvir Ahmed Arnab">
+  <meta property="og:description" content="Music page for Tanvir Ahmed Arnab covering drumming, current listening, and the heavier personal world behind the portfolio.">
+  <meta property="og:url" content="https://www.tanvirahmedarnab.com/music.html">
+  <meta property="og:site_name" content="Tanvir Ahmed Arnab">
+  <meta property="og:image" content="https://www.tanvirahmedarnab.com/assets/social/og-site.jpg">
+  <meta property="og:image:alt" content="Monochrome social card for Tanvir Ahmed Arnab featuring the site name and the roles developer, musician, and writer.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Music | Tanvir Ahmed Arnab">
+  <meta name="twitter:description" content="Music page for Tanvir Ahmed Arnab covering drumming, current listening, and the heavier personal world behind the portfolio.">
+  <meta name="twitter:image" content="https://www.tanvirahmedarnab.com/assets/social/og-site.jpg">
+  <meta name="twitter:image:alt" content="Monochrome social card for Tanvir Ahmed Arnab featuring the site name and the roles developer, musician, and writer.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <title>Music | Tanvir Ahmed Arnab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      color-scheme: dark;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      min-height: 100%;
-    }
-
-    body {
-      min-height: 100vh;
-      font-family: "Sora", "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 50% 10%, rgba(38, 38, 38, 0.14), transparent 26%),
-        linear-gradient(180deg, #0D0D0D 0%, #0D0D0D 100%);
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      border-bottom: 1px solid rgba(115, 115, 115, 0.16);
-      background: rgba(13, 13, 13, 0.82);
-      backdrop-filter: blur(18px);
-    }
-
-    .inner {
-      width: min(calc(100% - 2.5rem), 1480px);
-      margin: 0 auto;
-    }
-
-    .site-header .inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      min-height: 4.75rem;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.95rem;
-    }
-
-    .brand-mark {
-      width: 2.9rem;
-      height: 2.9rem;
-      border-radius: 999px;
-      object-fit: cover;
-      filter: grayscale(1) brightness(0.92) contrast(1.06);
-    }
-
-    .brand-lockup {
-      display: grid;
-      gap: 0.16rem;
-    }
-
-    .brand-name {
-      color: #F2F2F2;
-      font-family: "Chakra Petch", "Sora", sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-
-    .brand-role {
-      color: #737373;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-    }
-
-    .site-nav {
-      display: flex;
-      align-items: center;
-      gap: 1.55rem;
-    }
-
-    .site-nav a {
-      position: relative;
-      color: #BFBFBF;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 160ms ease;
-    }
-
-    .site-nav a:hover,
-    .site-nav a:focus-visible {
-      color: #F2F2F2;
-    }
-
-    .site-nav a.is-current {
-      color: #F2F2F2;
-    }
-
-    .site-nav a.is-current::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -0.9rem;
-      height: 2px;
-      background: #F2F2F2;
-      border-radius: 999px;
-    }
-
-    .music-hero {
-      position: relative;
-      width: 100%;
-      isolation: isolate;
-    }
-
-    .music-hero img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .music-hero::after {
-      content: "";
-      position: absolute;
-      inset: 52% 0 0 0;
-      background: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(13, 13, 13, 0.42) 18%, rgba(13, 13, 13, 0.92) 56%, #0D0D0D 100%);
-      pointer-events: none;
-    }
-
-    .music-audio-panel {
-      position: absolute;
-      top: clamp(1rem, 2.5vw, 2rem);
-      right: clamp(1rem, 3vw, 2.25rem);
-      z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .music-audio-toggle {
-      min-height: 2.25rem;
-      padding: 0.42rem 0.82rem;
-      border: 1px solid rgba(191, 191, 191, 0.24);
-      border-radius: 999px;
-      background: rgba(13, 13, 13, 0.76);
-      color: #F2F2F2;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
-    }
-
-    .music-audio-toggle:hover,
-    .music-audio-toggle:focus-visible {
-      background: rgba(38, 38, 38, 0.94);
-      border-color: rgba(242, 242, 242, 0.78);
-      color: #F2F2F2;
-      outline: none;
-    }
-
-    .music-copy-shell {
-      position: absolute;
-      left: 50%;
-      right: auto;
-      bottom: clamp(12rem, 18vw, 18rem);
-      z-index: 1;
-      width: min(calc(100% - 3rem), 1120px);
-      transform: translateX(-50%);
-      display: grid;
-      gap: 1.2rem;
-    }
-
-    .music-copy-shell h1 {
-      margin: 0;
-      color: #F2F2F2;
-      font-family: "Chakra Petch", "Sora", sans-serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      line-height: 1.02;
-      letter-spacing: -0.02em;
-      text-shadow: 0 8px 20px rgba(13, 13, 13, 0.5);
-    }
-
-    .music-copy-shell p {
-      margin: 0;
-      max-width: 62rem;
-      color: #BFBFBF;
-      font-size: clamp(0.94rem, 1.12vw, 1.02rem);
-      line-height: 1.72;
-      text-shadow: 0 6px 16px rgba(13, 13, 13, 0.55);
-    }
-
-    .music-copy-shell em {
-      color: #F2F2F2;
-      font-style: italic;
-    }
-
-    .music-collab {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.9rem 1rem;
-      padding-top: 0.45rem;
-    }
-
-    .music-collab-title {
-      margin: 0;
-      color: #F2F2F2;
-      font-family: "Sora", "Segoe UI", sans-serif;
-      font-size: clamp(0.98rem, 1.15vw, 1.04rem);
-      font-weight: 600;
-      line-height: 1.72;
-    }
-
-    .music-contact-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 3.2rem;
-      width: fit-content;
-      padding: 0.85rem 1.2rem;
-      margin: 0;
-      border-radius: 0.9rem;
-      border: 1px solid rgba(191, 191, 191, 0.24);
-      background: rgba(13, 13, 13, 0.7);
-      color: #F2F2F2;
-      font-size: 1rem;
-      font-weight: 700;
-      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
-    }
-
-    .music-contact-button:hover,
-    .music-contact-button:focus-visible {
-      background: rgba(38, 38, 38, 0.92);
-      border-color: #F2F2F2;
-      color: #F2F2F2;
-    }
-
-    .music-sections {
-      position: relative;
-      z-index: 1;
-      width: min(calc(100% - 2.5rem), 1260px);
-      margin: clamp(-18rem, -14vw, -9rem) auto 4rem;
-      padding-bottom: 3rem;
-    }
-
-    .music-slider-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-bottom: 1rem;
-    }
-
-    .music-slider-tab {
-      min-height: 2.85rem;
-      padding: 0.72rem 1.05rem;
-      border: 1px solid rgba(191, 191, 191, 0.24);
-      border-radius: 999px;
-      background: rgba(13, 13, 13, 0.68);
-      color: #BFBFBF;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
-    }
-
-    .music-slider-tab:hover,
-    .music-slider-tab:focus-visible {
-      background: rgba(38, 38, 38, 0.92);
-      border-color: rgba(242, 242, 242, 0.82);
-      color: #F2F2F2;
-      outline: none;
-    }
-
-    .music-slider-tab.is-active {
-      background: rgba(38, 38, 38, 0.96);
-      border-color: rgba(242, 242, 242, 0.82);
-      color: #F2F2F2;
-      box-shadow: inset 0 0 0 1px rgba(242, 242, 242, 0.1);
-    }
-
-    .music-slider-stage {
-      position: relative;
-      overflow: hidden;
-      border-radius: 1.5rem;
-      border: 1px solid rgba(191, 191, 191, 0.16);
-      background:
-        linear-gradient(180deg, rgba(38, 38, 38, 0.42), rgba(13, 13, 13, 0.92)),
-        linear-gradient(90deg, rgba(242, 242, 242, 0.03) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(242, 242, 242, 0.03) 1px, transparent 1px);
-      background-size: auto, 3rem 3rem, 3rem 3rem;
-      box-shadow: 0 22px 64px rgba(0, 0, 0, 0.28);
-    }
-
-    .music-slider-panel {
-      display: none;
-      padding: 1.45rem;
-    }
-
-    .music-slider-panel.is-active {
-      display: block;
-      animation: fadePanel 220ms ease;
-    }
-
-    @keyframes fadePanel {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .music-panel-header {
-      display: grid;
-      gap: 0.35rem;
-      margin-bottom: 1rem;
-    }
-
-    .music-panel-label {
-      color: #737373;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.76rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .music-panel-header h3 {
-      margin: 0;
-      color: #F2F2F2;
-      font-family: "Chakra Petch", "Sora", sans-serif;
-      font-size: clamp(1.5rem, 2.4vw, 2.15rem);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-    }
-
-    .music-panel-header p {
-      margin: 0;
-      color: #BFBFBF;
-      font-size: 0.94rem;
-      line-height: 1.72;
-      max-width: 54rem;
-    }
-
-    .music-setup-grid,
-    .music-media-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .music-setup-card,
-    .music-media-card,
-    .music-playlist-card,
-    .music-playlist-list {
-      border: 1px solid rgba(191, 191, 191, 0.16);
-      border-radius: 1.2rem;
-      background: rgba(13, 13, 13, 0.76);
-      padding: 1.15rem;
-    }
-
-    .music-setup-card h4,
-    .music-media-card h4,
-    .music-playlist-list h4 {
-      margin: 0 0 0.55rem;
-      color: #F2F2F2;
-      font-family: "Chakra Petch", "Sora", sans-serif;
-      font-size: 1.04rem;
-      line-height: 1.2;
-    }
-
-    .music-setup-card p,
-    .music-media-card p {
-      margin: 0;
-      color: #BFBFBF;
-      font-size: 0.94rem;
-      line-height: 1.7;
-    }
-
-    .music-setup-list,
-    .music-media-list {
-      margin: 0.85rem 0 0;
-      padding-left: 1.1rem;
-      color: #BFBFBF;
-      display: grid;
-      gap: 0.5rem;
-      font-size: 0.94rem;
-      line-height: 1.65;
-    }
-
-    .music-setup-visual {
-      margin-bottom: 1rem;
-      border: 1px solid rgba(191, 191, 191, 0.16);
-      border-radius: 1.2rem;
-      background: rgba(13, 13, 13, 0.76);
-      padding: 1rem;
-    }
-
-    .music-setup-figure {
-      margin: 0;
-      overflow: hidden;
-      border-radius: 1rem;
-      background: #0D0D0D;
-    }
-
-    .music-setup-figure img {
-      width: 100%;
-      height: auto;
-    }
-
-    .music-spec-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .music-spec-card {
-      border: 1px solid rgba(191, 191, 191, 0.16);
-      border-radius: 1.2rem;
-      background: rgba(13, 13, 13, 0.76);
-      padding: 1.15rem;
-    }
-
-    .music-spec-card--wide {
-      grid-column: 1 / -1;
-    }
-
-    .music-spec-card h4 {
-      margin: 0 0 0.7rem;
-      color: #F2F2F2;
-      font-family: "Chakra Petch", "Sora", sans-serif;
-      font-size: 1.08rem;
-      line-height: 1.2;
-    }
-
-    .music-spec-card h5 {
-      margin: 0.95rem 0 0.4rem;
-      color: #F2F2F2;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .music-spec-card h5:first-of-type {
-      margin-top: 0;
-    }
-
-    .music-spec-card p {
-      margin: 0;
-      color: #BFBFBF;
-      font-size: 0.94rem;
-      line-height: 1.68;
-    }
-
-    .music-spec-list {
-      margin: 0;
-      padding-left: 1.1rem;
-      color: #BFBFBF;
-      display: grid;
-      gap: 0.42rem;
-      font-size: 0.94rem;
-      line-height: 1.65;
-    }
-
-    .music-playlist-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-      gap: 1rem;
-      align-items: start;
-    }
-
-    .music-player-caption {
-      margin: 0 0 0.8rem;
-      color: #BFBFBF;
-      font-size: 0.92rem;
-      line-height: 1.68;
-    }
-
-    .music-player-frame {
-      width: 100%;
-      min-height: 352px;
-      border: 0;
-      border-radius: 1rem;
-      background: #0D0D0D;
-    }
-
-    .music-track-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 0.42rem;
-    }
-
-    .music-track-item {
-      margin: 0;
-    }
-
-    .music-track-button {
-      width: 100%;
-      padding: 0.7rem 0.85rem;
-      border: 1px solid rgba(191, 191, 191, 0.12);
-      border-radius: 0.9rem;
-      background: rgba(13, 13, 13, 0.55);
-      color: #BFBFBF;
-      font: inherit;
-      font-size: 0.94rem;
-      line-height: 1.5;
-      text-align: left;
-      cursor: pointer;
-      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
-    }
-
-    .music-track-button:hover,
-    .music-track-button:focus-visible {
-      background: rgba(38, 38, 38, 0.92);
-      border-color: rgba(242, 242, 242, 0.24);
-      color: #F2F2F2;
-      outline: none;
-    }
-
-    .music-track-button.is-active {
-      background: rgba(38, 38, 38, 0.96);
-      border-color: rgba(242, 242, 242, 0.36);
-      color: #F2F2F2;
-    }
-
-    @media (min-width: 1600px) {
-      .music-copy-shell {
-        bottom: clamp(34rem, 38vw, 42rem);
-        width: min(calc(100% - 2rem), 1320px);
-        gap: 0.9rem;
-      }
-
-      .music-copy-shell p {
-        max-width: 100%;
-        line-height: 1.58;
-      }
-
-      .music-sections {
-        width: min(calc(100% - 2rem), 1320px);
-        margin: -40.25rem auto 4rem;
-      }
-    }
-
-    @media (max-width: 1440px) {
-      .music-copy-shell {
-        bottom: clamp(9rem, 14vw, 13rem);
-        width: min(calc(100% - 2.5rem), 980px);
-      }
-
-      .music-copy-shell p {
-        max-width: 56rem;
-      }
-
-      .music-sections {
-        width: min(calc(100% - 2.5rem), 1120px);
-        margin: clamp(-12rem, -10vw, -6rem) auto 4rem;
-      }
-    }
-
-    @media (max-width: 1180px) {
-      .music-copy-shell {
-        bottom: clamp(5rem, 9vw, 8rem);
-        width: min(calc(100% - 2rem), 820px);
-      }
-
-      .music-copy-shell h1 {
-        font-size: clamp(1.75rem, 3.2vw, 2.45rem);
-      }
-
-      .music-copy-shell p {
-        max-width: 46rem;
-        font-size: 0.95rem;
-      }
-
-      .music-sections {
-        width: min(calc(100% - 2rem), 980px);
-        margin: clamp(-5rem, -6vw, -2rem) auto 3rem;
-      }
-    }
-
-    @media (max-width: 920px) {
-      .music-hero::after {
-        inset: 48% 0 0 0;
-      }
-
-      .music-audio-panel {
-        top: 0.85rem;
-        right: 0.85rem;
-      }
-
-      .music-copy-shell {
-        position: static;
-        width: min(calc(100% - 2.5rem), 920px);
-        margin: 0 auto;
-        padding: 1.6rem 0 2.4rem;
-        transform: none;
-      }
-
-      .music-sections {
-        width: min(calc(100% - 2.5rem), 920px);
-        margin: 0 auto 3rem;
-      }
-
-      .music-setup-grid,
-      .music-media-grid,
-      .music-playlist-grid,
-      .music-spec-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .site-header .inner {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 1rem 0;
-      }
-
-      .site-nav {
-        flex-wrap: wrap;
-        gap: 0.9rem 1.2rem;
-      }
-
-      .site-nav a.is-current::after {
-        bottom: -0.35rem;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .inner {
-        width: min(calc(100% - 1.4rem), 1480px);
-      }
-
-      .site-header .inner {
-        gap: 0.9rem;
-        min-height: auto;
-        padding: 0.9rem 0;
-      }
-
-      .brand {
-        gap: 0.7rem;
-      }
-
-      .brand-mark {
-        width: 2.3rem;
-        height: 2.3rem;
-      }
-
-      .brand-name {
-        font-size: 0.92rem;
-      }
-
-      .brand-role {
-        font-size: 0.64rem;
-        letter-spacing: 0.2em;
-      }
-
-      .site-nav {
-        gap: 0.75rem 1rem;
-      }
-
-      .site-nav a {
-        font-size: 0.88rem;
-      }
-
-      .music-copy-shell {
-        width: min(calc(100% - 1.4rem), 920px);
-      }
-
-      .music-copy-shell h1 {
-        font-size: 1.55rem;
-      }
-
-      .music-copy-shell p,
-      .music-collab-title {
-        font-size: 0.92rem;
-        line-height: 1.65;
-      }
-
-      .music-contact-button {
-        min-height: 2.95rem;
-        font-size: 0.95rem;
-      }
-
-      .music-sections {
-        width: min(calc(100% - 1.4rem), 920px);
-      }
-
-      .music-slider-panel {
-        padding: 1rem;
-      }
-
-      .music-panel-header h3 {
-        font-size: 1.35rem;
-      }
-
-      .music-player-frame {
-        min-height: 232px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles/site.css">
+  <link rel="stylesheet" href="styles/music.css">
 </head>
-<body>
+<body class="music-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
     <div class="inner">
-      <a class="brand" href="index.html" aria-label="Tanvir Ahmed Arnab home">
-        <img class="brand-mark" src="assets/branding/taa-sigil-emblem.png" alt="">
+      <a class="brand brand--sigil" href="index.html" aria-label="Tanvir Ahmed Arnab home">
+        <img class="brand-mark brand-mark-sigil" src="assets/branding/taa-sigil-emblem.webp" alt="">
         <span class="brand-lockup">
           <span class="brand-name">Tanvir Ahmed Arnab</span>
-          <span class="brand-role">DEVELOPER / MUSICIAN / WRITER</span>
+          <span class="brand-role">developer / musician / writer</span>
         </span>
       </a>
 
-      <nav class="site-nav" aria-label="Primary">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
         <a href="portfolio.html">Portfolio</a>
         <a href="publication.html">Publication</a>
-        <a class="is-current" href="music.html">Music</a>
+        <a class="is-current" aria-current="page" href="music.html">Music</a>
         <a href="journal.html">Journal</a>
         <a href="my-world.html">My World</a>
         <a href="contact.html">Contact</a>
@@ -757,13 +57,13 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="music-hero" aria-label="Music page hero">
       <div class="music-audio-panel">
         <button class="music-audio-toggle" type="button" data-music-audio-toggle aria-pressed="false">Enable Sound</button>
       </div>
-      <img src="assets/music/music-page-bg.png" alt="Long-haired drummer playing a large drum kit in a monochrome heavy-metal atmosphere.">
-      <audio data-music-audio preload="auto" loop>
+      <img src="assets/music/music-page-bg.webp" alt="Long-haired drummer playing a large drum kit in a monochrome heavy-metal atmosphere." decoding="async" fetchpriority="high">
+      <audio data-music-audio preload="metadata" loop>
         <source src="assets/music/music-page-bg-sound.mp3" type="audio/mpeg">
       </audio>
       <div class="music-copy-shell">
@@ -794,7 +94,7 @@
 
           <div class="music-setup-visual">
             <figure class="music-setup-figure">
-              <img src="assets/music/my-drum-setup.png" alt="Top-view diagram of Tanvir Ahmed Arnab's Tama and Paiste black metal drum setup.">
+              <img src="assets/music/my-drum-setup.webp" alt="Top-view diagram of Tanvir Ahmed Arnab's Tama and Paiste black metal drum setup." loading="lazy" decoding="async">
             </figure>
           </div>
 
@@ -876,7 +176,7 @@
           </div>
         </section>
 
-        <section class="music-slider-panel" id="panel-rotation" role="tabpanel" aria-labelledby="tab-rotation" data-music-panel="rotation">
+        <section class="music-slider-panel" id="panel-rotation" role="tabpanel" aria-labelledby="tab-rotation" data-music-panel="rotation" hidden>
           <div class="music-panel-header">
             <h3>Thirteen songs that have been feeding my ears lately.</h3>
           </div>
@@ -884,31 +184,31 @@
           <div class="music-playlist-grid">
             <article class="music-playlist-card">
               <p class="music-player-caption">Choose a song from the list and it will load here.</p>
-              <iframe class="music-player-frame" src="https://open.spotify.com/embed/track/79rCZ7KrkgpT2k6wXVjxiL?utm_source=generator" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture" loading="lazy" title="Embedded music player" data-music-player></iframe>
+              <iframe class="music-player-frame" src="https://open.spotify.com/embed/track/79rCZ7KrkgpT2k6wXVjxiL?utm_source=generator" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Embedded music player" data-music-player></iframe>
             </article>
 
             <article class="music-playlist-list">
               <h4>13-song list</h4>
               <ol class="music-track-list">
-                <li class="music-track-item"><button class="music-track-button is-active" type="button" data-track-embed="https://open.spotify.com/embed/track/79rCZ7KrkgpT2k6wXVjxiL?utm_source=generator">Cradle of Filth — Nymphetamine</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0ic01l4KwKPiEkMMnNT5XG?utm_source=generator">Cryptopsy — The Pestilence That Walketh in Darkness</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/2MYdLzcBnDnk97PutLCRWP?utm_source=generator">Behemoth — Conquer All</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/6qHI9eKtpdWLpfcftkykCg?utm_source=generator">Rammstein — Mein Herz Brennt</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/4Tg06Sex4LzwcgVdfRrHlp?theme=0">Deathstars — No Light</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/5A5ixwUtbW01F4vFDYKRjS?utm_source=generator">Marilyn Manson — Third Day of a Seven Day Binge</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/5ceYVTBWOXrxuwzkrkS4ob?utm_source=generator">Sentenced — Killing Me Killing You</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0gmbgwZ8iqyMPmXefof8Yf?utm_source=generator">Nickelback — How You Remind Me</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0M955bMOoilikPXwKLYpoi?utm_source=generator">Three Days Grace — I Hate Everything About You</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/album/7pcT84mVo6uuy0m2Xkpcwx?theme=0">Dying Fetus — Your Treachery Will Die with You</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/7kozeGeawfP7IEEL6dddrM?theme=0">Kataklysm — Push the Venom</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/0iGkBvuI18nxqJR8Ipg1cu?theme=0">Einherjer — Ironbound</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0m6fGE8vJepX0AeiFVXb9A?utm_source=generator">Slayer — Bloodline</button></li>
+                <li class="music-track-item"><button class="music-track-button is-active" type="button" data-track-embed="https://open.spotify.com/embed/track/79rCZ7KrkgpT2k6wXVjxiL?utm_source=generator">Cradle of Filth &mdash; Nymphetamine</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0ic01l4KwKPiEkMMnNT5XG?utm_source=generator">Cryptopsy &mdash; The Pestilence That Walketh in Darkness</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/2MYdLzcBnDnk97PutLCRWP?utm_source=generator">Behemoth &mdash; Conquer All</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/6qHI9eKtpdWLpfcftkykCg?utm_source=generator">Rammstein &mdash; Mein Herz Brennt</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/4Tg06Sex4LzwcgVdfRrHlp?theme=0">Deathstars &mdash; No Light</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/5A5ixwUtbW01F4vFDYKRjS?utm_source=generator">Marilyn Manson &mdash; Third Day of a Seven Day Binge</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/5ceYVTBWOXrxuwzkrkS4ob?utm_source=generator">Sentenced &mdash; Killing Me Killing You</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0gmbgwZ8iqyMPmXefof8Yf?utm_source=generator">Nickelback &mdash; How You Remind Me</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0M955bMOoilikPXwKLYpoi?utm_source=generator">Three Days Grace &mdash; I Hate Everything About You</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/album/7pcT84mVo6uuy0m2Xkpcwx?theme=0">Dying Fetus &mdash; Your Treachery Will Die with You</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/7kozeGeawfP7IEEL6dddrM?theme=0">Kataklysm &mdash; Push the Venom</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/0iGkBvuI18nxqJR8Ipg1cu?theme=0">Einherjer &mdash; Ironbound</button></li>
+                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0m6fGE8vJepX0AeiFVXb9A?utm_source=generator">Slayer &mdash; Bloodline</button></li>
               </ol>
             </article>
           </div>
         </section>
 
-        <section class="music-slider-panel" id="panel-media" role="tabpanel" aria-labelledby="tab-media" data-music-panel="media">
+        <section class="music-slider-panel" id="panel-media" role="tabpanel" aria-labelledby="tab-media" data-music-panel="media" hidden>
           <div class="music-panel-header">
             <h3>Content will be added soon.</h3>
           </div>
@@ -928,138 +228,28 @@
       </div>
     </section>
   </main>
+  <footer class="site-footer">
+    <div class="inner footer-content footer-content-strong">
+      <div class="footer-stack">
+        <span class="footer-name">Tanvir Ahmed Arnab</span>
+        <span class="footer-role">developer / musician / writer</span>
+      </div>
+      <div class="footer-links">
+        <a class="inline-link" href="index.html">Home</a>
+        <a class="inline-link" href="portfolio.html">Portfolio</a>
+        <a class="inline-link" href="publication.html">Publication</a>
+        <a class="inline-link" href="music.html">Music</a>
+        <a class="inline-link" href="journal.html">Journal</a>
+        <a class="inline-link" href="my-world.html">My World</a>
+        <a class="inline-link" href="contact.html">Contact</a>
+      </div>
+      <p class="footer-year"><span id="current-year"></span></p>
+    </div>
+  </footer>
 
-  <script>
-    (() => {
-      const audio = document.querySelector('[data-music-audio]');
-      const toggle = document.querySelector('[data-music-audio-toggle]');
-      if (!audio || !toggle) return;
-
-      const storageKey = 'taa-music-page-sound';
-
-      const syncToggle = () => {
-        const isPlaying = !audio.paused;
-        toggle.textContent = isPlaying ? 'Sound Off' : 'Enable Sound';
-        toggle.setAttribute('aria-pressed', String(isPlaying));
-      };
-
-      const playAudio = async (rememberPreference) => {
-        try {
-          audio.volume = 0.55;
-          await audio.play();
-          if (rememberPreference) {
-            localStorage.setItem(storageKey, 'enabled');
-          }
-        } catch {
-          if (rememberPreference) {
-            localStorage.setItem(storageKey, 'blocked');
-          }
-        } finally {
-          syncToggle();
-        }
-      };
-
-      const pauseAudio = () => {
-        audio.pause();
-        localStorage.setItem(storageKey, 'disabled');
-        syncToggle();
-      };
-
-      toggle.addEventListener('click', () => {
-        if (audio.paused) {
-          playAudio(true);
-        } else {
-          pauseAudio();
-        }
-      });
-
-      const savedPreference = localStorage.getItem(storageKey);
-      if (savedPreference === 'enabled') {
-        playAudio(false);
-      } else if (savedPreference !== 'disabled') {
-        playAudio(false);
-      } else {
-        syncToggle();
-      }
-
-      audio.addEventListener('play', syncToggle);
-      audio.addEventListener('pause', syncToggle);
-      syncToggle();
-    })();
-
-    (() => {
-      const triggers = Array.from(document.querySelectorAll('[data-music-panel-trigger]'));
-      const panels = Array.from(document.querySelectorAll('[data-music-panel]'));
-      const stage = document.querySelector('[data-music-slider-stage]');
-      if (!triggers.length || !panels.length || !stage) return;
-
-      let activeIndex = 0;
-      let intervalId = null;
-
-      const setActivePanel = (index) => {
-        activeIndex = index;
-
-        triggers.forEach((trigger, triggerIndex) => {
-          const isActive = triggerIndex === index;
-          trigger.classList.toggle('is-active', isActive);
-          trigger.setAttribute('aria-selected', String(isActive));
-          trigger.tabIndex = isActive ? 0 : -1;
-        });
-
-        panels.forEach((panel, panelIndex) => {
-          const isActive = panelIndex === index;
-          panel.classList.toggle('is-active', isActive);
-        });
-      };
-
-      const startRotation = () => {
-        clearInterval(intervalId);
-        intervalId = window.setInterval(() => {
-          const nextIndex = (activeIndex + 1) % panels.length;
-          setActivePanel(nextIndex);
-        }, 9000);
-      };
-
-      triggers.forEach((trigger, index) => {
-        trigger.addEventListener('click', () => {
-          setActivePanel(index);
-          startRotation();
-        });
-      });
-
-      stage.addEventListener('mouseenter', () => {
-        clearInterval(intervalId);
-      });
-
-      stage.addEventListener('mouseleave', () => {
-        startRotation();
-      });
-
-      setActivePanel(0);
-      startRotation();
-    })();
-
-    (() => {
-      const player = document.querySelector('[data-music-player]');
-      const trackButtons = Array.from(document.querySelectorAll('[data-track-embed]'));
-      if (!player || !trackButtons.length) return;
-
-      const setActiveTrack = (button) => {
-        const embed = button.getAttribute('data-track-embed');
-        if (!embed) return;
-
-        player.src = embed;
-        trackButtons.forEach((trackButton) => {
-          trackButton.classList.toggle('is-active', trackButton === button);
-        });
-      };
-
-      trackButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          setActiveTrack(button);
-        });
-      });
-    })();
-  </script>
+  <script src="script.js"></script>
+  <script src="scripts/music.js"></script>
 </body>
 </html>
+
+

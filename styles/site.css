@@ -1,28 +1,28 @@
 :root {
   color-scheme: dark;
-  --bg: #05060f;
-  --bg-deep: #090b18;
-  --bg-elevated: #12162b;
-  --bg-soft: #1a1f3d;
-  --surface: rgba(15, 18, 38, 0.82);
-  --surface-strong: rgba(11, 13, 29, 0.92);
-  --surface-soft: rgba(24, 29, 59, 0.8);
-  --text: #f6f8fc;
-  --text-soft: #c7d0e0;
-  --text-muted: #8793ab;
-  --line: rgba(117, 155, 255, 0.18);
-  --line-strong: rgba(117, 155, 255, 0.38);
-  --accent: #67d7ff;
-  --accent-soft: #d2f1ff;
-  --accent-strong: #ffb25f;
-  --accent-hot: #ff5fa7;
-  --accent-violet: #8a73ff;
-  --shadow: 0 24px 70px rgba(0, 0, 0, 0.48);
-  --shadow-soft: 0 14px 34px rgba(0, 0, 0, 0.28);
-  --radius: 18px;
+  --bg: #0d0d0d;
+  --bg-deep: #090909;
+  --bg-elevated: #151515;
+  --bg-soft: #202020;
+  --surface: rgba(18, 18, 18, 0.86);
+  --surface-strong: rgba(15, 15, 15, 0.94);
+  --surface-soft: rgba(26, 26, 26, 0.82);
+  --text: #f2f2f2;
+  --text-soft: #bfbfbf;
+  --text-muted: #737373;
+  --line: rgba(191, 191, 191, 0.16);
+  --line-strong: rgba(242, 242, 242, 0.28);
+  --accent: #f2f2f2;
+  --accent-soft: #f2f2f2;
+  --accent-strong: #d9d9d9;
+  --accent-hot: #f2f2f2;
+  --accent-violet: #cccccc;
+  --shadow: 0 24px 64px rgba(0, 0, 0, 0.34);
+  --shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.24);
+  --radius: 24px;
   --radius-tight: 10px;
-  --content-width: 1220px;
-  --visual-width: 1320px;
+  --content-width: 1260px;
+  --visual-width: 1480px;
 }
 
 *,
@@ -41,10 +41,8 @@ body {
   line-height: 1.7;
   color: var(--text);
   background:
-    radial-gradient(circle at 16% 16%, rgba(103, 215, 255, 0.13), transparent 24%),
-    radial-gradient(circle at 84% 14%, rgba(138, 115, 255, 0.12), transparent 24%),
-    radial-gradient(circle at 72% 78%, rgba(255, 95, 167, 0.08), transparent 20%),
-    linear-gradient(180deg, #0a0f22 0%, #05060f 42%, #04050d 100%);
+    radial-gradient(circle at 50% -8%, rgba(242, 242, 242, 0.08), transparent 24%),
+    linear-gradient(180deg, #171717 0%, #0d0d0d 42%, #090909 100%);
   position: relative;
   overflow-x: hidden;
 }
@@ -60,20 +58,19 @@ body::after {
 
 body::before {
   background:
-    radial-gradient(circle at 30% 30%, rgba(103, 215, 255, 0.13), transparent 0 24%),
-    radial-gradient(circle at 74% 24%, rgba(255, 95, 167, 0.1), transparent 0 18%),
-    radial-gradient(circle at 50% 86%, rgba(255, 178, 95, 0.11), transparent 0 20%),
-    radial-gradient(circle at 86% 74%, rgba(138, 115, 255, 0.12), transparent 0 18%);
-  filter: blur(8px);
+    radial-gradient(circle at 24% 22%, rgba(242, 242, 242, 0.04), transparent 0 18%),
+    radial-gradient(circle at 74% 18%, rgba(242, 242, 242, 0.035), transparent 0 16%),
+    radial-gradient(circle at 50% 82%, rgba(242, 242, 242, 0.03), transparent 0 18%);
+  filter: blur(20px);
   animation: drift-glow 16s ease-in-out infinite alternate;
 }
 
 body::after {
   z-index: -1;
-  opacity: 0.34;
+  opacity: 0.2;
   background:
-    linear-gradient(rgba(103, 215, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(103, 215, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(242, 242, 242, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 242, 242, 0.03) 1px, transparent 1px),
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 34%);
   background-size: 72px 72px, 72px 72px, auto;
   animation: drift-grid 20s linear infinite;
@@ -105,7 +102,7 @@ h3 {
 code {
   padding: 0.1rem 0.35rem;
   border-radius: 0.35rem;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--accent-soft);
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.95em;
@@ -115,13 +112,25 @@ ul {
   padding-left: 1.2rem;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .skip-link {
   position: absolute;
   left: 1rem;
   top: -3rem;
   padding: 0.75rem 1rem;
   background: var(--accent);
-  color: #041019;
+  color: #0d0d0d;
   border-radius: var(--radius-tight);
   z-index: 30;
   text-decoration: none;
@@ -132,23 +141,8 @@ ul {
 }
 
 .inner {
-  width: min(calc(100% - 2rem), var(--content-width));
+  width: min(calc(100% - 2.5rem), var(--content-width));
   margin: 0 auto;
-}
-
-.site-header .inner,
-.hero .inner,
-#featured .inner,
-#work .inner,
-#skills .inner,
-#achievements .inner,
-#contact .inner,
-.site-footer .inner {
-  width: min(calc(100% - 2.5rem), var(--visual-width));
-}
-
-.project-page .inner {
-  width: min(calc(100% - 2.5rem), var(--visual-width));
 }
 
 .site-header {
@@ -156,48 +150,52 @@ ul {
   top: 0;
   z-index: 20;
   backdrop-filter: blur(18px);
-  background: rgba(5, 7, 16, 0.78);
+  background: rgba(13, 13, 13, 0.82);
   border-bottom: 1px solid var(--line);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
 }
 
 .site-header .inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  min-height: 5rem;
+  gap: 1.5rem;
+  min-height: 4.75rem;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 0.95rem;
   text-decoration: none;
 }
 
 .brand-mark {
-  width: 2.65rem;
-  height: 2.65rem;
+  width: 2.9rem;
+  height: 2.9rem;
   flex: 0 0 auto;
-  filter: drop-shadow(0 0 14px rgba(125, 230, 255, 0.18));
+  border-radius: 999px;
+  object-fit: cover;
+  filter: grayscale(1) brightness(0.92) contrast(1.06);
 }
 
 .brand-lockup {
   display: grid;
-  gap: 0.12rem;
+  gap: 0.16rem;
 }
 
 .brand-name {
+  color: var(--text);
+  font-family: "Chakra Petch", "Sora", sans-serif;
   font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
 
 .brand-role {
   color: var(--text-muted);
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   font-family: "IBM Plex Mono", monospace;
 }
@@ -205,23 +203,16 @@ ul {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.55rem;
 }
 
 .site-nav a {
+  position: relative;
   color: var(--text-soft);
   text-decoration: none;
   font-size: 0.95rem;
-}
-
-.site-nav .nav-resume-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.2rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
-  border: 1px solid rgba(103, 215, 255, 0.18);
-  background: rgba(10, 14, 25, 0.72);
+  font-weight: 500;
+  transition: color 160ms ease;
 }
 
 .inline-link {
@@ -245,7 +236,7 @@ ul {
   display: none;
   border: 1px solid var(--line);
   border-radius: var(--radius-tight);
-  background: rgba(8, 13, 22, 0.74);
+  background: rgba(18, 18, 18, 0.76);
   color: var(--text);
   padding: 0.65rem 0.9rem;
   font: inherit;
@@ -272,42 +263,38 @@ ul {
 
 .hero::before {
   background:
-    linear-gradient(125deg, rgba(5, 8, 18, 0.96) 0%, rgba(6, 9, 19, 0.78) 40%, rgba(6, 8, 18, 0.94) 100%),
-    radial-gradient(circle at 18% 20%, rgba(103, 215, 255, 0.24), transparent 24%),
-    radial-gradient(circle at 78% 24%, rgba(138, 115, 255, 0.2), transparent 20%),
-    radial-gradient(circle at 64% 74%, rgba(255, 95, 167, 0.12), transparent 20%),
-    linear-gradient(rgba(103, 215, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(103, 215, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(180deg, #111735 0%, #06090f 100%);
+    linear-gradient(135deg, rgba(15, 15, 15, 0.96) 0%, rgba(18, 18, 18, 0.84) 46%, rgba(10, 10, 10, 0.96) 100%),
+    radial-gradient(circle at 18% 20%, rgba(242, 242, 242, 0.06), transparent 22%),
+    radial-gradient(circle at 78% 24%, rgba(242, 242, 242, 0.05), transparent 18%),
+    linear-gradient(rgba(242, 242, 242, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 242, 242, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, #151515 0%, #0d0d0d 100%);
   background-size: auto, auto, auto, auto, 54px 54px, 54px 54px, auto;
 }
 
 .project-hero::before {
   background:
-    linear-gradient(135deg, rgba(5, 9, 16, 0.95) 0%, rgba(5, 9, 16, 0.82) 45%, rgba(5, 9, 16, 0.95) 100%),
+    linear-gradient(135deg, rgba(12, 12, 12, 0.96) 0%, rgba(14, 14, 14, 0.86) 45%, rgba(12, 12, 12, 0.96) 100%),
     var(--hero-image) center / cover no-repeat;
 }
 
 .project-hero--tracker::before {
   background:
-    linear-gradient(135deg, rgba(7, 10, 21, 0.96) 0%, rgba(10, 14, 28, 0.84) 46%, rgba(7, 10, 21, 0.96) 100%),
-    radial-gradient(circle at 26% 30%, rgba(103, 215, 255, 0.18), transparent 22%),
-    radial-gradient(circle at 76% 28%, rgba(255, 95, 167, 0.12), transparent 18%),
-    linear-gradient(rgba(103, 215, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(103, 215, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(180deg, #111735 0%, #06090f 100%);
+    linear-gradient(135deg, rgba(12, 12, 12, 0.96) 0%, rgba(17, 17, 17, 0.86) 46%, rgba(12, 12, 12, 0.96) 100%),
+    radial-gradient(circle at 26% 30%, rgba(242, 242, 242, 0.06), transparent 20%),
+    linear-gradient(rgba(242, 242, 242, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 242, 242, 0.025) 1px, transparent 1px),
+    linear-gradient(180deg, #161616 0%, #0d0d0d 100%);
   background-size: auto, auto, 42px 42px, 42px 42px, auto;
 }
 
 .project-hero--book::before {
   background:
-    linear-gradient(135deg, rgba(7, 10, 20, 0.96) 0%, rgba(11, 13, 26, 0.86) 46%, rgba(7, 10, 20, 0.96) 100%),
-    radial-gradient(circle at 16% 18%, rgba(103, 215, 255, 0.16), transparent 24%),
-    radial-gradient(circle at 84% 18%, rgba(255, 95, 167, 0.12), transparent 18%),
-    radial-gradient(circle at 72% 78%, rgba(255, 178, 95, 0.12), transparent 18%),
-    linear-gradient(rgba(103, 215, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(103, 215, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(180deg, #0e1430 0%, #05070c 100%);
+    linear-gradient(135deg, rgba(12, 12, 12, 0.96) 0%, rgba(17, 17, 17, 0.86) 46%, rgba(12, 12, 12, 0.96) 100%),
+    radial-gradient(circle at 16% 18%, rgba(242, 242, 242, 0.05), transparent 22%),
+    linear-gradient(rgba(242, 242, 242, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 242, 242, 0.025) 1px, transparent 1px),
+    linear-gradient(180deg, #161616 0%, #0d0d0d 100%);
   background-size: auto, auto, auto, 42px 42px, 42px 42px, auto;
 }
 
@@ -410,7 +397,7 @@ ul {
 .project-label,
 .meta-label,
 .panel-label {
-  color: #ffd4a1;
+  color: var(--text-muted);
   font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -426,10 +413,7 @@ ul {
 .project-hero h1 {
   max-width: 12ch;
   font-size: clamp(3rem, 6vw, 5.4rem);
-  background: linear-gradient(135deg, #ffffff 0%, #c9f3ff 36%, #94a9ff 72%, #ffb5d2 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--text);
 }
 
 .hero-copy {
@@ -458,8 +442,8 @@ ul {
   min-height: 2rem;
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
-  border: 1px solid rgba(103, 215, 255, 0.24);
-  background: linear-gradient(135deg, rgba(12, 18, 34, 0.84) 0%, rgba(25, 18, 44, 0.82) 100%);
+  border: 1px solid rgba(191, 191, 191, 0.24);
+  background: rgba(18, 18, 18, 0.72);
   color: var(--text-soft);
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.78rem;
@@ -481,13 +465,13 @@ ul {
 }
 
 .project-status-live {
-  border-color: rgba(103, 215, 255, 0.48);
-  color: #d1f8ff;
+  border-color: rgba(242, 242, 242, 0.36);
+  color: var(--text);
 }
 
 .project-status-warm {
-  border-color: rgba(255, 178, 95, 0.38);
-  color: #ffd4aa;
+  border-color: rgba(191, 191, 191, 0.28);
+  color: var(--text);
 }
 
 .site-note {
@@ -495,9 +479,9 @@ ul {
   margin-top: 1rem;
   padding: 0.75rem 0.95rem;
   border-radius: var(--radius-tight);
-  border: 1px solid rgba(255, 182, 110, 0.24);
-  background: rgba(12, 17, 29, 0.82);
-  color: #ffd6b5;
+  border: 1px solid rgba(191, 191, 191, 0.2);
+  background: rgba(18, 18, 18, 0.82);
+  color: var(--text-soft);
   font-size: 0.94rem;
 }
 
@@ -539,9 +523,9 @@ ul {
 .button-primary,
 .button-secondary,
 .button-ghost {
-  background: linear-gradient(135deg, rgba(10, 16, 30, 0.9) 0%, rgba(20, 18, 38, 0.92) 100%);
+  background: rgba(18, 18, 18, 0.78);
   color: var(--text);
-  border-color: rgba(127, 159, 255, 0.22);
+  border-color: rgba(191, 191, 191, 0.24);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
 }
 
@@ -551,16 +535,16 @@ ul {
 .button-secondary:focus-visible,
 .button-ghost:hover,
 .button-ghost:focus-visible {
-  border-color: rgba(103, 215, 255, 0.58);
-  background: linear-gradient(135deg, rgba(18, 28, 48, 0.96) 0%, rgba(34, 23, 57, 0.96) 100%);
-  box-shadow: 0 16px 34px rgba(103, 215, 255, 0.14);
+  border-color: rgba(242, 242, 242, 0.82);
+  background: rgba(38, 38, 38, 0.94);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
 }
 
 .button-primary:active,
 .button-secondary:active,
 .button-ghost:active {
-  border-color: rgba(255, 115, 175, 0.44);
-  box-shadow: 0 10px 24px rgba(255, 115, 175, 0.12);
+  border-color: rgba(242, 242, 242, 0.4);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 .signal-panel,
@@ -570,7 +554,10 @@ ul {
 .content-block,
 .contact-console,
 .book-cover-card,
-.meta-grid div {
+.meta-grid div,
+.hero-proof-card,
+.resume-card,
+.error-console {
   position: relative;
   overflow: hidden;
   background: var(--surface);
@@ -585,14 +572,17 @@ ul {
 .skill-group::before,
 .content-block::before,
 .contact-console::before,
-.book-cover-card::before {
+.book-cover-card::before,
+.hero-proof-card::before,
+.resume-card::before,
+.error-console::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 28%),
-    linear-gradient(90deg, rgba(103, 215, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(rgba(103, 215, 255, 0.08) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(242, 242, 242, 0.025) 1px, transparent 1px),
+    linear-gradient(rgba(242, 242, 242, 0.025) 1px, transparent 1px);
   background-size: auto, 48px 48px, 48px 48px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 88%);
   pointer-events: none;
@@ -606,9 +596,8 @@ ul {
   min-height: 100%;
   padding: 1.3rem;
   background:
-    radial-gradient(circle at top right, rgba(103, 215, 255, 0.18), transparent 30%),
-    radial-gradient(circle at left bottom, rgba(255, 95, 167, 0.12), transparent 24%),
-    linear-gradient(145deg, rgba(10, 15, 30, 0.94) 0%, rgba(22, 16, 42, 0.9) 100%);
+    radial-gradient(circle at top right, rgba(242, 242, 242, 0.05), transparent 24%),
+    linear-gradient(145deg, rgba(14, 14, 14, 0.96) 0%, rgba(18, 18, 18, 0.9) 100%);
 }
 
 .signal-panel::after,
@@ -617,13 +606,16 @@ ul {
 .skill-group::after,
 .content-block::after,
 .contact-console::after,
-.book-cover-card::after {
+.book-cover-card::after,
+.hero-proof-card::after,
+.resume-card::after,
+.error-console::after {
   content: "";
   position: absolute;
   inset: 0 auto auto 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-violet) 55%, var(--accent-hot) 100%);
+  background: linear-gradient(90deg, rgba(242, 242, 242, 0.92) 0%, rgba(191, 191, 191, 0.72) 100%);
   opacity: 0.9;
   pointer-events: none;
 }
@@ -666,9 +658,8 @@ ul {
   align-content: start;
   padding: 1.35rem;
   background:
-    radial-gradient(circle at top right, rgba(255, 178, 95, 0.16), transparent 28%),
-    radial-gradient(circle at left bottom, rgba(103, 215, 255, 0.14), transparent 24%),
-    linear-gradient(145deg, rgba(9, 13, 27, 0.95) 0%, rgba(19, 20, 43, 0.92) 100%);
+    radial-gradient(circle at top right, rgba(242, 242, 242, 0.05), transparent 24%),
+    linear-gradient(145deg, rgba(14, 14, 14, 0.96) 0%, rgba(18, 18, 18, 0.92) 100%);
 }
 
 .book-cover-art {
@@ -676,8 +667,8 @@ ul {
   aspect-ratio: 2 / 3;
   object-fit: cover;
   border-radius: calc(var(--radius) - 4px);
-  border: 1px solid rgba(103, 215, 255, 0.22);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+  border: 1px solid rgba(191, 191, 191, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
 }
 
 .signal-copy {
@@ -1549,9 +1540,7 @@ ul {
 }
 
 .footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
   gap: 1rem;
   color: var(--text-muted);
   border-top: 1px solid var(--line);
@@ -1913,6 +1902,7 @@ ul {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: start;
+  gap: 1rem 1.5rem;
 }
 
 .footer-stack {
@@ -1964,66 +1954,6 @@ ul {
 
 .resume-card .stacked-links {
   margin-top: 1rem;
-}
-
-body.recruiter-view {
-  background:
-    linear-gradient(180deg, #0d1120 0%, #0b1020 45%, #0a0e1a 100%);
-}
-
-body.recruiter-view::before,
-body.recruiter-view::after {
-  opacity: 0.12;
-  animation: none;
-  filter: none;
-}
-
-body.recruiter-view .hero::before {
-  background:
-    linear-gradient(180deg, rgba(9, 12, 23, 0.96) 0%, rgba(10, 12, 22, 0.92) 100%);
-}
-
-body.recruiter-view .hero-shell {
-  grid-template-columns: 1fr;
-}
-
-body.recruiter-view .hero-visual,
-body.recruiter-view .mission-route,
-body.recruiter-view .mission-legend {
-  display: none;
-}
-
-body.recruiter-view .signal-panel::before,
-body.recruiter-view .project-card-link::before,
-body.recruiter-view .proof-grid article::before,
-body.recruiter-view .skill-group::before,
-body.recruiter-view .content-block::before,
-body.recruiter-view .contact-console::before,
-body.recruiter-view .book-cover-card::before,
-body.recruiter-view .skill-map-panel::before {
-  opacity: 0.18;
-}
-
-body.recruiter-view .project-card-link,
-body.recruiter-view .featured-mission-shell,
-body.recruiter-view .hero-proof-card,
-body.recruiter-view .skill-map-panel,
-body.recruiter-view .skill-group,
-body.recruiter-view .content-block,
-body.recruiter-view .contact-console,
-body.recruiter-view .achievement-card,
-body.recruiter-view .resume-card {
-  background: rgba(13, 17, 30, 0.92);
-  box-shadow: var(--shadow-soft);
-}
-
-body.recruiter-view .site-note,
-body.recruiter-view .signal-state {
-  color: var(--text-muted);
-}
-
-body.recruiter-view .hero-helper-text {
-  color: var(--text-soft);
 }
 
 .project-page .section {
@@ -2999,7 +2929,7 @@ body.landing-page {
   width: 100%;
   height: 2px;
   margin-top: 0.35rem;
-  background: linear-gradient(90deg, var(--accent), var(--accent-hot));
+  background: var(--text);
   border-radius: 999px;
 }
 
@@ -3101,11 +3031,6 @@ body.landing-page {
   font-size: 0.84rem;
 }
 
-.site-footer-minimal {
-  border-top: 1px solid rgba(117, 155, 255, 0.12);
-  background: rgba(5, 7, 16, 0.58);
-}
-
 .section-page-main {
   padding-bottom: 2rem;
 }
@@ -3122,10 +3047,7 @@ body.landing-page {
 .section-page-hero h1 {
   max-width: 13ch;
   font-size: clamp(3.2rem, 6.2vw, 5.4rem);
-  background: linear-gradient(135deg, #ffffff 0%, #c9f3ff 34%, #94a9ff 70%, #ffb5d2 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--text);
 }
 
 .section-page .hero-copy {
@@ -3209,7 +3131,7 @@ body.landing-page::before {
   width: min(44rem, 72vw);
   height: min(44rem, 72vw);
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(64, 120, 255, 0.2) 0%, rgba(64, 120, 255, 0.06) 38%, transparent 72%);
+  background: radial-gradient(circle, rgba(242, 242, 242, 0.08) 0%, rgba(242, 242, 242, 0.03) 38%, transparent 72%);
 }
 
 body.landing-page::after {
@@ -3217,11 +3139,11 @@ body.landing-page::after {
   bottom: 10%;
   width: 18rem;
   height: 18rem;
-  background: radial-gradient(circle, rgba(255, 120, 182, 0.1) 0%, transparent 68%);
+  background: radial-gradient(circle, rgba(242, 242, 242, 0.06) 0%, transparent 68%);
 }
 
 .landing-page .site-header {
-  background: rgba(5, 7, 12, 0.76);
+  background: rgba(13, 13, 13, 0.82);
   backdrop-filter: blur(18px);
 }
 
@@ -3539,371 +3461,5 @@ body.landing-page::after {
 
   .orbit-inner {
     --badge-size: clamp(3.15rem, 11vw, 4rem);
-  }
-}
-
-.music-page {
-  --bg: #0D0D0D;
-  --bg-deep: #0D0D0D;
-  --bg-elevated: #262626;
-  --bg-soft: #262626;
-  --surface: rgba(13, 13, 13, 0.9);
-  --surface-strong: rgba(13, 13, 13, 0.96);
-  --surface-soft: rgba(38, 38, 38, 0.88);
-  --text: #F2F2F2;
-  --text-soft: #BFBFBF;
-  --text-muted: #737373;
-  --line: rgba(115, 115, 115, 0.24);
-  --line-strong: rgba(191, 191, 191, 0.34);
-  --accent: #F2F2F2;
-  --accent-soft: #F2F2F2;
-  --accent-strong: #BFBFBF;
-  --accent-hot: #737373;
-  --accent-violet: #737373;
-  background:
-    radial-gradient(circle at 50% 12%, #737373 0%, rgba(115, 115, 115, 0.28) 12%, rgba(38, 38, 38, 0.32) 28%, rgba(13, 13, 13, 0.92) 58%),
-    radial-gradient(circle at 20% 22%, rgba(191, 191, 191, 0.08), transparent 24%),
-    radial-gradient(circle at 80% 20%, rgba(191, 191, 191, 0.06), transparent 22%),
-    linear-gradient(180deg, #262626 0%, #0D0D0D 34%, #0D0D0D 100%);
-}
-
-.music-page::before {
-  display: none;
-}
-
-.music-page::after {
-  display: none;
-}
-
-.music-page .site-header {
-  background: rgba(13, 13, 13, 0.78);
-  border-bottom: 1px solid rgba(115, 115, 115, 0.16);
-  backdrop-filter: blur(18px);
-}
-
-.music-page .brand-mark-sigil {
-  box-shadow: none;
-  filter: grayscale(1) brightness(1.08) contrast(1.06);
-}
-
-.music-page .site-nav a.is-current::after {
-  background: #F2F2F2;
-}
-
-.music-page .button,
-.music-page .button:visited {
-  color: #F2F2F2;
-  background: rgba(13, 13, 13, 0.78);
-  border-color: rgba(191, 191, 191, 0.3);
-  box-shadow: none;
-}
-
-.music-page .button:hover,
-.music-page .button:focus-visible {
-  background: rgba(38, 38, 38, 0.92);
-  border-color: #F2F2F2;
-  color: #F2F2F2;
-}
-
-.music-hero {
-  position: relative;
-  min-height: clamp(48rem, 70vw, 62rem);
-  display: flex;
-  align-items: flex-end;
-  padding: 0;
-  overflow: hidden;
-  isolation: isolate;
-  background:
-    radial-gradient(circle at 50% 18%, #737373 0%, rgba(115, 115, 115, 0.18) 18%, rgba(38, 38, 38, 0.16) 36%, rgba(13, 13, 13, 0.92) 72%),
-    linear-gradient(180deg, #262626 0%, #0D0D0D 100%);
-}
-
-.music-hero-visual {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(13, 13, 13, 0.18) 0%, rgba(13, 13, 13, 0.08) 16%, rgba(13, 13, 13, 0.26) 40%, rgba(13, 13, 13, 0.84) 100%),
-    url("assets/music/drummer-hero.png");
-  background-position: center 8%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  filter: grayscale(1) contrast(1.03) brightness(0.93);
-}
-
-.music-hero-visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at center, transparent 42%, rgba(13, 13, 13, 0.22) 62%, rgba(13, 13, 13, 0.68) 82%, #0D0D0D 100%),
-    linear-gradient(90deg, #0D0D0D 0%, rgba(13, 13, 13, 0.74) 8%, rgba(13, 13, 13, 0.18) 20%, rgba(13, 13, 13, 0.12) 50%, rgba(13, 13, 13, 0.18) 80%, rgba(13, 13, 13, 0.74) 92%, #0D0D0D 100%),
-    linear-gradient(180deg, #0D0D0D 0%, rgba(13, 13, 13, 0.18) 10%, transparent 22%, transparent 70%, rgba(13, 13, 13, 0.58) 88%, #0D0D0D 100%);
-  pointer-events: none;
-}
-
-.music-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 52% 24%, rgba(242, 242, 242, 0.12), transparent 18%),
-    linear-gradient(180deg, rgba(13, 13, 13, 0.18) 0%, rgba(13, 13, 13, 0.06) 14%, rgba(13, 13, 13, 0.14) 30%, rgba(13, 13, 13, 0.82) 100%),
-    linear-gradient(90deg, rgba(13, 13, 13, 0.76) 0%, rgba(13, 13, 13, 0.28) 28%, rgba(13, 13, 13, 0.18) 58%, rgba(13, 13, 13, 0.54) 100%);
-  pointer-events: none;
-}
-
-.music-hero-inner {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  width: min(calc(100% - 3rem), 1480px);
-  min-height: clamp(48rem, 70vw, 62rem);
-  margin: 0 auto;
-  padding: clamp(6.5rem, 10vw, 8rem) 0 clamp(1.8rem, 4vw, 2.8rem);
-}
-
-.music-page .section-page-hero-inner {
-  gap: 1rem;
-}
-
-.music-hero-copy {
-  display: grid;
-  gap: 1.1rem;
-  width: min(100%, 86rem);
-  margin-top: auto;
-  padding-top: clamp(18rem, 30vw, 24rem);
-}
-
-.music-audio-panel {
-  position: absolute;
-  top: clamp(1rem, 2.5vw, 1.6rem);
-  right: clamp(1rem, 3vw, 2rem);
-  display: inline-flex;
-  align-items: center;
-  z-index: 2;
-}
-
-.music-page .proof-kicker {
-  color: #BFBFBF;
-}
-
-.music-page .section-page-hero h1 {
-  color: #F2F2F2;
-  background: none;
-  -webkit-background-clip: initial;
-  background-clip: initial;
-  text-shadow: 0 10px 28px rgba(13, 13, 13, 0.46);
-  align-self: start;
-  max-width: none;
-  font-size: clamp(2.4rem, 4.6vw, 4.1rem);
-}
-
-.music-page .hero-copy {
-  max-width: 46rem;
-  color: #BFBFBF;
-}
-
-.music-intro {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem 2rem;
-  max-width: none;
-}
-
-.music-intro p {
-  color: #BFBFBF;
-  font-size: clamp(1rem, 1.55vw, 1.18rem);
-  line-height: 1.75;
-  text-shadow: 0 8px 22px rgba(13, 13, 13, 0.34);
-}
-
-.music-audio-panel {
-  gap: 0;
-}
-
-.music-page .music-audio-toggle {
-  min-height: 2.3rem;
-  padding: 0.45rem 0.9rem;
-  border-color: rgba(191, 191, 191, 0.28);
-  background: rgba(13, 13, 13, 0.72);
-  color: #F2F2F2;
-  font-size: 0.74rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-family: "IBM Plex Mono", monospace;
-  border-radius: 999px;
-}
-
-.music-page .music-audio-toggle[aria-pressed="true"] {
-  border-color: #F2F2F2;
-  background: rgba(38, 38, 38, 0.88);
-  box-shadow: 0 10px 24px rgba(13, 13, 13, 0.28);
-}
-
-.music-audio-status {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.music-collab {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.9rem 1.2rem;
-  margin-top: 0.25rem;
-}
-
-.music-copy-body {
-  display: grid;
-  gap: 1rem;
-}
-
-.music-collab-title {
-  color: #F2F2F2;
-  font-family: "Chakra Petch", "Sora", sans-serif;
-  font-size: clamp(1.15rem, 2.3vw, 1.45rem);
-  letter-spacing: -0.02em;
-}
-
-.music-content-section {
-  padding-top: 1rem;
-}
-
-.music-panel-switcher {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-bottom: 1rem;
-}
-
-.music-panel-tab {
-  appearance: none;
-  border: 1px solid rgba(191, 191, 191, 0.24);
-  background: rgba(13, 13, 13, 0.68);
-  color: #BFBFBF;
-  border-radius: 999px;
-  padding: 0.78rem 1.3rem;
-  font: inherit;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease, transform 160ms ease;
-}
-
-.music-panel-tab:hover,
-.music-panel-tab:focus-visible {
-  border-color: #F2F2F2;
-  color: #F2F2F2;
-  background: rgba(38, 38, 38, 0.88);
-}
-
-.music-panel-tab.is-active {
-  border-color: #F2F2F2;
-  color: #F2F2F2;
-  background: rgba(38, 38, 38, 0.94);
-}
-
-.music-panels {
-  display: grid;
-}
-
-.music-panel {
-  min-height: 16rem;
-}
-
-.music-page .content-block {
-  background:
-    linear-gradient(180deg, rgba(38, 38, 38, 0.52) 0%, rgba(13, 13, 13, 0.88) 100%);
-  border: 1px solid rgba(115, 115, 115, 0.22);
-  box-shadow: 0 24px 60px rgba(13, 13, 13, 0.34);
-}
-
-.music-page .content-block h2 {
-  color: #F2F2F2;
-}
-
-.music-page .content-block p,
-.music-page .content-block li {
-  color: #BFBFBF;
-}
-
-.music-embed-shell {
-  margin-top: 1rem;
-  border: 1px solid rgba(115, 115, 115, 0.22);
-  border-radius: 20px;
-  overflow: hidden;
-  background: rgba(13, 13, 13, 0.74);
-}
-
-.music-embed-frame {
-  display: block;
-  width: 100%;
-  min-height: 352px;
-  border: 0;
-  background: #0D0D0D;
-}
-
-.music-page .inline-link,
-.music-page .footer-name {
-  color: #F2F2F2;
-}
-
-.music-page .footer-role,
-.music-page .footer-year,
-.music-page .footer-links {
-  color: #737373;
-}
-
-.music-page .site-footer-minimal {
-  background: rgba(13, 13, 13, 0.82);
-  border-top: 1px solid rgba(115, 115, 115, 0.16);
-}
-
-@media (max-width: 980px) {
-  .music-panel-switcher {
-    gap: 0.7rem;
-  }
-}
-
-@media (max-width: 760px) {
-  .music-hero {
-    min-height: clamp(38rem, 140vw, 50rem);
-  }
-
-  .music-hero-visual {
-    background-position: center 8%;
-    background-size: cover;
-  }
-
-  .music-hero-inner {
-    min-height: clamp(38rem, 140vw, 50rem);
-    padding: clamp(5rem, 16vw, 6.2rem) 0 2.4rem;
-  }
-
-  .music-hero-copy {
-    width: min(100%, 40rem);
-    gap: 1rem;
-    padding-top: clamp(12rem, 34vw, 16rem);
-  }
-
-  .music-audio-panel {
-    top: 1rem;
-    right: 1rem;
-  }
-
-  .music-intro {
-    grid-template-columns: 1fr;
-    gap: 0.9rem;
   }
 }

@@ -27,42 +27,50 @@ The site is intentionally static: `HTML`, `CSS`, and `JavaScript` only. That kee
 .
 |-- 404.html
 |-- CNAME
+|-- contact.html
 |-- game-bug-tracker.html
 |-- genericrpg-in-csharp.html
 |-- index.html
+|-- journal.html
+|-- music.html
+|-- my-world.html
+|-- portfolio.html
+|-- publication.html
 |-- resume.html
 |-- robots.txt
 |-- script.js
 |-- sitemap.xml
-|-- styles.css
+|-- site.webmanifest
 |-- docs
-|   |-- planning
-|   |   |-- WEBSITE-BUILD-DOCUMENTATION.md
-|   |   |-- WEBSITE-DECISION-SHEET.md
-|   |   |-- WEBSITE-DESIGN-PLAN.md
-|   |   |-- WEBSITE-FINAL-BLUEPRINT.md
-|   |   |-- WEBSITE-MASTER-SPEC.md
-|   |   `-- WEBSITE-PLAN-COMPILATION.md
+|   |-- archive
+|   |   `-- planning
 |   `-- setup
 |       `-- DEPLOY-GODADDY.md
+|-- scripts
+|   `-- music.js
+|-- styles
+|   |-- music.css
+|   `-- site.css
 `-- assets
     |-- branding
     |-- books
+    |-- music
+    |-- social
     `-- projects
-        |-- placeholders
         `-- game-bug-tracker
 ```
 
 ## Asset notes
 
-- `assets/branding/` holds shared visual identity files such as the logo.
+- `assets/branding/` holds the shared site identity files used by the live pages.
 - `assets/books/` holds book-related visuals.
-- `assets/projects/placeholders/` holds temporary project artwork that is still in active use on the homepage.
+- `assets/music/` holds the image and audio files used only by the music page.
+- `assets/social/` holds the shared social sharing card used by Open Graph and Twitter metadata.
 - `assets/projects/game-bug-tracker/` holds the current real screenshots used by the bug tracker homepage card and case-study page.
 
 ## Documentation
 
-- Planning and design documents live in `docs/planning/`.
+- Historical planning and build notes are archived under `docs/archive/planning/`.
 - Deployment and DNS notes live in `docs/setup/`.
 - The repo root is intentionally kept focused on the public site files and shared assets.
 

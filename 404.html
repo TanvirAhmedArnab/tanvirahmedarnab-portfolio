@@ -3,19 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex">
-  <link rel="icon" href="assets/branding/taa-sigil-emblem.png" type="image/png">
-  <title>Page Not Found</title>
+  <meta name="description" content="Page not found on Tanvir Ahmed Arnab's website. Return to the main site sections or reach out directly.">
+  <meta name="theme-color" content="#0D0D0D">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.tanvirahmedarnab.com/404.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Page Not Found | Tanvir Ahmed Arnab">
+  <meta property="og:description" content="Page not found on Tanvir Ahmed Arnab's website. Return to the main site sections or reach out directly.">
+  <meta property="og:url" content="https://www.tanvirahmedarnab.com/404.html">
+  <meta property="og:site_name" content="Tanvir Ahmed Arnab">
+  <meta property="og:image" content="https://www.tanvirahmedarnab.com/assets/social/og-site.jpg">
+  <meta property="og:image:alt" content="Monochrome social card for Tanvir Ahmed Arnab featuring the site name and the roles developer, musician, and writer.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Page Not Found | Tanvir Ahmed Arnab">
+  <meta name="twitter:description" content="Page not found on Tanvir Ahmed Arnab's website. Return to the main site sections or reach out directly.">
+  <meta name="twitter:image" content="https://www.tanvirahmedarnab.com/assets/social/og-site.jpg">
+  <meta name="twitter:image:alt" content="Monochrome social card for Tanvir Ahmed Arnab featuring the site name and the roles developer, musician, and writer.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <title>Page Not Found | Tanvir Ahmed Arnab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/site.css">
 </head>
 <body class="error-page">
-  <main class="error-shell">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand brand--sigil" href="index.html" aria-label="Tanvir Ahmed Arnab home">
+        <img class="brand-mark brand-mark-sigil" src="assets/branding/taa-sigil-emblem.webp" alt="">
+        <span class="brand-lockup">
+          <span class="brand-name">Tanvir Ahmed Arnab</span>
+          <span class="brand-role">developer / musician / writer</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="portfolio.html">Portfolio</a>
+        <a href="publication.html">Publication</a>
+        <a href="music.html">Music</a>
+        <a href="journal.html">Journal</a>
+        <a href="my-world.html">My World</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="error-shell">
     <div class="inner error-grid">
       <a class="brand brand--sigil error-brand" href="index.html" aria-label="Tanvir Ahmed Arnab home">
-        <img class="brand-mark brand-mark-sigil" src="assets/branding/taa-sigil-emblem.png" alt="">
+        <img class="brand-mark brand-mark-sigil" src="assets/branding/taa-sigil-emblem.webp" alt="">
         <span class="brand-lockup">
           <span class="brand-name">Tanvir Ahmed Arnab</span>
           <span class="brand-role">developer / musician / writer</span>
@@ -35,11 +79,34 @@
         </ul>
         <div class="hero-actions error-actions">
           <a class="button button-primary" href="index.html">Return to main dossier</a>
-          <a class="button button-secondary" href="index.html#work">Open projects</a>
+          <a class="button button-secondary" href="portfolio.html">Open projects</a>
           <a class="button button-secondary" href="mailto:contact@tanvirahmedarnab.com">Contact</a>
         </div>
       </div>
     </div>
   </main>
+
+  <footer class="site-footer">
+    <div class="inner footer-content footer-content-strong">
+      <div class="footer-stack">
+        <span class="footer-name">Tanvir Ahmed Arnab</span>
+        <span class="footer-role">developer / musician / writer</span>
+      </div>
+      <div class="footer-links">
+        <a class="inline-link" href="index.html">Home</a>
+        <a class="inline-link" href="portfolio.html">Portfolio</a>
+        <a class="inline-link" href="publication.html">Publication</a>
+        <a class="inline-link" href="music.html">Music</a>
+        <a class="inline-link" href="journal.html">Journal</a>
+        <a class="inline-link" href="my-world.html">My World</a>
+        <a class="inline-link" href="contact.html">Contact</a>
+      </div>
+      <p class="footer-year"><span id="current-year"></span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
+

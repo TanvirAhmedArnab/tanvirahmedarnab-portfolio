@@ -4,14 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio work by Tanvir Ahmed Arnab, including gameplay systems, tooling, and technical build projects.">
-  <meta name="theme-color" content="#05070c">
+  <meta name="theme-color" content="#0D0D0D">
+  <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://www.tanvirahmedarnab.com/portfolio.html">
-  <link rel="icon" href="assets/branding/taa-sigil-emblem.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portfolio | Tanvir Ahmed Arnab">
+  <meta property="og:description" content="Portfolio work by Tanvir Ahmed Arnab, including gameplay systems, tooling, and technical build projects.">
+  <meta property="og:url" content="https://www.tanvirahmedarnab.com/portfolio.html">
+  <meta property="og:site_name" content="Tanvir Ahmed Arnab">
+  <meta property="og:image" content="https://www.tanvirahmedarnab.com/assets/social/og-site.jpg">
+  <meta property="og:image:alt" content="Monochrome social card for Tanvir Ahmed Arnab featuring the site name and the roles developer, musician, and writer.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfolio | Tanvir Ahmed Arnab">
+  <meta name="twitter:description" content="Portfolio work by Tanvir Ahmed Arnab, including gameplay systems, tooling, and technical build projects.">
+  <meta name="twitter:image" content="https://www.tanvirahmedarnab.com/assets/social/og-site.jpg">
+  <meta name="twitter:image:alt" content="Monochrome social card for Tanvir Ahmed Arnab featuring the site name and the roles developer, musician, and writer.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <title>Portfolio | Tanvir Ahmed Arnab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/site.css">
 </head>
 <body class="section-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -19,7 +35,7 @@
   <header class="site-header">
     <div class="inner">
       <a class="brand brand--sigil" href="index.html" aria-label="Tanvir Ahmed Arnab home">
-        <img class="brand-mark brand-mark-sigil" src="assets/branding/taa-sigil-emblem.png" alt="">
+        <img class="brand-mark brand-mark-sigil" src="assets/branding/taa-sigil-emblem.webp" alt="">
         <span class="brand-lockup">
           <span class="brand-name">Tanvir Ahmed Arnab</span>
           <span class="brand-role">developer / musician / writer</span>
@@ -29,7 +45,7 @@
         Menu
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a class="is-current" href="portfolio.html">Portfolio</a>
+        <a class="is-current" aria-current="page" href="portfolio.html">Portfolio</a>
         <a href="publication.html">Publication</a>
         <a href="music.html">Music</a>
         <a href="journal.html">Journal</a>
@@ -56,7 +72,7 @@
           <p>A small but real ASP.NET Core workflow tool built for public browsing, protected owner-only editing, and demo-ready seeded data.</p>
           <div class="stacked-links stacked-links-inline">
             <a class="button button-primary" href="game-bug-tracker.html">Open Case Study</a>
-            <a class="button button-secondary" href="https://github.com/TanvirAhmedArnab/game-bug-tracker" target="_blank" rel="noreferrer">Source Code</a>
+            <a class="button button-secondary" href="https://github.com/TanvirAhmedArnab/game-bug-tracker" target="_blank" rel="noopener noreferrer">Source Code</a>
           </div>
         </article>
 
@@ -81,8 +97,7 @@
       </div>
     </section>
   </main>
-
-  <footer class="site-footer site-footer-minimal">
+  <footer class="site-footer">
     <div class="inner footer-content footer-content-strong">
       <div class="footer-stack">
         <span class="footer-name">Tanvir Ahmed Arnab</span>
@@ -90,7 +105,11 @@
       </div>
       <div class="footer-links">
         <a class="inline-link" href="index.html">Home</a>
+        <a class="inline-link" href="portfolio.html">Portfolio</a>
         <a class="inline-link" href="publication.html">Publication</a>
+        <a class="inline-link" href="music.html">Music</a>
+        <a class="inline-link" href="journal.html">Journal</a>
+        <a class="inline-link" href="my-world.html">My World</a>
         <a class="inline-link" href="contact.html">Contact</a>
       </div>
       <p class="footer-year"><span id="current-year"></span></p>
@@ -100,3 +119,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
