@@ -212,195 +212,53 @@ if (zoomableShots.length) {
   });
 }
 
-const audioToggle = document.querySelector("[data-audio-toggle]");
-const audioStatus = document.querySelector("[data-audio-status]");
+const audioPlayer = document.querySelector("[data-audio-player]");
 
-if (audioToggle && audioStatus) {
-  const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
-  let audioContext = null;
-  let musicNodes = null;
-  let musicIntervalId = null;
-  let isMusicOn = false;
+if (audioPlayer instanceof HTMLMediaElement) {
+  let autostartArmed = true;
 
-  const setAudioUi = (active, message) => {
-    isMusicOn = active;
-    audioToggle.setAttribute("aria-pressed", String(active));
-    audioToggle.textContent = active ? "Disable placeholder music" : "Enable placeholder music";
-    audioStatus.textContent = message;
-  };
+  audioPlayer.autoplay = true;
+  audioPlayer.loop = true;
+  audioPlayer.volume = 0.42;
 
-  const clearMusicInterval = () => {
-    if (musicIntervalId) {
-      window.clearInterval(musicIntervalId);
-      musicIntervalId = null;
-    }
-  };
+  const autoplayEvents = ["pointerdown", "keydown", "touchstart"];
 
-  const destroyMusic = () => {
-    clearMusicInterval();
-
-    if (!musicNodes) {
-      return;
-    }
-
-    musicNodes.drones.forEach((oscillator) => {
-      try {
-        oscillator.stop();
-      } catch (error) {
-        // Oscillator may already be stopped.
-      }
-
-      oscillator.disconnect();
+  const removeAutoplayListeners = () => {
+    autoplayEvents.forEach((eventName) => {
+      window.removeEventListener(eventName, tryAutostartFromInteraction, true);
     });
-
-    musicNodes.droneGains.forEach((gainNode) => gainNode.disconnect());
-    musicNodes.filter?.disconnect();
-    musicNodes.master?.disconnect();
-    musicNodes = null;
   };
 
-  const buildMusic = () => {
-    if (!AudioContextCtor) {
-      setAudioUi(false, "Placeholder music is not supported in this browser.");
-      audioToggle.disabled = true;
-      return false;
-    }
-
-    if (!audioContext) {
-      audioContext = new AudioContextCtor();
-    }
-
-    const master = audioContext.createGain();
-    const filter = audioContext.createBiquadFilter();
-
-    master.gain.value = 0;
-    filter.type = "lowpass";
-    filter.frequency.value = 1800;
-    filter.Q.value = 0.4;
-
-    const droneSettings = [
-      { type: "triangle", frequency: 110, volume: 0.032 },
-      { type: "sine", frequency: 164.81, volume: 0.021 },
-      { type: "sine", frequency: 220, volume: 0.014 },
-    ];
-
-    const drones = [];
-    const droneGains = [];
-
-    droneSettings.forEach((setting) => {
-      const oscillator = audioContext.createOscillator();
-      const gainNode = audioContext.createGain();
-
-      oscillator.type = setting.type;
-      oscillator.frequency.value = setting.frequency;
-      gainNode.gain.value = setting.volume;
-
-      oscillator.connect(gainNode);
-      gainNode.connect(filter);
-      oscillator.start();
-
-      drones.push(oscillator);
-      droneGains.push(gainNode);
-    });
-
-    filter.connect(master);
-    master.connect(audioContext.destination);
-
-    musicNodes = {
-      drones,
-      droneGains,
-      master,
-      filter,
-    };
-
-    return true;
-  };
-
-  const playBellTone = (frequency, duration = 0.9) => {
-    if (!audioContext || !musicNodes) {
-      return;
-    }
-
-    const now = audioContext.currentTime;
-    const oscillator = audioContext.createOscillator();
-    const gainNode = audioContext.createGain();
-
-    oscillator.type = "triangle";
-    oscillator.frequency.setValueAtTime(frequency, now);
-    gainNode.gain.setValueAtTime(0.0001, now);
-    gainNode.gain.linearRampToValueAtTime(0.1, now + 0.02);
-    gainNode.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-
-    oscillator.connect(gainNode);
-    gainNode.connect(musicNodes.filter);
-    oscillator.start(now);
-    oscillator.stop(now + duration + 0.05);
-  };
-
-  const schedulePlaceholderMusic = () => {
-    clearMusicInterval();
-
-    const motif = [220, 261.63, 329.63, 293.66, 392.0, 329.63];
-    let step = 0;
-
-    playBellTone(motif[0], 1.1);
-    step = 1;
-
-    musicIntervalId = window.setInterval(() => {
-      playBellTone(motif[step], step % 3 === 0 ? 1.1 : 0.78);
-      step = (step + 1) % motif.length;
-    }, 920);
-  };
-
-  const startMusic = async () => {
-    if (!buildMusic()) {
-      return;
-    }
-
-    if (audioContext?.state === "suspended") {
-      await audioContext.resume();
-    }
-
-    if (!musicNodes) {
-      return;
-    }
-
-    const now = audioContext.currentTime;
-    musicNodes.master.gain.cancelScheduledValues(now);
-    musicNodes.master.gain.setValueAtTime(musicNodes.master.gain.value, now);
-    musicNodes.master.gain.linearRampToValueAtTime(0.17, now + 0.7);
-    schedulePlaceholderMusic();
-    setAudioUi(true, "Placeholder music is active. Click again to mute it.");
-  };
-
-  const stopMusic = async () => {
-    if (!audioContext || !musicNodes) {
-      setAudioUi(false, "Placeholder music is optional and starts only with interaction.");
-      return;
-    }
-
-    const now = audioContext.currentTime;
-    musicNodes.master.gain.cancelScheduledValues(now);
-    musicNodes.master.gain.setValueAtTime(musicNodes.master.gain.value, now);
-    musicNodes.master.gain.linearRampToValueAtTime(0.0001, now + 0.55);
-
-    window.setTimeout(() => {
-      destroyMusic();
-    }, 650);
-
-    setAudioUi(false, "Placeholder music is optional and starts only with interaction.");
-  };
-
-  audioToggle.addEventListener("click", async () => {
+  async function playBackgroundMusic() {
     try {
-      if (isMusicOn) {
-        await stopMusic();
-      } else {
-        await startMusic();
-      }
+      audioPlayer.currentTime = audioPlayer.currentTime || 0;
+      await audioPlayer.play();
+      autostartArmed = true;
+      removeAutoplayListeners();
     } catch (error) {
-      destroyMusic();
-      setAudioUi(false, "Placeholder music could not start in this browser session.");
+      // Some browsers block autoplay with sound until a user interacts.
     }
-  });
+  }
+
+  async function tryAutostartFromInteraction() {
+    if (!autostartArmed || !audioPlayer.paused) {
+      removeAutoplayListeners();
+      return;
+    }
+
+    await playBackgroundMusic();
+
+    if (!audioPlayer.paused) {
+      removeAutoplayListeners();
+    }
+  }
+
+  const armAutostartFallback = () => {
+    autoplayEvents.forEach((eventName) => {
+      window.addEventListener(eventName, tryAutostartFromInteraction, true);
+    });
+  };
+
+  armAutostartFallback();
+  void playBackgroundMusic();
 }

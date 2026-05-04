@@ -33,7 +33,6 @@ The site is intentionally static: `HTML`, `CSS`, and `JavaScript` only. That kee
 |-- index.html
 |-- journal.html
 |-- music.html
-|-- my-world.html
 |-- portfolio.html
 |-- publication.html
 |-- resume.html
