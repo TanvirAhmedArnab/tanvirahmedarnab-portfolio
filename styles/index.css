@@ -99,6 +99,12 @@ body.landing-page::after {
   overflow: visible;
 }
 
+.sigil-node-art {
+  display: block;
+  overflow: visible;
+  pointer-events: none;
+}
+
 .sigil-outer-orbit,
 .sigil-inner-orbit {
   transform-box: view-box;
