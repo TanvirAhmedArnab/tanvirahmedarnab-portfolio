@@ -1,0 +1,185 @@
+:root {
+  color-scheme: dark;
+}
+
+.contact-page {
+  --text: #F8E98C;
+  --text-soft: rgba(248, 233, 140, 0.78);
+  --text-muted: rgba(54, 191, 191, 0.7);
+  --line: rgba(49, 121, 135, 0.28);
+  --line-strong: rgba(54, 191, 191, 0.42);
+  --accent: #36BFBF;
+  --accent-soft: #36BFBF;
+  --accent-strong: #CB1F59;
+  --header-bg: rgba(34, 48, 59, 0.92);
+  --header-border: rgba(49, 121, 135, 0.22);
+  --header-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+  --header-text: #F8E98C;
+  --header-text-soft: rgba(248, 233, 140, 0.78);
+  --header-text-muted: rgba(54, 191, 191, 0.7);
+  --header-button-bg: rgba(34, 48, 59, 0.98);
+  --header-button-border: rgba(54, 191, 191, 0.26);
+  --header-accent: #CB1F59;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(203, 31, 89, 0.18), transparent 0 20%),
+    radial-gradient(circle at 82% 16%, rgba(54, 191, 191, 0.16), transparent 0 18%),
+    radial-gradient(circle at 52% 82%, rgba(49, 121, 135, 0.14), transparent 0 22%),
+    linear-gradient(180deg, #263540 0%, #22303B 38%, #1a252e 100%);
+  color: var(--text);
+}
+
+.contact-page::before {
+  background:
+    radial-gradient(circle at 20% 26%, rgba(54, 191, 191, 0.12), transparent 0 18%),
+    radial-gradient(circle at 78% 18%, rgba(203, 31, 89, 0.1), transparent 0 18%),
+    radial-gradient(circle at 48% 84%, rgba(49, 121, 135, 0.1), transparent 0 18%);
+  filter: blur(20px);
+  opacity: 1;
+}
+
+.contact-page::after {
+  opacity: 0.16;
+  background:
+    linear-gradient(rgba(54, 191, 191, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(54, 191, 191, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(248, 233, 140, 0.08), transparent 36%);
+  background-size: 72px 72px, 72px 72px, auto;
+}
+
+.contact-page .skip-link {
+  background: #F8E98C;
+  color: #22303B;
+}
+
+.contact-page .section-page-hero {
+  position: relative;
+  border-bottom: 1px solid rgba(49, 121, 135, 0.22);
+  background:
+    linear-gradient(180deg, rgba(34, 48, 59, 0.18) 0%, rgba(34, 48, 59, 0.44) 100%),
+    url("../assets/contact/contact-hero-abstract.svg") center / cover no-repeat;
+}
+
+.contact-page .section-page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(34, 48, 59, 0.1) 0%, rgba(34, 48, 59, 0.34) 100%),
+    linear-gradient(90deg, rgba(49, 121, 135, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(54, 191, 191, 0.06) 1px, transparent 1px);
+  background-size: auto, 4rem 4rem, 4rem 4rem;
+  pointer-events: none;
+}
+
+.contact-page .section-page-hero > .inner {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-page .eyebrow,
+.contact-page .proof-kicker {
+  color: #CB1F59;
+}
+
+.contact-page .section-page-hero h1,
+.contact-page .content-block h2 {
+  color: #F8E98C;
+}
+
+.contact-page .hero-copy,
+.contact-page .content-block p,
+.contact-page .content-block li,
+.contact-page .footer-content {
+  color: var(--text-soft);
+}
+
+.contact-page .content-block {
+  border: 1px solid rgba(49, 121, 135, 0.26);
+  border-radius: 1.4rem;
+  background:
+    linear-gradient(180deg, rgba(34, 48, 59, 0.94) 0%, rgba(27, 38, 47, 0.92) 100%);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22);
+}
+
+.contact-page .content-block::before {
+  background:
+    linear-gradient(135deg, rgba(203, 31, 89, 0.14) 0%, rgba(203, 31, 89, 0) 44%),
+    linear-gradient(225deg, rgba(54, 191, 191, 0.12) 0%, rgba(54, 191, 191, 0) 38%);
+}
+
+.contact-page .content-block::after {
+  width: 100%;
+  height: 0.32rem;
+  background: linear-gradient(90deg, #CB1F59 0%, #317987 50%, #36BFBF 100%);
+  opacity: 0.98;
+}
+
+.contact-page .inline-link,
+.contact-page main a {
+  color: #36BFBF;
+}
+
+.contact-page .inline-link:hover,
+.contact-page .inline-link:focus-visible,
+.contact-page main a:hover,
+.contact-page main a:focus-visible {
+  color: #F8E98C;
+}
+
+.contact-page .button-primary,
+.contact-page .button-primary:visited {
+  background: #CB1F59;
+  color: #F8E98C;
+  border-color: #CB1F59;
+  box-shadow: 0 16px 30px rgba(203, 31, 89, 0.22);
+}
+
+.contact-page .button-secondary,
+.contact-page .button-secondary:visited {
+  background: rgba(34, 48, 59, 0.94);
+  color: #36BFBF;
+  border-color: rgba(54, 191, 191, 0.28);
+  box-shadow: inset 0 0 0 1px rgba(248, 233, 140, 0.02);
+}
+
+.contact-page .button-primary:hover,
+.contact-page .button-primary:focus-visible {
+  background: #F8E98C;
+  border-color: #F8E98C;
+  color: #22303B;
+}
+
+.contact-page .button-secondary:hover,
+.contact-page .button-secondary:focus-visible {
+  background: #317987;
+  border-color: #36BFBF;
+  color: #F8E98C;
+  box-shadow: 0 18px 34px rgba(49, 121, 135, 0.24);
+}
+
+.contact-page .site-footer {
+  background: rgba(34, 48, 59, 0.72);
+  backdrop-filter: blur(14px);
+}
+
+.contact-page .footer-content {
+  border-top-color: rgba(49, 121, 135, 0.26);
+}
+
+.contact-page .footer-name {
+  color: #F8E98C;
+}
+
+.contact-page .footer-role,
+.contact-page .footer-year {
+  color: rgba(54, 191, 191, 0.74);
+}
+
+.contact-page .footer-links a {
+  color: #F8E98C;
+}
+
+.contact-page .footer-links a:hover,
+.contact-page .footer-links a:focus-visible {
+  color: #36BFBF;
+}

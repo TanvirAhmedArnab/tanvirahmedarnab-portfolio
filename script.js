@@ -215,50 +215,123 @@ if (zoomableShots.length) {
 const audioPlayer = document.querySelector("[data-audio-player]");
 
 if (audioPlayer instanceof HTMLMediaElement) {
-  let autostartArmed = true;
-
+  const preferredVolume = 0.42;
+  let audiblePlaybackConfirmed = false;
   audioPlayer.autoplay = true;
   audioPlayer.loop = true;
-  audioPlayer.volume = 0.42;
+  audioPlayer.preload = "auto";
+  audioPlayer.playsInline = true;
+  audioPlayer.volume = preferredVolume;
 
   const autoplayEvents = ["pointerdown", "keydown", "touchstart"];
 
   const removeAutoplayListeners = () => {
     autoplayEvents.forEach((eventName) => {
-      window.removeEventListener(eventName, tryAutostartFromInteraction, true);
+      window.removeEventListener(eventName, unlockAudiblePlayback, true);
     });
   };
 
-  async function playBackgroundMusic() {
-    try {
-      audioPlayer.currentTime = audioPlayer.currentTime || 0;
-      await audioPlayer.play();
-      autostartArmed = true;
-      removeAutoplayListeners();
-    } catch (error) {
-      // Some browsers block autoplay with sound until a user interacts.
+  const maintainPlayback = async () => {
+    if (!audioPlayer.paused) {
+      return true;
     }
-  }
 
-  async function tryAutostartFromInteraction() {
-    if (!autostartArmed || !audioPlayer.paused) {
-      removeAutoplayListeners();
+    try {
+      await audioPlayer.play();
+      return true;
+    } catch (error) {
+      return false;
+    }
+  };
+
+  const confirmAudiblePlayback = () => {
+    audiblePlaybackConfirmed = true;
+    audioPlayer.muted = false;
+    audioPlayer.volume = preferredVolume;
+    removeAutoplayListeners();
+  };
+
+  const trySilentAutoplay = async () => {
+    if (audioPlayer.readyState === 0) {
+      audioPlayer.load();
+    }
+
+    audioPlayer.muted = true;
+    audioPlayer.volume = preferredVolume;
+
+    const didStart = await maintainPlayback();
+
+    if (!didStart || audiblePlaybackConfirmed) {
       return;
     }
 
-    await playBackgroundMusic();
+    window.setTimeout(() => {
+      if (!audiblePlaybackConfirmed) {
+        audioPlayer.muted = false;
+        audioPlayer.volume = preferredVolume;
+      }
+    }, 140);
+  };
 
-    if (!audioPlayer.paused) {
-      removeAutoplayListeners();
+  const tryAudibleAutoplay = async () => {
+    audioPlayer.muted = false;
+    audioPlayer.volume = preferredVolume;
+
+    const didStart = await maintainPlayback();
+
+    if (didStart && !audioPlayer.paused) {
+      confirmAudiblePlayback();
+      return;
     }
-  }
+
+    await trySilentAutoplay();
+  };
+
+  const unlockAudiblePlayback = async () => {
+    audioPlayer.muted = false;
+    audioPlayer.volume = preferredVolume;
+
+    const didStart = await maintainPlayback();
+
+    if (didStart && !audioPlayer.paused) {
+      confirmAudiblePlayback();
+    }
+  };
 
   const armAutostartFallback = () => {
     autoplayEvents.forEach((eventName) => {
-      window.addEventListener(eventName, tryAutostartFromInteraction, true);
+      window.addEventListener(eventName, unlockAudiblePlayback, true);
     });
   };
 
+  audioPlayer.addEventListener("playing", () => {
+    if (!audioPlayer.muted) {
+      confirmAudiblePlayback();
+    }
+  });
+
+  audioPlayer.addEventListener("canplaythrough", () => {
+    void tryAudibleAutoplay();
+  }, { once: true });
+
+  audioPlayer.addEventListener("loadeddata", () => {
+    void tryAudibleAutoplay();
+  }, { once: true });
+
+  window.addEventListener("pageshow", () => {
+    void tryAudibleAutoplay();
+  });
+
+  window.addEventListener("load", () => {
+    void tryAudibleAutoplay();
+  }, { once: true });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      void tryAudibleAutoplay();
+    }
+  });
+
   armAutostartFallback();
-  void playBackgroundMusic();
+  void tryAudibleAutoplay();
 }

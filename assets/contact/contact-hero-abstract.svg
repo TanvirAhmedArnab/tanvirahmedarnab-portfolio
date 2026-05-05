@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 820" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract contact hero artwork</title>
+  <desc id="desc">An abstract layered composition using magenta, yellow, navy, blue, and teal with sweeping curves, circles, and fine structural lines.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#273540"/>
+      <stop offset="52%" stop-color="#22303B"/>
+      <stop offset="100%" stop-color="#1b252d"/>
+    </linearGradient>
+    <linearGradient id="magentaGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#CB1F59" stop-opacity="0.48"/>
+      <stop offset="100%" stop-color="#CB1F59" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="tealGlow" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#36BFBF" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#36BFBF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ribbonA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#CB1F59" stop-opacity="0.36"/>
+      <stop offset="52%" stop-color="#317987" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#36BFBF" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="ribbonB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8E98C" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#36BFBF" stop-opacity="0.12"/>
+    </linearGradient>
+    <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="820" fill="url(#bg)"/>
+
+  <g opacity="0.95">
+    <circle cx="180" cy="140" r="190" fill="url(#magentaGlow)" filter="url(#softBlur)"/>
+    <circle cx="1430" cy="118" r="220" fill="url(#tealGlow)" filter="url(#softBlur)"/>
+    <circle cx="1260" cy="660" r="180" fill="#317987" opacity="0.12" filter="url(#softBlur)"/>
+  </g>
+
+  <g opacity="0.92">
+    <path d="M -80 540 C 210 390 460 360 706 430 C 918 490 1128 594 1680 410 L 1680 610 C 1152 736 900 704 642 620 C 378 536 160 492 -80 618 Z" fill="url(#ribbonA)"/>
+    <path d="M 0 270 C 202 214 394 232 586 320 C 726 384 864 426 1040 372 C 1204 322 1368 250 1600 278 L 1600 362 C 1360 344 1214 404 1054 458 C 856 526 678 498 504 416 C 326 334 170 300 0 334 Z" fill="url(#ribbonB)"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 96 192 C 258 72 480 74 678 156 C 886 244 1084 236 1260 132" stroke="#F8E98C" stroke-opacity="0.64" stroke-width="2.8"/>
+    <path d="M 232 656 C 380 548 558 518 756 546 C 996 580 1190 510 1428 346" stroke="#36BFBF" stroke-opacity="0.42" stroke-width="2.2"/>
+    <path d="M 124 566 C 220 478 340 418 494 404" stroke="#CB1F59" stroke-opacity="0.42" stroke-width="1.8"/>
+    <path d="M 910 192 C 1042 158 1172 194 1268 288 C 1346 364 1410 470 1516 504" stroke="#317987" stroke-opacity="0.42" stroke-width="1.8"/>
+  </g>
+
+  <g fill="none" stroke="#F8E98C" stroke-opacity="0.26">
+    <circle cx="318" cy="446" r="124" stroke-width="2"/>
+    <circle cx="318" cy="446" r="166" stroke-width="1.4"/>
+    <circle cx="1160" cy="252" r="148" stroke-width="2"/>
+    <circle cx="1160" cy="252" r="202" stroke-width="1.2"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round">
+    <path d="M 252 444 H 492" stroke="#36BFBF" stroke-opacity="0.18" stroke-width="1.6"/>
+    <path d="M 372 324 V 566" stroke="#36BFBF" stroke-opacity="0.18" stroke-width="1.6"/>
+    <path d="M 1032 252 H 1288" stroke="#F8E98C" stroke-opacity="0.16" stroke-width="1.4"/>
+    <path d="M 1160 118 V 388" stroke="#F8E98C" stroke-opacity="0.16" stroke-width="1.4"/>
+  </g>
+
+  <g>
+    <circle cx="318" cy="446" r="18" fill="#CB1F59" opacity="0.9"/>
+    <circle cx="1160" cy="252" r="22" fill="#36BFBF" opacity="0.9"/>
+    <circle cx="760" cy="544" r="16" fill="#F8E98C" opacity="0.88"/>
+    <circle cx="892" cy="474" r="10" fill="#317987" opacity="0.94"/>
+  </g>
+
+  <g fill="#F8E98C" opacity="0.42">
+    <rect x="1294" y="118" width="6" height="6" rx="3"/>
+    <rect x="1330" y="118" width="6" height="6" rx="3"/>
+    <rect x="1366" y="118" width="6" height="6" rx="3"/>
+    <rect x="1402" y="118" width="6" height="6" rx="3"/>
+    <rect x="1294" y="154" width="6" height="6" rx="3"/>
+    <rect x="1330" y="154" width="6" height="6" rx="3"/>
+    <rect x="1366" y="154" width="6" height="6" rx="3"/>
+    <rect x="1402" y="154" width="6" height="6" rx="3"/>
+    <rect x="1294" y="190" width="6" height="6" rx="3"/>
+    <rect x="1330" y="190" width="6" height="6" rx="3"/>
+    <rect x="1366" y="190" width="6" height="6" rx="3"/>
+    <rect x="1402" y="190" width="6" height="6" rx="3"/>
+  </g>
+
+  <g stroke="#317987" stroke-opacity="0.26" stroke-width="1.2">
+    <path d="M 72 96 H 182"/>
+    <path d="M 72 118 H 156"/>
+    <path d="M 72 140 H 168"/>
+    <path d="M 72 162 H 142"/>
+  </g>
+
+  <g fill="none" stroke="#F8E98C" stroke-opacity="0.2" stroke-width="1">
+    <path d="M 0 82 H 1600"/>
+    <path d="M 0 206 H 1600"/>
+    <path d="M 0 330 H 1600"/>
+    <path d="M 0 454 H 1600"/>
+    <path d="M 0 578 H 1600"/>
+    <path d="M 0 702 H 1600"/>
+  </g>
+</svg>

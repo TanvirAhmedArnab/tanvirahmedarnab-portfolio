@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A two-track journal by Tanvir Ahmed Arnab: game and software development lessons on one side, more personal views and diary-style notes on the other.">
-  <meta name="theme-color" content="#E6ECF5">
-  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#22324A">
+  <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://www.tanvirahmedarnab.com/journal.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Journal | Tanvir Ahmed Arnab">
@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="styles/site.css">
   <link rel="stylesheet" href="styles/journal.css">
 </head>
-<body class="journal-page">
+<body class="section-page journal-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -55,99 +55,100 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" class="section-page-main">
     <section class="journal-hero" aria-labelledby="journal-title">
       <div class="journal-hero-media">
-        <img src="assets/journal/journal-page-background.webp" alt="Soft blue abstract artwork with sweeping dark ink shapes, translucent curves, and light geometric forms." decoding="async" fetchpriority="high">
+        <img src="assets/journal/journal-hero-abstract.svg" alt="Abstract journal artwork with layered indigo ribbons, soft rose accents, pale editorial lines, and quiet circular forms." decoding="async" fetchpriority="high">
       </div>
 
       <div class="journal-copy-shell">
-        <h1 id="journal-title">Writing on software, games, and everything else I need to say plainly.</h1>
-        <p>Some thoughts belong to systems, architecture, debugging, and the slow discipline of building work that can survive its own ambition. Others do not want that voice at all. They arrive as reflections on technology, animal care, culture, religion, politics, reviews, and the ordinary observations that feel closer to a diary than an essay.</p>
-        <p>This page keeps room for both. One side is for game development and software notes shaped by process, mistakes, and iteration. The other is more personal, more casual, and more direct, meant for the kinds of things I still want to keep even when they are brief, unfinished, or simply human.</p>
+        <h1 id="journal-title">Game dev logs, software notes, and personal writing.</h1>
+        <p>This journal keeps two kinds of writing in one place: build notes from game development and software work, and looser reflections on technology, animal care, culture, politics, religion, reviews, and everyday life.</p>
       </div>
     </section>
 
-    <section class="journal-sections" id="journal-sections" aria-label="Journal categories">
-      <div class="journal-slider-nav" role="tablist" aria-label="Journal category switcher">
-        <button class="journal-slider-tab is-active" id="tab-lessons" type="button" role="tab" aria-selected="true" aria-controls="panel-lessons" data-journal-panel-trigger="lessons">GAME DEV / SOFTWARE</button>
-        <button class="journal-slider-tab" id="tab-notes" type="button" role="tab" aria-selected="false" aria-controls="panel-notes" data-journal-panel-trigger="notes">VIEWS / DIARY / CASUAL NOTES</button>
-      </div>
+    <section class="section journal-sections" id="journal-sections" aria-label="Journal categories">
+      <div class="inner">
+        <div class="journal-slider-nav" role="tablist" aria-label="Journal category switcher">
+          <button class="journal-slider-tab is-active" id="tab-lessons" type="button" role="tab" aria-selected="true" aria-controls="panel-lessons" data-journal-panel-trigger="lessons">GAME DEV / SOFTWARE</button>
+          <button class="journal-slider-tab" id="tab-notes" type="button" role="tab" aria-selected="false" aria-controls="panel-notes" data-journal-panel-trigger="notes">VIEWS / DIARY / CASUAL NOTES</button>
+        </div>
 
-      <div class="journal-slider-stage" data-journal-slider-stage>
-        <section class="journal-slider-panel is-active" id="panel-lessons" role="tabpanel" aria-labelledby="tab-lessons" data-journal-panel="lessons">
-          <div class="journal-panel-header">
-            <h2>Game development, software systems, and build notes.</h2>
-            <p>Devlogs, systems notes, and practical writing from projects that are still being built.</p>
-          </div>
+        <div class="journal-slider-stage" data-journal-slider-stage>
+          <section class="journal-slider-panel is-active" id="panel-lessons" role="tabpanel" aria-labelledby="tab-lessons" data-journal-panel="lessons">
+            <div class="journal-panel-header">
+              <h2>Game development, software systems, and build notes.</h2>
+              <p>Devlogs, systems notes, and practical writing from projects that are still being built.</p>
+            </div>
 
-          <div class="journal-panel-grid">
-            <article class="journal-panel-card journal-overview-card">
-              <h3>Reading list</h3>
-              <ul class="journal-toc-list">
-                <li><a class="journal-toc-link" href="#article-systems-survive">RPG Devlog 01</a></li>
-              </ul>
-            </article>
+            <div class="journal-panel-grid">
+              <article class="journal-panel-card journal-overview-card">
+                <h3>Reading list</h3>
+                <ul class="journal-toc-list">
+                  <li><a class="journal-toc-link" href="#article-systems-survive">RPG Devlog 01</a></li>
+                </ul>
+              </article>
 
-            <article class="journal-panel-card journal-entry-card" id="article-systems-survive" data-share-title="The parts you do not see are usually the parts that decide whether a game survives." data-share-text="A journal note on game development, software systems, and why readable ownership matters.">
-              <header class="journal-entry-header">
-                <p class="journal-entry-kicker">Featured read</p>
-                <h3>The parts you do not see are usually the parts that decide whether a game survives.</h3>
+              <article class="journal-panel-card journal-entry-card" id="article-systems-survive" data-share-title="The parts you do not see are usually the parts that decide whether a game survives." data-share-text="A journal note on game development, software systems, and why readable ownership matters.">
+                <header class="journal-entry-header">
+                  <p class="journal-entry-kicker">Featured read</p>
+                  <h3>The parts you do not see are usually the parts that decide whether a game survives.</h3>
 
-                <div class="journal-share-row">
-                  <button class="button button-secondary journal-share-button" type="button" data-share-article>Share</button>
-                  <button class="button button-secondary journal-share-button" type="button" data-copy-article>Copy Link</button>
-                  <span class="journal-share-status" aria-live="polite"></span>
+                  <div class="journal-share-row">
+                    <button class="button button-secondary journal-share-button" type="button" data-share-article>Share</button>
+                    <button class="button button-secondary journal-share-button" type="button" data-copy-article>Copy Link</button>
+                    <span class="journal-share-status" aria-live="polite"></span>
+                  </div>
+                </header>
+
+                <div class="journal-prose">
+                  <p>The visible parts of a prototype get all the attention first, but the hidden structure is usually what decides whether the project survives. Combat feel, effects, menus, and movement can all look promising early while blurry ownership rules and messy state flow quietly make every future change more expensive.</p>
+
+                  <p>The warning signs are always similar: one fix creates side effects, new features take too long, and nobody can point clearly to the source of truth. In games this pain arrives fast, which is why I treat architecture less as elegance and more as momentum protection.</p>
+
+                  <p>If I can tell where authority lives, inspect the system cleanly, and change it without negotiating with old shortcuts, the project stays alive. That is the standard I try to build toward now.</p>
                 </div>
-              </header>
+              </article>
+            </div>
+          </section>
 
-              <div class="journal-prose">
-                <p>The visible parts of a prototype get all the attention first, but the hidden structure is usually what decides whether the project survives. Combat feel, effects, menus, and movement can all look promising early while blurry ownership rules and messy state flow quietly make every future change more expensive.</p>
+          <section class="journal-slider-panel" id="panel-notes" role="tabpanel" aria-labelledby="tab-notes" data-journal-panel="notes" hidden>
+            <div class="journal-panel-header">
+              <h2>Views, diary notes, and everything more casual.</h2>
+              <p>Writing that is deliberately looser: opinions, observations, reviews, and smaller pieces of personal clarity.</p>
+            </div>
 
-                <p>The warning signs are always similar: one fix creates side effects, new features take too long, and nobody can point clearly to the source of truth. In games this pain arrives fast, which is why I treat architecture less as elegance and more as momentum protection.</p>
+            <div class="journal-panel-grid">
+              <article class="journal-panel-card journal-overview-card">
+                <h3>Reading list</h3>
+                <ul class="journal-toc-list">
+                  <li><a class="journal-toc-link" href="#article-decency-trust">Field Note 01</a></li>
+                </ul>
+              </article>
 
-                <p>If I can tell where authority lives, inspect the system cleanly, and change it without negotiating with old shortcuts, the project stays alive. That is the standard I try to build toward now.</p>
-              </div>
-            </article>
-          </div>
-        </section>
+              <article class="journal-panel-card journal-entry-card" id="article-decency-trust" data-share-title="Stray animals, loud opinions, and the kind of decency I actually trust." data-share-text="A casual journal note about compassion, public opinion, and everyday responsibility.">
+                <header class="journal-entry-header">
+                  <p class="journal-entry-kicker">Featured read</p>
+                  <h3>Stray animals, loud opinions, and the kind of decency I actually trust.</h3>
 
-        <section class="journal-slider-panel" id="panel-notes" role="tabpanel" aria-labelledby="tab-notes" data-journal-panel="notes" hidden>
-          <div class="journal-panel-header">
-            <h2>Views, diary notes, and everything more casual.</h2>
-            <p>Writing that is deliberately looser: opinions, observations, reviews, and smaller pieces of personal clarity.</p>
-          </div>
+                  <div class="journal-share-row">
+                    <button class="button button-secondary journal-share-button" type="button" data-share-article>Share</button>
+                    <button class="button button-secondary journal-share-button" type="button" data-copy-article>Copy Link</button>
+                    <span class="journal-share-status" aria-live="polite"></span>
+                  </div>
+                </header>
 
-          <div class="journal-panel-grid">
-            <article class="journal-panel-card journal-overview-card">
-              <h3>Reading list</h3>
-              <ul class="journal-toc-list">
-                <li><a class="journal-toc-link" href="#article-decency-trust">Field Note 01</a></li>
-              </ul>
-            </article>
+                <div class="journal-prose">
+                  <p>The internet makes opinions cheap. It is easy to sound morally serious in public, and much harder to stay decent in ordinary moments when nobody is watching closely.</p>
 
-            <article class="journal-panel-card journal-entry-card" id="article-decency-trust" data-share-title="Stray animals, loud opinions, and the kind of decency I actually trust." data-share-text="A casual journal note about compassion, public opinion, and everyday responsibility.">
-              <header class="journal-entry-header">
-                <p class="journal-entry-kicker">Featured read</p>
-                <h3>Stray animals, loud opinions, and the kind of decency I actually trust.</h3>
+                  <p>One small test I keep returning to is how people treat stray animals. Not as performance, but as instinct. Whether they notice, pause, and make room for something vulnerable tells me more than polished statements usually do.</p>
 
-                <div class="journal-share-row">
-                  <button class="button button-secondary journal-share-button" type="button" data-share-article>Share</button>
-                  <button class="button button-secondary journal-share-button" type="button" data-copy-article>Copy Link</button>
-                  <span class="journal-share-status" aria-live="polite"></span>
+                  <p>The kind of decency I trust is quiet, repetitive, and inconvenient. It shows up in habits, not slogans, and it survives privacy just as well as it survives applause.</p>
                 </div>
-              </header>
-
-              <div class="journal-prose">
-                <p>The internet makes opinions cheap. It is easy to sound morally serious in public, and much harder to stay decent in ordinary moments when nobody is watching closely.</p>
-
-                <p>One small test I keep returning to is how people treat stray animals. Not as performance, but as instinct. Whether they notice, pause, and make room for something vulnerable tells me more than polished statements usually do.</p>
-
-                <p>The kind of decency I trust is quiet, repetitive, and inconvenient. It shows up in habits, not slogans, and it survives privacy just as well as it survives applause.</p>
-              </div>
-            </article>
-          </div>
-        </section>
+              </article>
+            </div>
+          </section>
+        </div>
       </div>
     </section>
   </main>

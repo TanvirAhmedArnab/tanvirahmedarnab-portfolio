@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="styles/site.css">
   <link rel="stylesheet" href="styles/music.css">
 </head>
-<body class="music-page">
+<body class="section-page music-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -56,174 +56,161 @@
     </div>
   </header>
 
-  <main id="main">
-    <section class="music-hero" aria-label="Music page hero">
-      <div class="music-audio-panel">
-        <button class="music-audio-toggle" type="button" data-music-audio-toggle aria-pressed="false">Enable Sound</button>
-      </div>
-      <img src="assets/music/music-page-bg.webp" alt="Long-haired drummer playing a large drum kit in a monochrome heavy-metal atmosphere." decoding="async" fetchpriority="high">
-      <audio data-music-audio preload="metadata" loop>
-        <source src="assets/music/music-page-bg-sound.mp3" type="audio/mpeg">
-      </audio>
-      <div class="music-copy-shell">
-        <h1>SPEED, PRECISION, AND DARKNESS.</h1>
-        <p>I began playing drums at a young age, and even through long seasons of study, work, and distance from the kit, rhythm never left me. Extreme metal shaped my ears and ambition: Inferno of Behemoth, Frost of Satyricon, and George Kollias of Nile taught me to hear speed not as chaos, but as discipline, precision, control, and atmosphere pushed to the edge.</p>
-        <p>My first cymbal, an 18-inch Paiste PST 5 Medium Crash gifted by my father, marked the beginning of a path I still carry with me. Today, my goal is to create and release my own black metal album: music built from darkness, aggression, melody, and emotional weight. Songs like Cradle of Filth's <em>Nymphetamine</em> still remind me why this world first pulled me in.</p>
-        <p>My path is still unfolding, but the purpose remains clear: to create with precision, intensity, and soul.</p>
-
-        <div class="music-collab">
-          <p class="music-collab-title">Open to collaborate if the music is right.</p>
-          <a class="music-contact-button" href="mailto:contact@tanvirahmedarnab.com?subject=Music%20Collaboration">Contact Me</a>
-        </div>
+  <main id="main" class="section-page-main">
+    <section class="section-page-hero music-hero" aria-label="Music page hero">
+      <div class="inner section-page-hero-inner">
+        <p class="eyebrow">Music</p>
+        <h1>Drums, discipline, and black-metal intent.</h1>
+        <p class="hero-copy">This page keeps the musical side of the site in one place: the setup, the records feeding my ears, and the darker ambition still pushing toward a future release built from precision, atmosphere, and force.</p>
       </div>
     </section>
 
-    <section class="music-sections" aria-label="Music sections">
-      <div class="music-slider-nav" role="tablist" aria-label="Music section switcher">
-        <button class="music-slider-tab is-active" id="tab-setup" type="button" role="tab" aria-selected="true" aria-controls="panel-setup" data-music-panel-trigger="setup">Drum Setup</button>
-        <button class="music-slider-tab" id="tab-rotation" type="button" role="tab" aria-selected="false" aria-controls="panel-rotation" data-music-panel-trigger="rotation">Currently Listening To</button>
-        <button class="music-slider-tab" id="tab-media" type="button" role="tab" aria-selected="false" aria-controls="panel-media" data-music-panel-trigger="media">Media Archive</button>
-      </div>
+    <section class="section music-sections" aria-label="Music sections">
+      <div class="inner">
+        <div class="music-slider-nav" role="tablist" aria-label="Music section switcher">
+          <button class="music-slider-tab is-active" id="tab-setup" type="button" role="tab" aria-selected="true" aria-controls="panel-setup" data-music-panel-trigger="setup">Drum Setup</button>
+          <button class="music-slider-tab" id="tab-rotation" type="button" role="tab" aria-selected="false" aria-controls="panel-rotation" data-music-panel-trigger="rotation">Current Rotation</button>
+          <button class="music-slider-tab" id="tab-media" type="button" role="tab" aria-selected="false" aria-controls="panel-media" data-music-panel-trigger="media">Archive</button>
+        </div>
 
-      <div class="music-slider-stage" data-music-slider-stage>
-        <section class="music-slider-panel is-active" id="panel-setup" role="tabpanel" aria-labelledby="tab-setup" data-music-panel="setup">
-          <div class="music-panel-header">
-            <h3>TAMA / PAISTE</h3>
-          </div>
+        <div class="music-slider-stage" data-music-slider-stage>
+          <section class="music-slider-panel is-active" id="panel-setup" role="tabpanel" aria-labelledby="tab-setup" data-music-panel="setup">
+            <div class="music-panel-header">
+              <h2>Tama shells, Paiste RUDE, and a black-metal-focused setup.</h2>
+              <p>The current kit is built for force, speed, and clarity: enough attack to cut through dense music, enough control to stay articulate when everything gets fast.</p>
+            </div>
 
-          <div class="music-setup-visual">
-            <figure class="music-setup-figure">
-              <img src="assets/music/my-drum-setup.webp" alt="Top-view diagram of Tanvir Ahmed Arnab's Tama and Paiste black metal drum setup." loading="lazy" decoding="async">
-            </figure>
-          </div>
+            <div class="music-setup-visual">
+              <figure class="music-setup-figure">
+                <img src="assets/music/my-drum-setup.webp" alt="Top-view diagram of Tanvir Ahmed Arnab's Tama and Paiste black metal drum setup." loading="lazy" decoding="async">
+              </figure>
+            </div>
 
-          <div class="music-spec-grid">
-            <article class="music-spec-card">
-              <h4>Drums</h4>
-              <p>TAMA Starclassic Performer Series<br>Maple / Birch Shells</p>
-              <ul class="music-spec-list">
-                <li>10" x 7" Rack Tom</li>
-                <li>12" x 8" Rack Tom</li>
-                <li>14" x 12" Floor Tom</li>
-                <li>16" x 14" Floor Tom</li>
-                <li>22" x 16" Bass Drum</li>
-              </ul>
-            </article>
+            <div class="music-spec-grid">
+              <article class="music-spec-card">
+                <h3>Drums</h3>
+                <p>TAMA Starclassic Performer Series, maple and birch shells.</p>
+                <ul class="music-spec-list">
+                  <li>10&quot; x 7&quot; rack tom</li>
+                  <li>12&quot; x 8&quot; rack tom</li>
+                  <li>14&quot; x 12&quot; floor tom</li>
+                  <li>16&quot; x 14&quot; floor tom</li>
+                  <li>22&quot; x 16&quot; bass drum</li>
+                </ul>
+              </article>
 
-            <article class="music-spec-card">
-              <h4>Snare</h4>
-              <p>Mapex Black Panther Persuader Hammered Brass Snare</p>
-              <ul class="music-spec-list">
-                <li>14" x 6.5"</li>
-              </ul>
-            </article>
+              <article class="music-spec-card">
+                <h3>Snare</h3>
+                <p>Mapex Black Panther Persuader hammered brass snare.</p>
+                <ul class="music-spec-list">
+                  <li>14&quot; x 6.5&quot;</li>
+                </ul>
+              </article>
 
-            <article class="music-spec-card music-spec-card--wide">
-              <h4>Cymbals</h4>
-              <p>Paiste RUDE</p>
-              <h5>Hi-Hats</h5>
-              <ul class="music-spec-list">
-                <li>14" Paiste RUDE Sound Edge Hi-Hats</li>
-              </ul>
-              <h5>Crashes</h5>
-              <ul class="music-spec-list">
-                <li>18" Paiste RUDE Thin Crash</li>
-                <li>19" Paiste RUDE Wild Crash</li>
-                <li>20" Paiste RUDE Crash</li>
-              </ul>
-              <h5>Ride</h5>
-              <ul class="music-spec-list">
-                <li>22" Paiste RUDE Power Ride</li>
-              </ul>
-              <h5>Chinas</h5>
-              <ul class="music-spec-list">
-                <li>18" Paiste RUDE China</li>
-                <li>20" Paiste RUDE Novo China</li>
-              </ul>
-              <h5>FX</h5>
-              <ul class="music-spec-list">
-                <li>12" Paiste RUDE Shred Bell</li>
-              </ul>
-            </article>
+              <article class="music-spec-card music-spec-card--wide">
+                <h3>Cymbals</h3>
+                <p>Paiste RUDE across the main voice of the kit.</p>
+                <h4>Hi-hats</h4>
+                <ul class="music-spec-list">
+                  <li>14&quot; Paiste RUDE Sound Edge Hi-Hats</li>
+                </ul>
+                <h4>Crashes</h4>
+                <ul class="music-spec-list">
+                  <li>18&quot; Paiste RUDE Thin Crash</li>
+                  <li>19&quot; Paiste RUDE Wild Crash</li>
+                  <li>20&quot; Paiste RUDE Crash</li>
+                </ul>
+                <h4>Ride</h4>
+                <ul class="music-spec-list">
+                  <li>22&quot; Paiste RUDE Power Ride</li>
+                </ul>
+                <h4>Chinas and FX</h4>
+                <ul class="music-spec-list">
+                  <li>18&quot; Paiste RUDE China</li>
+                  <li>20&quot; Paiste RUDE Novo China</li>
+                  <li>12&quot; Paiste RUDE Shred Bell</li>
+                </ul>
+              </article>
 
-            <article class="music-spec-card">
-              <h4>Pedals and Hardware</h4>
-              <h5>Pedals</h5>
-              <ul class="music-spec-list">
-                <li>TAMA Dyna-Sync Double Bass Drum Pedal</li>
-              </ul>
-              <h5>Hardware</h5>
-              <ul class="music-spec-list">
-                <li>TAMA Iron Cobra HH905D Lever Glide Hi-Hat Stand</li>
-                <li>TAMA HC83BW Roadpro Boom Cymbal Stand x6</li>
-                <li>TAMA HS80W Roadpro Snare Stand</li>
-                <li>TAMA HT430B 1st Chair Round Rider Drum Throne</li>
-              </ul>
-            </article>
+              <article class="music-spec-card">
+                <h3>Pedals and hardware</h3>
+                <ul class="music-spec-list">
+                  <li>TAMA Dyna-Sync double pedal</li>
+                  <li>TAMA Iron Cobra HH905D hi-hat stand</li>
+                  <li>TAMA HC83BW Roadpro boom stands x6</li>
+                  <li>TAMA HS80W Roadpro snare stand</li>
+                  <li>TAMA HT430B Round Rider throne</li>
+                </ul>
+              </article>
 
-            <article class="music-spec-card">
-              <h4>Drumheads</h4>
-              <p>Evans Drumheads</p>
-              <ul class="music-spec-list">
-                <li>Bass Drum: Evans EMAD2 Clear</li>
-                <li>Toms Batter: Evans G2 Clear</li>
-                <li>Toms Resonant: Evans G1 Clear</li>
-                <li>Snare Batter: Evans HD Dry</li>
-                <li>Snare Resonant: Evans Hazy 300</li>
-              </ul>
-            </article>
-          </div>
-        </section>
+              <article class="music-spec-card">
+                <h3>Heads</h3>
+                <ul class="music-spec-list">
+                  <li>Evans EMAD2 Clear on kick</li>
+                  <li>Evans G2 Clear on tom batters</li>
+                  <li>Evans G1 Clear on tom resonants</li>
+                  <li>Evans HD Dry on snare batter</li>
+                  <li>Evans Hazy 300 on snare resonant</li>
+                </ul>
+              </article>
+            </div>
+          </section>
 
-        <section class="music-slider-panel" id="panel-rotation" role="tabpanel" aria-labelledby="tab-rotation" data-music-panel="rotation" hidden>
-          <div class="music-panel-header">
-            <h3>Thirteen songs that have been feeding my ears lately.</h3>
-          </div>
+          <section class="music-slider-panel" id="panel-rotation" role="tabpanel" aria-labelledby="tab-rotation" data-music-panel="rotation" hidden>
+            <div class="music-panel-header">
+              <h2>What has been feeding my ears lately.</h2>
+              <p>A rotating set of records and songs that keep the aggression, atmosphere, melody, and production standard sharp.</p>
+            </div>
 
-          <div class="music-playlist-grid">
-            <article class="music-playlist-card">
-              <p class="music-player-caption">Choose a song from the list and it will load here.</p>
-              <iframe class="music-player-frame" src="https://open.spotify.com/embed/track/79rCZ7KrkgpT2k6wXVjxiL?utm_source=generator" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Embedded music player" data-music-player></iframe>
-            </article>
+            <div class="music-playlist-grid">
+              <article class="music-playlist-card">
+                <p class="music-player-caption">Choose a song from the list and it will load here.</p>
+                <iframe class="music-player-frame" src="https://open.spotify.com/embed/track/79rCZ7KrkgpT2k6wXVjxiL?utm_source=generator" allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Embedded music player" data-music-player></iframe>
+              </article>
 
-            <article class="music-playlist-list">
-              <h4>13-song list</h4>
-              <ol class="music-track-list">
-                <li class="music-track-item"><button class="music-track-button is-active" type="button" data-track-embed="https://open.spotify.com/embed/track/79rCZ7KrkgpT2k6wXVjxiL?utm_source=generator">Cradle of Filth &mdash; Nymphetamine</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0ic01l4KwKPiEkMMnNT5XG?utm_source=generator">Cryptopsy &mdash; The Pestilence That Walketh in Darkness</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/2MYdLzcBnDnk97PutLCRWP?utm_source=generator">Behemoth &mdash; Conquer All</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/6qHI9eKtpdWLpfcftkykCg?utm_source=generator">Rammstein &mdash; Mein Herz Brennt</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/4Tg06Sex4LzwcgVdfRrHlp?theme=0">Deathstars &mdash; No Light</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/5A5ixwUtbW01F4vFDYKRjS?utm_source=generator">Marilyn Manson &mdash; Third Day of a Seven Day Binge</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/5ceYVTBWOXrxuwzkrkS4ob?utm_source=generator">Sentenced &mdash; Killing Me Killing You</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0gmbgwZ8iqyMPmXefof8Yf?utm_source=generator">Nickelback &mdash; How You Remind Me</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0M955bMOoilikPXwKLYpoi?utm_source=generator">Three Days Grace &mdash; I Hate Everything About You</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/album/7pcT84mVo6uuy0m2Xkpcwx?theme=0">Dying Fetus &mdash; Your Treachery Will Die with You</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/7kozeGeawfP7IEEL6dddrM?theme=0">Kataklysm &mdash; Push the Venom</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/0iGkBvuI18nxqJR8Ipg1cu?theme=0">Einherjer &mdash; Ironbound</button></li>
-                <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0m6fGE8vJepX0AeiFVXb9A?utm_source=generator">Slayer &mdash; Bloodline</button></li>
-              </ol>
-            </article>
-          </div>
-        </section>
+              <article class="music-playlist-list">
+                <h3>Thirteen-song rotation</h3>
+                <ol class="music-track-list">
+                  <li class="music-track-item"><button class="music-track-button is-active" type="button" data-track-embed="https://open.spotify.com/embed/track/79rCZ7KrkgpT2k6wXVjxiL?utm_source=generator">Cradle of Filth &mdash; Nymphetamine</button></li>
+                  <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0ic01l4KwKPiEkMMnNT5XG?utm_source=generator">Cryptopsy &mdash; The Pestilence That Walketh in Darkness</button></li>
+                  <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/2MYdLzcBnDnk97PutLCRWP?utm_source=generator">Behemoth &mdash; Conquer All</button></li>
+                  <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/6qHI9eKtpdWLpfcftkykCg?utm_source=generator">Rammstein &mdash; Mein Herz Brennt</button></li>
+                  <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/4Tg06Sex4LzwcgVdfRrHlp?theme=0">Deathstars &mdash; No Light</button></li>
+                  <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/5A5ixwUtbW01F4vFDYKRjS?utm_source=generator">Marilyn Manson &mdash; Third Day of a Seven Day Binge</button></li>
+                  <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/5ceYVTBWOXrxuwzkrkS4ob?utm_source=generator">Sentenced &mdash; Killing Me Killing You</button></li>
+                  <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0gmbgwZ8iqyMPmXefof8Yf?utm_source=generator">Nickelback &mdash; How You Remind Me</button></li>
+                  <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0M955bMOoilikPXwKLYpoi?utm_source=generator">Three Days Grace &mdash; I Hate Everything About You</button></li>
+                  <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/album/7pcT84mVo6uuy0m2Xkpcwx?theme=0">Dying Fetus &mdash; Your Treachery Will Die with You</button></li>
+                  <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/7kozeGeawfP7IEEL6dddrM?theme=0">Kataklysm &mdash; Push the Venom</button></li>
+                  <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/artist/0iGkBvuI18nxqJR8Ipg1cu?theme=0">Einherjer &mdash; Ironbound</button></li>
+                  <li class="music-track-item"><button class="music-track-button" type="button" data-track-embed="https://open.spotify.com/embed/track/0m6fGE8vJepX0AeiFVXb9A?utm_source=generator">Slayer &mdash; Bloodline</button></li>
+                </ol>
+              </article>
+            </div>
+          </section>
 
-        <section class="music-slider-panel" id="panel-media" role="tabpanel" aria-labelledby="tab-media" data-music-panel="media" hidden>
-          <div class="music-panel-header">
-            <h3>Content will be added soon.</h3>
-          </div>
+          <section class="music-slider-panel" id="panel-media" role="tabpanel" aria-labelledby="tab-media" data-music-panel="media" hidden>
+            <div class="music-panel-header">
+              <h2>Archive space for live material, clips, and future releases.</h2>
+              <p>This section is reserved for rehearsal footage, recorded sketches, performance clips, and anything that deserves a cleaner archive later.</p>
+            </div>
 
-          <div class="music-media-grid">
-            <article class="music-media-card">
-              <h4>Photo</h4>
-            </article>
-            <article class="music-media-card">
-              <h4>Audio</h4>
-            </article>
-            <article class="music-media-card">
-              <h4>Video</h4>
-            </article>
-          </div>
-        </section>
+            <div class="music-media-grid">
+              <article class="music-media-card">
+                <h3>Photo archive</h3>
+                <p>Stills from practice, kit changes, and whatever moments feel worth keeping.</p>
+              </article>
+              <article class="music-media-card">
+                <h3>Audio archive</h3>
+                <p>Demos, fragments, and rough captures that might become something larger later.</p>
+              </article>
+              <article class="music-media-card">
+                <h3>Video archive</h3>
+                <p>Performance clips, drum playthroughs, and eventually the first real visual traces of the project.</p>
+              </article>
+            </div>
+          </section>
+        </div>
       </div>
     </section>
   </main>
