@@ -105,6 +105,11 @@ body.landing-page::after {
   pointer-events: none;
 }
 
+.sigil-core-monogram {
+  mix-blend-mode: screen;
+  opacity: 0.98;
+}
+
 .sigil-outer-orbit,
 .sigil-inner-orbit {
   transform-box: view-box;
