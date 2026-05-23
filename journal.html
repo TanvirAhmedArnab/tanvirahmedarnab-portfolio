@@ -85,36 +85,66 @@
               <article class="journal-panel-card journal-overview-card">
                 <h3>Reading list</h3>
                 <ul class="journal-toc-list">
+                  <li><a class="journal-toc-link" href="#article-tweakability">Make the game easy to tweak</a></li>
                   <li><a class="journal-toc-link" href="#article-design-patterns">Design patterns in game development</a></li>
                 </ul>
               </article>
 
-              <article class="journal-panel-card journal-entry-card" id="article-design-patterns" data-share-title="What design patterns started to mean to me as a game developer" data-share-text="A journal note on how design patterns became practical to me through real game-development problems.">
-                <header class="journal-entry-header">
-                  <p class="journal-entry-kicker">Featured read</p>
-                  <h3>What design patterns started to mean to me as a game developer.</h3>
+              <div class="journal-entry-column">
+                <article class="journal-panel-card journal-entry-card" id="article-tweakability" data-share-title="Make the game easy to tweak, or it becomes hard to improve" data-share-text="A journal note on why tweakable, data-driven systems matter so much in game development.">
+                  <header class="journal-entry-header">
+                    <p class="journal-entry-kicker">Featured read</p>
+                    <h3>Make the game easy to tweak, or it becomes hard to improve.</h3>
 
-                  <div class="journal-share-row">
-                    <button class="button button-secondary journal-share-button" type="button" data-share-article>Share</button>
-                    <button class="button button-secondary journal-share-button" type="button" data-copy-article>Copy Link</button>
-                    <span class="journal-share-status" aria-live="polite"></span>
+                    <div class="journal-share-row">
+                      <button class="button button-secondary journal-share-button" type="button" data-share-article>Share</button>
+                      <button class="button button-secondary journal-share-button" type="button" data-copy-article>Copy Link</button>
+                      <span class="journal-share-status" aria-live="polite"></span>
+                    </div>
+                  </header>
+
+                  <div class="journal-prose">
+                    <p>One lesson I keep returning to in game development is that a good system is not only one that works. A good system is one that can be adjusted without dragging the project back through code every time a number needs to move. That matters most once the game grows past the first prototype, because the values that feel convenient to hardcode early quickly turn into friction later.</p>
+
+                    <p>At the start it feels harmless to write movement speed, damage, cooldowns, spawn rates, and camera values directly into scripts. It is fast because the number is right there. But as soon as balancing begins, that convenience disappears. Every small change means opening code, editing a constant, entering play mode again, testing again, and turning the programmer into the bottleneck for work that should really stay open to iteration.</p>
+
+                    <p>Games get better through repeated adjustment. Movement almost never feels right on the first pass. Damage numbers shift after playtesting. Enemy aggression changes once pacing becomes clearer. Cooldowns feel different in real combat than they do in a spreadsheet. Those values are not fixed truths. They are design variables, which is why I keep thinking more seriously about systems that are easy to tweak.</p>
+
+                    <p>In Unity that usually means exposing the right things through ScriptableObjects, inspector-driven configuration, data tables, or tooling that keeps game rules data-driven wherever practical. I would rather let a stat asset own player values, an enemy definition own combat numbers, and an ability asset define cooldowns, costs, cast time, targeting rules, and display data. Code should still define behavior, validation, and safety. But the values designers need to tune should not require source-code edits every time.</p>
+
+                    <p>That distinction keeps getting more important to me: code should define behavior, while data should define variation. Weapons, enemies, abilities, rewards, prompts, and pacing values become much easier to test, rebalance, and reuse once the stable runtime logic is separated from the editable game data. That kind of separation does not happen by accident. It has to be designed into the architecture from the start.</p>
+
+                    <p>The benefit is bigger than speed alone. Tweakable systems also expose assumptions instead of hiding them. They make systems easier to validate, easier to reuse, and easier to evolve without fear. For me, that is one of the clearest engineering rules in game development now: if the game is painful to tweak, it becomes much harder to improve. Good code is not only code that runs. It is code that gives the rest of the project room to keep getting better.</p>
                   </div>
-                </header>
+                </article>
 
-                <div class="journal-prose">
-                  <p>When I first came across design patterns, they felt like one of those topics every programmer is supposed to understand long before they actually feel real. The deeper I got into game development, though, the more practical they became. At some point I started seeing the same lesson again and again: patterns are not really about making code look impressive. They are about recognizing the shape of a problem and reaching for a structure that has already proven useful.</p>
+                <article class="journal-panel-card journal-entry-card" id="article-design-patterns" data-share-title="What design patterns started to mean to me as a game developer" data-share-text="A journal note on how design patterns became practical to me through real game-development problems.">
+                  <header class="journal-entry-header">
+                    <p class="journal-entry-kicker">Recent read</p>
+                    <h3>What design patterns started to mean to me as a game developer.</h3>
 
-                  <p>Game development keeps bringing back the same kinds of pressure. Input handling, character states, UI updates, scene transitions, save systems, enemy behavior, spawned objects, and the constant fight to keep systems connected without turning the whole project into a knot. That is where patterns started to click for me. The State pattern helps when something clearly needs to be in one mode at a time. Command becomes useful as soon as actions can come from a keyboard, controller, AI, or even a networked source. Observer feels natural when UI, audio, quests, and achievements all need to react to one event without being welded together.</p>
+                    <div class="journal-share-row">
+                      <button class="button button-secondary journal-share-button" type="button" data-share-article>Share</button>
+                      <button class="button button-secondary journal-share-button" type="button" data-copy-article>Copy Link</button>
+                      <span class="journal-share-status" aria-live="polite"></span>
+                    </div>
+                  </header>
 
-                  <p>The longer I keep building, the more other patterns reveal their value in the same way. Strategy helps when rules and behaviors need to change without rebuilding the whole system. Factory gives object creation a consistent gate when creation rules matter. Object Pool stops feeling like a clever optimization and starts feeling like basic survival once bullets, particles, and repeated effects are being created constantly. Memento becomes relevant the moment save systems need to capture runtime state cleanly, and the Component pattern keeps proving why composition is so powerful in Unity as long as that flexibility is matched with discipline.</p>
+                  <div class="journal-prose">
+                    <p>When I first came across design patterns, they felt like one of those topics every programmer is supposed to understand long before they actually feel real. The deeper I got into game development, though, the more practical they became. At some point I started seeing the same lesson again and again: patterns are not really about making code look impressive. They are about recognizing the shape of a problem and reaching for a structure that has already proven useful.</p>
 
-                  <p>Some patterns I treat with more caution. Singletons can be useful for truly global services, but I have also seen how quickly they spread invisible dependency through a project. Service Locator and Dependency Injection matter to me less as buzzwords and more as architectural choices: they decide how systems are found, shared, and kept under control as the game grows.</p>
+                    <p>Game development keeps bringing back the same kinds of pressure. Input handling, character states, UI updates, scene transitions, save systems, enemy behavior, spawned objects, and the constant fight to keep systems connected without turning the whole project into a knot. That is where patterns started to click for me. The State pattern helps when something clearly needs to be in one mode at a time. Command becomes useful as soon as actions can come from a keyboard, controller, AI, or even a networked source. Observer feels natural when UI, audio, quests, and achievements all need to react to one event without being welded together.</p>
 
-                  <p>What helps me most now is not trying to memorize every pattern in isolation. It is noticing the pressure in the system early enough to ask what kind of structure would make that part easier to reason about. Too many modes pushes me toward State. Reusable or queueable actions make me think about Command. Systems reacting to each other usually point toward Observer. Swappable rules suggest Strategy. Creation, spawning, saving, and reusable runtime objects bring Factory, Pooling, Memento, and Components into view.</p>
+                    <p>The longer I keep building, the more other patterns reveal their value in the same way. Strategy helps when rules and behaviors need to change without rebuilding the whole system. Factory gives object creation a consistent gate when creation rules matter. Object Pool stops feeling like a clever optimization and starts feeling like basic survival once bullets, particles, and repeated effects are being created constantly. Memento becomes relevant the moment save systems need to capture runtime state cleanly, and the Component pattern keeps proving why composition is so powerful in Unity as long as that flexibility is matched with discipline.</p>
 
-                  <p>For me, the real skill is not being able to recite pattern names just to say I know them. It is learning to recognize the problem early enough to choose a solution that keeps the project clean, flexible, and readable under pressure. That is a big part of what keeps game development exciting for me. Every design decision shows up somewhere later, whether in performance, bugs, iteration speed, or how confidently I can build the next feature. Good game code is not just code that works today. It is code that still gives me room to build what comes next.</p>
-                </div>
-              </article>
+                    <p>Some patterns I treat with more caution. Singletons can be useful for truly global services, but I have also seen how quickly they spread invisible dependency through a project. Service Locator and Dependency Injection matter to me less as buzzwords and more as architectural choices: they decide how systems are found, shared, and kept under control as the game grows.</p>
+
+                    <p>What helps me most now is not trying to memorize every pattern in isolation. It is noticing the pressure in the system early enough to ask what kind of structure would make that part easier to reason about. Too many modes pushes me toward State. Reusable or queueable actions make me think about Command. Systems reacting to each other usually point toward Observer. Swappable rules suggest Strategy. Creation, spawning, saving, and reusable runtime objects bring Factory, Pooling, Memento, and Components into view.</p>
+
+                    <p>For me, the real skill is not being able to recite pattern names just to say I know them. It is learning to recognize the problem early enough to choose a solution that keeps the project clean, flexible, and readable under pressure. That is a big part of what keeps game development exciting for me. Every design decision shows up somewhere later, whether in performance, bugs, iteration speed, or how confidently I can build the next feature. Good game code is not just code that works today. It is code that still gives me room to build what comes next.</p>
+                  </div>
+                </article>
+              </div>
             </div>
           </section>
 

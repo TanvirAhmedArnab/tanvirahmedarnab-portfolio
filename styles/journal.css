@@ -331,6 +331,11 @@
   align-items: start;
 }
 
+.journal-entry-column {
+  display: grid;
+  gap: 1rem;
+}
+
 .journal-panel-card {
   border: 1px solid rgba(157, 182, 200, 0.14);
   border-radius: 1.2rem;
