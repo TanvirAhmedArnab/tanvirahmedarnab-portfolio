@@ -122,8 +122,11 @@
   };
 
   const buildArticleUrl = (article) => {
-    const baseUrl = `${window.location.origin}${window.location.pathname}`;
-    return article.id ? `${baseUrl}#${article.id}` : baseUrl;
+    const canonicalHref = document.querySelector('link[rel="canonical"]')?.href?.trim();
+    const canonicalUrl = canonicalHref && /^https?:\/\//i.test(canonicalHref)
+      ? canonicalHref
+      : `${window.location.origin}${window.location.pathname}`;
+    return article.id ? `${canonicalUrl}#${article.id}` : canonicalUrl;
   };
 
   const copyText = async (value) => {

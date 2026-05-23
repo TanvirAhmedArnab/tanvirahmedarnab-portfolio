@@ -85,14 +85,14 @@
               <article class="journal-panel-card journal-overview-card">
                 <h3>Reading list</h3>
                 <ul class="journal-toc-list">
-                  <li><a class="journal-toc-link" href="#article-systems-survive">RPG Devlog 01</a></li>
+                  <li><a class="journal-toc-link" href="#article-design-patterns">Design patterns in game development</a></li>
                 </ul>
               </article>
 
-              <article class="journal-panel-card journal-entry-card" id="article-systems-survive" data-share-title="The parts you do not see are usually the parts that decide whether a game survives." data-share-text="A journal note on game development, software systems, and why readable ownership matters.">
+              <article class="journal-panel-card journal-entry-card" id="article-design-patterns" data-share-title="What design patterns started to mean to me as a game developer" data-share-text="A journal note on how design patterns became practical to me through real game-development problems.">
                 <header class="journal-entry-header">
                   <p class="journal-entry-kicker">Featured read</p>
-                  <h3>The parts you do not see are usually the parts that decide whether a game survives.</h3>
+                  <h3>What design patterns started to mean to me as a game developer.</h3>
 
                   <div class="journal-share-row">
                     <button class="button button-secondary journal-share-button" type="button" data-share-article>Share</button>
@@ -102,11 +102,17 @@
                 </header>
 
                 <div class="journal-prose">
-                  <p>The visible parts of a prototype get all the attention first, but the hidden structure is usually what decides whether the project survives. Combat feel, effects, menus, and movement can all look promising early while blurry ownership rules and messy state flow quietly make every future change more expensive.</p>
+                  <p>When I first came across design patterns, they felt like one of those topics every programmer is supposed to understand long before they actually feel real. The deeper I got into game development, though, the more practical they became. At some point I started seeing the same lesson again and again: patterns are not really about making code look impressive. They are about recognizing the shape of a problem and reaching for a structure that has already proven useful.</p>
 
-                  <p>The warning signs are always similar: one fix creates side effects, new features take too long, and nobody can point clearly to the source of truth. In games this pain arrives fast, which is why I treat architecture less as elegance and more as momentum protection.</p>
+                  <p>Game development keeps bringing back the same kinds of pressure. Input handling, character states, UI updates, scene transitions, save systems, enemy behavior, spawned objects, and the constant fight to keep systems connected without turning the whole project into a knot. That is where patterns started to click for me. The State pattern helps when something clearly needs to be in one mode at a time. Command becomes useful as soon as actions can come from a keyboard, controller, AI, or even a networked source. Observer feels natural when UI, audio, quests, and achievements all need to react to one event without being welded together.</p>
 
-                  <p>If I can tell where authority lives, inspect the system cleanly, and change it without negotiating with old shortcuts, the project stays alive. That is the standard I try to build toward now.</p>
+                  <p>The longer I keep building, the more other patterns reveal their value in the same way. Strategy helps when rules and behaviors need to change without rebuilding the whole system. Factory gives object creation a consistent gate when creation rules matter. Object Pool stops feeling like a clever optimization and starts feeling like basic survival once bullets, particles, and repeated effects are being created constantly. Memento becomes relevant the moment save systems need to capture runtime state cleanly, and the Component pattern keeps proving why composition is so powerful in Unity as long as that flexibility is matched with discipline.</p>
+
+                  <p>Some patterns I treat with more caution. Singletons can be useful for truly global services, but I have also seen how quickly they spread invisible dependency through a project. Service Locator and Dependency Injection matter to me less as buzzwords and more as architectural choices: they decide how systems are found, shared, and kept under control as the game grows.</p>
+
+                  <p>What helps me most now is not trying to memorize every pattern in isolation. It is noticing the pressure in the system early enough to ask what kind of structure would make that part easier to reason about. Too many modes pushes me toward State. Reusable or queueable actions make me think about Command. Systems reacting to each other usually point toward Observer. Swappable rules suggest Strategy. Creation, spawning, saving, and reusable runtime objects bring Factory, Pooling, Memento, and Components into view.</p>
+
+                  <p>For me, the real skill is not being able to recite pattern names just to say I know them. It is learning to recognize the problem early enough to choose a solution that keeps the project clean, flexible, and readable under pressure. That is a big part of what keeps game development exciting for me. Every design decision shows up somewhere later, whether in performance, bugs, iteration speed, or how confidently I can build the next feature. Good game code is not just code that works today. It is code that still gives me room to build what comes next.</p>
                 </div>
               </article>
             </div>
