@@ -84,16 +84,24 @@
             <div class="journal-panel-grid">
               <article class="journal-panel-card journal-overview-card">
                 <h3>Reading list</h3>
-                <ul class="journal-toc-list">
-                  <li><a class="journal-toc-link" href="#article-tweakability">Make the game easy to tweak</a></li>
-                  <li><a class="journal-toc-link" href="#article-design-patterns">Design patterns in game development</a></li>
+                <ul class="journal-toc-list" role="tablist" aria-label="Game development reading list">
+                  <li>
+                    <button class="journal-toc-link is-active" id="trigger-article-tweakability" type="button" role="tab" aria-selected="true" aria-controls="article-tweakability" data-journal-entry-trigger="article-tweakability">
+                      Make the game easy to tweak
+                    </button>
+                  </li>
+                  <li>
+                    <button class="journal-toc-link" id="trigger-article-design-patterns" type="button" role="tab" aria-selected="false" aria-controls="article-design-patterns" data-journal-entry-trigger="article-design-patterns" tabindex="-1">
+                      Design patterns in game development
+                    </button>
+                  </li>
                 </ul>
               </article>
 
               <div class="journal-entry-column">
-                <article class="journal-panel-card journal-entry-card" id="article-tweakability" data-share-title="Make the game easy to tweak, or it becomes hard to improve" data-share-text="A journal note on why tweakable, data-driven systems matter so much in game development.">
+                <article class="journal-panel-card journal-entry-card is-active" id="article-tweakability" role="tabpanel" aria-labelledby="trigger-article-tweakability" data-journal-entry="article-tweakability" data-share-title="Make the game easy to tweak, or it becomes hard to improve" data-share-text="A journal note on why tweakable, data-driven systems matter so much in game development.">
                   <header class="journal-entry-header">
-                    <p class="journal-entry-kicker">Featured read</p>
+                    <p class="journal-entry-kicker">Current read</p>
                     <h3>Make the game easy to tweak, or it becomes hard to improve.</h3>
 
                     <div class="journal-share-row">
@@ -118,9 +126,9 @@
                   </div>
                 </article>
 
-                <article class="journal-panel-card journal-entry-card" id="article-design-patterns" data-share-title="What design patterns started to mean to me as a game developer" data-share-text="A journal note on how design patterns became practical to me through real game-development problems.">
+                <article class="journal-panel-card journal-entry-card" id="article-design-patterns" role="tabpanel" aria-labelledby="trigger-article-design-patterns" data-journal-entry="article-design-patterns" data-share-title="What design patterns started to mean to me as a game developer" data-share-text="A journal note on how design patterns became practical to me through real game-development problems." hidden>
                   <header class="journal-entry-header">
-                    <p class="journal-entry-kicker">Recent read</p>
+                    <p class="journal-entry-kicker">Current read</p>
                     <h3>What design patterns started to mean to me as a game developer.</h3>
 
                     <div class="journal-share-row">
@@ -157,14 +165,18 @@
             <div class="journal-panel-grid">
               <article class="journal-panel-card journal-overview-card">
                 <h3>Reading list</h3>
-                <ul class="journal-toc-list">
-                  <li><a class="journal-toc-link" href="#article-decency-trust">Field Note 01</a></li>
+                <ul class="journal-toc-list" role="tablist" aria-label="Personal writing reading list">
+                  <li>
+                    <button class="journal-toc-link is-active" id="trigger-article-decency-trust" type="button" role="tab" aria-selected="true" aria-controls="article-decency-trust" data-journal-entry-trigger="article-decency-trust">
+                      Field Note 01
+                    </button>
+                  </li>
                 </ul>
               </article>
 
-              <article class="journal-panel-card journal-entry-card" id="article-decency-trust" data-share-title="Stray animals, loud opinions, and the kind of decency I actually trust." data-share-text="A casual journal note about compassion, public opinion, and everyday responsibility.">
+              <article class="journal-panel-card journal-entry-card is-active" id="article-decency-trust" role="tabpanel" aria-labelledby="trigger-article-decency-trust" data-journal-entry="article-decency-trust" data-share-title="Stray animals, loud opinions, and the kind of decency I actually trust." data-share-text="A casual journal note about compassion, public opinion, and everyday responsibility.">
                 <header class="journal-entry-header">
-                  <p class="journal-entry-kicker">Featured read</p>
+                  <p class="journal-entry-kicker">Current read</p>
                   <h3>Stray animals, loud opinions, and the kind of decency I actually trust.</h3>
 
                   <div class="journal-share-row">

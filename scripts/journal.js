@@ -93,6 +93,104 @@
 })();
 
 (() => {
+  const panels = Array.from(document.querySelectorAll("[data-journal-panel]"));
+
+  if (!panels.length) {
+    return;
+  }
+
+  const entryGroups = panels
+    .map((panel) => {
+      const triggers = Array.from(panel.querySelectorAll("[data-journal-entry-trigger]"));
+      const entries = Array.from(panel.querySelectorAll("[data-journal-entry]"));
+
+      if (!triggers.length || !entries.length) {
+        return null;
+      }
+
+      const setActiveEntry = (entryId) => {
+        const fallbackId = entries[0]?.id || "";
+        const nextId = entries.some((entry) => entry.id === entryId) ? entryId : fallbackId;
+
+        triggers.forEach((trigger) => {
+          const isActive = trigger.dataset.journalEntryTrigger === nextId;
+          trigger.classList.toggle("is-active", isActive);
+          trigger.setAttribute("aria-selected", String(isActive));
+          trigger.tabIndex = isActive ? 0 : -1;
+        });
+
+        entries.forEach((entry) => {
+          const isActive = entry.id === nextId;
+          entry.classList.toggle("is-active", isActive);
+          entry.hidden = !isActive;
+        });
+      };
+
+      triggers.forEach((trigger, index) => {
+        trigger.addEventListener("click", () => {
+          const targetId = trigger.dataset.journalEntryTrigger;
+          if (!targetId) {
+            return;
+          }
+
+          setActiveEntry(targetId);
+
+          if (history.replaceState) {
+            history.replaceState(null, "", `#${targetId}`);
+          } else {
+            window.location.hash = targetId;
+          }
+        });
+
+        trigger.addEventListener("keydown", (event) => {
+          let nextIndex = index;
+
+          switch (event.key) {
+            case "ArrowDown":
+            case "ArrowRight":
+              nextIndex = (index + 1) % triggers.length;
+              break;
+            case "ArrowUp":
+            case "ArrowLeft":
+              nextIndex = (index - 1 + triggers.length) % triggers.length;
+              break;
+            case "Home":
+              nextIndex = 0;
+              break;
+            case "End":
+              nextIndex = triggers.length - 1;
+              break;
+            default:
+              return;
+          }
+
+          event.preventDefault();
+          triggers[nextIndex]?.focus();
+        });
+      });
+
+      return { panel, setActiveEntry, entries };
+    })
+    .filter(Boolean);
+
+  const syncEntryFromHash = () => {
+    const targetId = window.location.hash ? window.location.hash.slice(1) : "";
+
+    entryGroups.forEach((group) => {
+      if (!group) {
+        return;
+      }
+
+      const matchingEntry = group.entries.find((entry) => entry.id === targetId);
+      group.setActiveEntry(matchingEntry?.id || group.entries[0]?.id || "");
+    });
+  };
+
+  syncEntryFromHash();
+  window.addEventListener("hashchange", syncEntryFromHash);
+})();
+
+(() => {
   const articleCards = Array.from(document.querySelectorAll("[data-share-title]"));
 
   if (!articleCards.length) {

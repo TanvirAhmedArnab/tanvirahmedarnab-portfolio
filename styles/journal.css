@@ -333,7 +333,15 @@
 
 .journal-entry-column {
   display: grid;
-  gap: 1rem;
+}
+
+.journal-entry-card {
+  display: none;
+}
+
+.journal-entry-card.is-active {
+  display: block;
+  animation: fadePanel 220ms ease;
 }
 
 .journal-panel-card {
@@ -371,6 +379,7 @@
 
 .journal-toc-link {
   display: block;
+  width: 100%;
   padding: 0.82rem 0.9rem;
   border: 1px solid rgba(157, 182, 200, 0.14);
   border-radius: 0.9rem;
@@ -380,8 +389,10 @@
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.12em;
+  text-align: left;
   text-decoration: none;
   text-transform: uppercase;
+  cursor: pointer;
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
 }
 
@@ -391,6 +402,13 @@
   border-color: rgba(197, 110, 134, 0.36);
   color: #F2E6CF;
   outline: none;
+}
+
+.journal-toc-link.is-active {
+  background: rgba(44, 61, 87, 0.98);
+  border-color: rgba(197, 110, 134, 0.38);
+  color: #F2E6CF;
+  box-shadow: inset 0 0 0 1px rgba(197, 110, 134, 0.08);
 }
 
 .journal-entry-header {
