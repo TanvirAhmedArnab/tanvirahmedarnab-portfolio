@@ -86,7 +86,12 @@
                 <h3>Reading list</h3>
                 <ul class="journal-toc-list" role="tablist" aria-label="Game development reading list">
                   <li>
-                    <button class="journal-toc-link is-active" id="trigger-article-tweakability" type="button" role="tab" aria-selected="true" aria-controls="article-tweakability" data-journal-entry-trigger="article-tweakability">
+                    <button class="journal-toc-link is-active" id="trigger-article-unity-packages" type="button" role="tab" aria-selected="true" aria-controls="article-unity-packages" data-journal-entry-trigger="article-unity-packages">
+                      Why packages matter in bigger Unity projects
+                    </button>
+                  </li>
+                  <li>
+                    <button class="journal-toc-link" id="trigger-article-tweakability" type="button" role="tab" aria-selected="false" aria-controls="article-tweakability" data-journal-entry-trigger="article-tweakability" tabindex="-1">
                       Make the game easy to tweak
                     </button>
                   </li>
@@ -99,7 +104,46 @@
               </article>
 
               <div class="journal-entry-column">
-                <article class="journal-panel-card journal-entry-card is-active" id="article-tweakability" role="tabpanel" aria-labelledby="trigger-article-tweakability" data-journal-entry="article-tweakability" data-share-title="Make the game easy to tweak, or it becomes hard to improve" data-share-text="A journal note on why tweakable, data-driven systems matter so much in game development.">
+                <article class="journal-panel-card journal-entry-card is-active" id="article-unity-packages" role="tabpanel" aria-labelledby="trigger-article-unity-packages" data-journal-entry="article-unity-packages" data-share-title="Why packages started to matter to me in bigger Unity projects" data-share-text="A journal note on how I think about Unity packages as bounded, reusable systems with clear responsibilities, tooling, and tests.">
+                  <header class="journal-entry-header">
+                    <p class="journal-entry-kicker">Current read</p>
+                    <h3>Why packages started to matter to me in bigger Unity projects.</h3>
+
+                    <div class="journal-share-row">
+                      <button class="button button-secondary journal-share-button" type="button" data-share-article>Share</button>
+                      <button class="button button-secondary journal-share-button" type="button" data-copy-article>Copy Link</button>
+                      <span class="journal-share-status" aria-live="polite"></span>
+                    </div>
+                  </header>
+
+                  <div class="journal-prose">
+                    <p>The bigger a Unity project gets, the more I stop thinking about scripts as isolated files and start thinking about boundaries. A package, to me, is really a self-contained feature module. Instead of letting every reusable system live in one giant project folder, I would rather move stable systems into their own spaces: <code>com.taarn.foundation.stats</code>, <code>com.taarn.foundation.abilities</code>, <code>com.taarn.foundation.questing</code>, <code>com.taarn.foundation.saving</code>, <code>com.taarn.foundation.identity</code>. That shift starts sounding serious only after a project grows enough to show why it matters.</p>
+
+                    <p>At the simplest level, a Unity package is just a folder with a <code>package.json</code>. But that file matters because it tells Unity this is a real package, not a random script dump. It gives the system a name, a version, dependencies, and a place in the Package Manager. A name like <code>com.taarn.foundation.achievements</code> already says something important to me: this is author- or studio-scoped code, it belongs to the foundation layer, and its responsibility is achievements. That naming discipline helps turn a folder structure into an actual map of the architecture.</p>
+
+                    <p>What makes packages important to me is not ceremony. It is the mess they prevent. Without real package boundaries, large projects slowly turn into a web where player logic knows inventory, inventory knows questing, questing knows UI, UI knows saving, saving knows stats, and eventually everything knows everything. That kind of project becomes harder to test, harder to reuse, harder to debug, and harder to change without collateral damage. Packages force clearer ownership. Stats should own numbers and modifiers. Abilities should own execution, cooldowns, charges, and costs. Questing should own objectives and progress. Saving should own persistence, not everyone else's internals.</p>
+
+                    <p>I also care a lot about the internal structure of a package because structure tells people how to trust it. <code>Runtime/</code> should contain the code that can actually ship in a build. <code>Editor/</code> should hold setup tools, validators, inspectors, and debugger windows that exist only inside Unity. <code>Tests/</code> should prove that the package is not guessing. <code>Samples~/</code> should give a concrete usage path. <code>Documentation~/</code> should explain the intended workflow. Once a package has those sections, it stops feeling like loose scripts and starts feeling like a professional system.</p>
+
+                    <p>Assembly definition files matter for the same reason. I see <code>.asmdef</code> files less as bureaucracy and more as boundary enforcement. They separate runtime code from editor-only code, control dependencies, and stop <code>UnityEditor</code> logic from leaking into builds. That separation becomes especially important in larger ecosystems, because compilation and dependency direction should be deliberate. A low-level package like identity or saving should not quietly depend on a high-level shell or scene-specific system just because no one noticed the coupling early enough.</p>
+
+                    <p>The most important design rule, for me, is still single responsibility. A package should have one main job. An abilities package should execute ability timing, rules, costs, and cooldowns. It should not also become the saving package, the inventory package, the VFX package, and the UI package because it happens to touch all of those things. The same principle applies everywhere. Once one package tries to own too many jobs, it stops being a reusable module and turns back into a disguised script pile.</p>
+
+                    <p>The more I think about foundation-grade packages, the more I care about the pieces around the main service. A strong package does not just expose one class and call it done. It usually needs authored assets, result types, diagnostics, validation, save data, and tools that make the package inspectable under pressure. A bool is rarely enough when a system can fail for many reasons. An ability package, for example, may need to explain whether an action failed because of cooldown, missing context, invalid target, or cost. That is why result types matter. They turn hidden failure into usable information.</p>
+
+                    <p>Diagnostics and validators matter just as much. Diagnostics keep a package from becoming a black box at runtime. Validators stop broken authored content from slipping into play mode and becoming someone else's debugging problem later. In practical terms, that means an achievements package should be able to catch duplicate IDs or bad signals before the game runs, and it should also be able to tell me what is currently registered, what unlocked recently, and what failed. That is the difference between code that technically works and a system that is safe to build on.</p>
+
+                    <p>I also think save ownership is one of the cleanest tests of package maturity. Each package should know how to describe and restore its own state. Achievements should own achievement progress. Questing should own quest progress. Stats should own stat state. Effects should own active effect state. The saving package should not need to know everybody else's internals. It should store sections, while each bounded system contributes its own save data contract. That is cleaner architecture and much easier to evolve.</p>
+
+                    <p>What I want from packages is cooperation without entanglement. A combat system should not need to know how achievements work internally. It should be able to report something like <code>combat.enemy_defeated</code> and let achievements, questing, progression, loot, and saving each react in their own way. The same thing applies to interactions, rewards, effects, and identity. That is where packages stop feeling like folders and start feeling like architecture: each system owns its job, exposes a clean contract, and participates in a larger flow without trying to own the whole event.</p>
+
+                    <p>This matters even more because I am not thinking about one script collection anymore. I am thinking about a reusable foundation library for bigger games. AI, abilities, stats, questing, dialogue, interaction, inventory, saving, achievements, effects, progression, factions, loot, and identity all become more valuable when they can stand on their own and still cooperate cleanly. If those boundaries are weak, the ecosystem collapses into tangled code. If they are strong, the same package can survive across multiple projects and genres.</p>
+
+                    <p>That is why packages have started to matter so much to me. A Unity package is not just a folder. In a serious project, it is a bounded system with a clear responsibility, a public surface, tests, validation, diagnostics, editor tooling, and defined integration points. That kind of structure does not make development slower. It is what keeps a large project from becoming impossible to improve.</p>
+                  </div>
+                </article>
+
+                <article class="journal-panel-card journal-entry-card" id="article-tweakability" role="tabpanel" aria-labelledby="trigger-article-tweakability" data-journal-entry="article-tweakability" data-share-title="Make the game easy to tweak, or it becomes hard to improve" data-share-text="A journal note on why tweakable, data-driven systems matter so much in game development." hidden>
                   <header class="journal-entry-header">
                     <p class="journal-entry-kicker">Current read</p>
                     <h3>Make the game easy to tweak, or it becomes hard to improve.</h3>
@@ -231,6 +275,3 @@
   <script src="scripts/journal.js"></script>
 </body>
 </html>
-
-
-
