@@ -86,7 +86,12 @@
                 <h3>Reading list</h3>
                 <ul class="journal-toc-list" role="tablist" aria-label="Game development reading list">
                   <li>
-                    <button class="journal-toc-link is-active" id="trigger-article-unity-packages" type="button" role="tab" aria-selected="true" aria-controls="article-unity-packages" data-journal-entry-trigger="article-unity-packages">
+                    <button class="journal-toc-link is-active" id="trigger-article-professional-packages" type="button" role="tab" aria-selected="true" aria-controls="article-professional-packages" data-journal-entry-trigger="article-professional-packages">
+                      Writing professional Unity packages
+                    </button>
+                  </li>
+                  <li>
+                    <button class="journal-toc-link" id="trigger-article-unity-packages" type="button" role="tab" aria-selected="false" aria-controls="article-unity-packages" data-journal-entry-trigger="article-unity-packages" tabindex="-1">
                       Why packages matter in bigger Unity projects
                     </button>
                   </li>
@@ -104,7 +109,46 @@
               </article>
 
               <div class="journal-entry-column">
-                <article class="journal-panel-card journal-entry-card is-active" id="article-unity-packages" role="tabpanel" aria-labelledby="trigger-article-unity-packages" data-journal-entry="article-unity-packages" data-share-title="Why packages started to matter to me in bigger Unity projects" data-share-text="A journal note on how I think about Unity packages as bounded, reusable systems with clear responsibilities, tooling, and tests.">
+                <article class="journal-panel-card journal-entry-card is-active" id="article-professional-packages" role="tabpanel" aria-labelledby="trigger-article-professional-packages" data-journal-entry="article-professional-packages" data-share-title="How to write professional Unity packages" data-share-text="A journal note on what makes a Unity package feel professional: clear ownership, bridge-based integrations, safe APIs, diagnostics, validation, and tests.">
+                  <header class="journal-entry-header">
+                    <p class="journal-entry-kicker">Current read</p>
+                    <h3>How to write professional Unity packages: lessons from building a modular game foundation.</h3>
+
+                    <div class="journal-share-row">
+                      <button class="button button-secondary journal-share-button" type="button" data-share-article>Share</button>
+                      <button class="button button-secondary journal-share-button" type="button" data-copy-article>Copy Link</button>
+                      <span class="journal-share-status" aria-live="polite"></span>
+                    </div>
+                  </header>
+
+                  <div class="journal-prose">
+                    <p>The more seriously I think about Unity package architecture, the less I see a package as a folder full of useful scripts. A good package feels more like a promise. It promises that the code has a clear responsibility, that other systems can depend on it without getting trapped inside it, and that failures, save state, diagnostics, and future growth have all been considered before the system was declared finished.</p>
+
+                    <p>That matters because large game foundations become fragile faster than they look. In the beginning, it feels efficient to let everything talk directly to everything else. Crafting reaches into inventory. Inventory reaches into economy. Characters directly initialize stats, abilities, animation, AI, equipment, targeting, and dialogue because they all seem connected anyway. That speed feels real for a while, but once the project grows, the coupling becomes expensive. Bugs spread wider, tests become harder to isolate, and every change starts touching systems that should have been independent.</p>
+
+                    <p>So the first rule I keep coming back to is ownership. Every package should know what it owns and what it does not own. A crafting package can own recipes, crafting requests, previews, transaction plans, crafting jobs, and crafting diagnostics. It should not secretly become the inventory package or the economy package just because it needs both of them. A characters package can own definitions, archetypes, lifecycle state, runtime identities, and snapshots without pretending it also owns stats, AI, dialogue, equipment, or targeting. A conditions package can own definitions, condition sets, resolver registration, and evaluation results without hardcoding knowledge of quests, world state, achievements, or inventory internals. That boundary discipline is what separates a reusable package from a script collection that only survives in one project.</p>
+
+                    <p>The second rule is that optional integrations should be bridges, not hard dependencies. This is one of the biggest lessons package work has taught me. If the core crafting package directly depends on economy, inventory, conditions, and stations, then it is no longer a clean foundation package. It becomes a dependency magnet. A stronger structure is to keep a clear core like <code>com.taarn.foundation.crafting</code> and move optional integrations into bridges such as <code>com.taarn.foundation.crafting.economy</code>, <code>com.taarn.foundation.crafting.inventory</code>, and <code>com.taarn.foundation.crafting.conditions</code>. The core defines the contracts. The bridges implement those contracts using other systems. That keeps the ecosystem installable, testable, and flexible instead of forcing every project to adopt one exact stack.</p>
+
+                    <p>I also think a professional package should explain itself through structure. If I open a package and see only a pile of scripts, I trust it less immediately. I want to see a <code>package.json</code> that clearly names the package and its dependencies. I want <code>Runtime/</code> for build-safe code, <code>Editor/</code> for tooling, <code>Tests/</code> for proof, <code>Samples~/</code> for adoption, and <code>Documentation~/</code> for intended use. I want assembly definition files that separate runtime, editor, and test assemblies on purpose. That structure is not cosmetic. It is how a package tells the next developer, including my future self, that the boundaries were designed consciously.</p>
+
+                    <p>The public API matters just as much. A professional package should make the safe path obvious. Names like <code>PreviewCraft</code>, <code>Craft</code>, <code>TryGetSnapshot</code>, <code>CopySnapshotsTo</code>, <code>CaptureSaveData</code>, and <code>RestoreSaveData</code> already teach the caller something before the documentation is even opened. <code>PreviewCraft</code> should not mutate state. <code>Craft</code> should. <code>RestoreSaveData</code> should not wipe live state and hope for the best. If the API names are vague, the package starts teaching uncertainty instead of safety.</p>
+
+                    <p>That is also why I care so much about structured result types. A serious package should not explain an important operation with only <code>true</code> or <code>false</code>. It should say whether something succeeded, failed because of an invalid ID, failed because ingredients were missing, failed because a bridge rejected the request, or failed because a save schema is unsupported. Those result objects are not just good for debugging. They improve UI, RuntimeDebug tools, tests, authoring validation, and the overall readability of the system. A package that explains why it failed is much easier to trust than one that forces everyone to reverse-engineer failure from side effects.</p>
+
+                    <p>Consistent IDs are another part of professionalism that is easy to underestimate. Stable IDs are the shared language of the ecosystem. If one package accepts uppercase names, another silently trims spaces, and a third normalizes dots differently, the project becomes harder to reason about before any gameplay even begins. I would rather be strict early with IDs like <code>character.actor.player</code>, <code>crafting.recipe.health_potion</code>, and <code>condition.worldstate.compare</code> than discover at runtime that every system interpreted the same name differently.</p>
+
+                    <p>Transaction-heavy packages also taught me that rollback must be scoped. If a crafting request reserves ingredients, reserves currency, consumes items, grants outputs, and one bridge fails near the end, rollback should undo only what that transaction changed. It should not restore a whole inventory snapshot or an old wallet snapshot and accidentally erase unrelated work from another system. The same discipline shows up in save and restore. A professional restore flow should validate first, build temporary state, reject unsupported schema versions, apply unknown-ID policies, run migrations if needed, and only commit if the whole restore succeeds. If restore fails, live state should remain intact.</p>
+
+                    <p>Diagnostics, validators, and optional RuntimeDebug bridges are where a package stops being merely usable and starts becoming truly professional. Diagnostics tell me what is registered, what is active, what failed recently, and how often. Validators catch duplicate IDs, invalid references, missing outputs, bad authoring values, and unsupported combinations before Play Mode. RuntimeDebug commands such as <code>list</code>, <code>inspect</code>, <code>diagnostics</code>, <code>crafting.preview</code>, or <code>economy.transfer</code> make the system understandable while the game is running. I do not think of these as extras anymore. They are part of the package's contract with the developer.</p>
+
+                    <p>The same is true for comments and tests. XML comments should teach ownership, mutation, bridge behavior, and failure guarantees rather than repeating the type name. Tests should prove more than the happy path. Invalid IDs, duplicate registrations, bridge failures, listener exceptions, rollback behavior, restore rejection, and future schema handling all deserve coverage. A package that only proves it works when everything goes right has not really proven much.</p>
+
+                    <p>What I keep concluding is that professional package design is less about clever code than it is about consistency. Every package should feel familiar to use. Every package should validate itself the same way, expose diagnostics the same way, isolate dependencies the same way, and protect runtime state the same way. That is how an ecosystem becomes easy to learn. Not because every system is simple, but because every system follows the same rules. To me, that is the real standard: a good Unity package does not only solve a problem. It teaches the user how that problem should be solved cleanly.</p>
+                  </div>
+                </article>
+
+                <article class="journal-panel-card journal-entry-card" id="article-unity-packages" role="tabpanel" aria-labelledby="trigger-article-unity-packages" data-journal-entry="article-unity-packages" data-share-title="Why packages started to matter to me in bigger Unity projects" data-share-text="A journal note on how I think about Unity packages as bounded, reusable systems with clear responsibilities, tooling, and tests." hidden>
                   <header class="journal-entry-header">
                     <p class="journal-entry-kicker">Current read</p>
                     <h3>Why packages started to matter to me in bigger Unity projects.</h3>
