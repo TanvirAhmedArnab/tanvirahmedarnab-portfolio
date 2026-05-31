@@ -86,7 +86,12 @@
                 <h3>Reading list</h3>
                 <ul class="journal-toc-list" role="tablist" aria-label="Game development reading list">
                   <li>
-                    <button class="journal-toc-link is-active" id="trigger-article-professional-packages" type="button" role="tab" aria-selected="true" aria-controls="article-professional-packages" data-journal-entry-trigger="article-professional-packages">
+                    <button class="journal-toc-link is-active" id="trigger-article-application-performance" type="button" role="tab" aria-selected="true" aria-controls="article-application-performance" data-journal-entry-trigger="article-application-performance">
+                      Performance in application code
+                    </button>
+                  </li>
+                  <li>
+                    <button class="journal-toc-link" id="trigger-article-professional-packages" type="button" role="tab" aria-selected="false" aria-controls="article-professional-packages" data-journal-entry-trigger="article-professional-packages" tabindex="-1">
                       Writing professional Unity packages
                     </button>
                   </li>
@@ -109,7 +114,46 @@
               </article>
 
               <div class="journal-entry-column">
-                <article class="journal-panel-card journal-entry-card is-active" id="article-professional-packages" role="tabpanel" aria-labelledby="trigger-article-professional-packages" data-journal-entry="article-professional-packages" data-share-title="How to write professional Unity packages" data-share-text="A journal note on what makes a Unity package feel professional: clear ownership, bridge-based integrations, safe APIs, diagnostics, validation, and tests.">
+                <article class="journal-panel-card journal-entry-card is-active" id="article-application-performance" role="tabpanel" aria-labelledby="trigger-article-application-performance" data-journal-entry="article-application-performance" data-share-title="What performance started to mean to me in application code" data-share-text="A journal note on how performance changes the way I think about abstraction, repetition, and tradeoffs in application code.">
+                  <header class="journal-entry-header">
+                    <p class="journal-entry-kicker">Current read</p>
+                    <h3>What performance started to mean to me in application code.</h3>
+
+                    <div class="journal-share-row">
+                      <button class="button button-secondary journal-share-button" type="button" data-share-article>Share</button>
+                      <button class="button button-secondary journal-share-button" type="button" data-copy-article>Copy Link</button>
+                      <span class="journal-share-status" aria-live="polite"></span>
+                    </div>
+                  </header>
+
+                  <div class="journal-prose">
+                    <p>One thing I have been thinking about more seriously is how performance changes the way I judge architecture. Early on, it is easy to focus only on whether a system works, whether the abstraction feels clean, or whether the design reads well. Those things still matter to me. But the longer I work on real applications and game systems, the more I feel that performance is not some isolated concern waiting at the end. It is part of the design from the beginning.</p>
+
+                    <p>A lot of that became clearer to me when I thought more carefully about polymorphism, virtual methods, and overriding in C#. On paper, polymorphism feels elegant. One interface, many implementations, and a system that can grow without rewriting its core logic. That elegance is real. It keeps code flexible, makes systems easier to extend, and usually leads to better architecture. But once performance enters the conversation, elegance stops being purely theoretical.</p>
+
+                    <p>A virtual call is not the same as a direct call. The runtime has to resolve which implementation to execute based on the actual object type, not just the reference type. In most applications, that cost is small enough that it barely matters. But "barely matters" is not the same thing as "never matters." Once the same operation happens millions of times, even small overhead becomes real.</p>
+
+                    <p>That is one of the most useful performance lessons I keep returning to: performance problems are often made of small costs repeated at scale. A single virtual call is not scary. A single allocation is not scary. A single lookup, cast, event dispatch, or extra layer of indirection is not scary. But once those things live inside a hot path, they stop being abstract language features and start becoming part of the frame time, the responsiveness, and the total cost of the system.</p>
+
+                    <p>That does not mean polymorphism is bad. It means abstraction has a price, and part of professional engineering is knowing when that price is worth paying. In most application code, maintainability still wins. If polymorphism makes the design clearer, keeps the system easier to extend, and prevents conditional logic from spreading everywhere, then the tiny runtime cost is usually the right tradeoff. I would rather keep the architecture clean than flatten everything too early out of vague performance anxiety.</p>
+
+                    <p>But I also think performance discipline means not hiding behind clean architecture when the usage pattern has clearly changed. If a method sits inside a UI event and gets called occasionally, I will think about readability first. If it sits in an AI loop, a stat recalculation path, an animation system, a pathfinding update, or some other part of the code that runs constantly, then I start thinking differently. That is where architecture and performance stop being separate conversations.</p>
+
+                    <p>To me, that is the maturity point: understanding that good design is not only about flexibility, and optimization is not only about speed. Both are part of the same judgment. The systems I trust most are the ones that stay abstract where abstraction helps, and become more direct where cost starts to accumulate. A good engineer does not throw away polymorphism out of fear. A good engineer also does not keep every abstraction forever just because it looked elegant when the system was smaller.</p>
+
+                    <p>Another thing performance taught me is that profiling matters more than assumption. It is easy to blame the wrong thing. A developer might see virtual methods and assume they are the problem, while the real cost is in allocations, string work, repeated lookups, poor caching, unnecessary synchronization, or data structures being used carelessly. The runtime is already optimized in many places. So if I care about performance, I need evidence, not instinct.</p>
+
+                    <p>That is why I have become more skeptical of vague optimization advice. "Avoid virtual methods" by itself is not a useful rule. "Never use inheritance" is not a useful rule either. The real question is always where the cost is, how often it happens, and what I would be giving up if I optimized that part. Performance work becomes much healthier once it is tied to context instead of slogans.</p>
+
+                    <p>I also think hot paths deserve a different kind of honesty. In performance-sensitive parts of an application, the cleanest architecture is not always the most layered one. Sometimes a flatter, more explicit, less abstract path is the correct solution. That does not mean the whole codebase should collapse into shortcuts. It just means performance-critical systems should be designed with their real execution frequency in mind, not only with architectural purity in mind.</p>
+
+                    <p>For me, the best performance mindset is not "make everything fast." It is "know what can afford elegance, and know what cannot." That changes how I look at application code. I still care about extensibility, substitution, readability, and clean interfaces. But I also care more about where those abstractions live, how often they execute, and what they cost once the system is under real pressure.</p>
+
+                    <p>The longer I work, the more I feel that performance is really a form of honesty. It forces the code to admit what it costs. And once I know that, I can make better decisions about where flexibility belongs and where directness matters more. Good application performance is not just about micro-optimizing instructions. It is about designing systems that remain understandable while respecting scale.</p>
+                  </div>
+                </article>
+
+                <article class="journal-panel-card journal-entry-card" id="article-professional-packages" role="tabpanel" aria-labelledby="trigger-article-professional-packages" data-journal-entry="article-professional-packages" data-share-title="How to write professional Unity packages" data-share-text="A journal note on what makes a Unity package feel professional: clear ownership, bridge-based integrations, safe APIs, diagnostics, validation, and tests." hidden>
                   <header class="journal-entry-header">
                     <p class="journal-entry-kicker">Current read</p>
                     <h3>How to write professional Unity packages: lessons from building a modular game foundation.</h3>
