@@ -263,6 +263,18 @@
   display: grid;
 }
 
+.portfolio-page .certification-detail-column > .preview-panel {
+  display: none;
+}
+
+.portfolio-page .certification-detail-column > .preview-panel.is-active {
+  display: grid;
+}
+
+.portfolio-page .certification-detail-column > .preview-panel[hidden] {
+  display: none !important;
+}
+
 .portfolio-page .certification-detail-card {
   display: grid;
   gap: 1.1rem;
