@@ -183,3 +183,206 @@
 .portfolio-page .footer-links a:focus-visible {
   color: #6FE7DD;
 }
+
+.portfolio-page .certification-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.portfolio-page .certification-browser {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.64fr) minmax(0, 1.36fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.portfolio-page .certification-list-card,
+.portfolio-page .certification-detail-card {
+  height: 100%;
+}
+
+.portfolio-page .certification-list-card {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.portfolio-page .certification-list-card h3 {
+  color: #F0C674;
+}
+
+.portfolio-page .certification-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.portfolio-page .certification-list-item {
+  display: grid;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 1rem 1.05rem;
+  text-align: left;
+  border-radius: 1rem;
+  border: 1px solid rgba(40, 194, 209, 0.16);
+  background: rgba(10, 17, 28, 0.58);
+  color: var(--text-soft);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+.portfolio-page .certification-list-item:hover,
+.portfolio-page .certification-list-item:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(40, 194, 209, 0.32);
+  color: #F0C674;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-page .certification-list-item.is-active {
+  border-color: rgba(126, 224, 129, 0.4);
+  background: rgba(12, 22, 36, 0.9);
+  color: #F0C674;
+  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.24);
+}
+
+.portfolio-page .certification-list-title {
+  font-family: "Chakra Petch", "Sora", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.portfolio-page .certification-list-meta {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.portfolio-page .certification-detail-column {
+  display: grid;
+}
+
+.portfolio-page .certification-detail-card {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.portfolio-page .certification-preview-frame {
+  display: block;
+  margin: 0;
+}
+
+.portfolio-page .certification-image-frame {
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  min-height: 22rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(40, 194, 209, 0.18);
+  background: rgba(11, 18, 30, 0.88);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+.portfolio-page .certification-zoomable-shot {
+  display: block;
+  width: min(100%, 58rem);
+  height: auto;
+  max-height: 34rem;
+  border-radius: 0.85rem;
+  background: #f5f7fb;
+  object-fit: contain;
+  object-position: center center;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+.portfolio-page .certification-copy {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.portfolio-page .certification-copy h3 {
+  color: #F0C674;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+}
+
+.portfolio-page .certification-summary {
+  max-width: 44rem;
+}
+
+.portfolio-page .certification-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio-page .certification-meta li {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(40, 194, 209, 0.16);
+  background: rgba(10, 17, 28, 0.54);
+}
+
+.portfolio-page .certification-meta span,
+.portfolio-page .certification-support-label {
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.portfolio-page .certification-meta strong {
+  color: #F0C674;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.portfolio-page .certification-links {
+  margin-top: 0.15rem;
+}
+
+.portfolio-page .certification-links .button {
+  min-width: 11rem;
+}
+
+.portfolio-page .certification-skill-list {
+  margin-top: 0.2rem;
+}
+
+.portfolio-page .certification-skill {
+  cursor: default;
+  color: #F0C674;
+  border-color: rgba(126, 224, 129, 0.18);
+  background: rgba(11, 18, 30, 0.76);
+}
+
+.portfolio-page .certification-skill:hover,
+.portfolio-page .certification-skill:focus-visible {
+  transform: none;
+  color: #F0C674;
+  border-color: rgba(126, 224, 129, 0.18);
+  background: rgba(11, 18, 30, 0.76);
+}
+
+@media (max-width: 980px) {
+  .portfolio-page .certification-browser {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-page .certification-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-page .certification-zoomable-shot {
+    max-height: none;
+    width: 100%;
+  }
+}
