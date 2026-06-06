@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Game Bug Tracker is a public-demo-safe ASP.NET Core bug tracker for game production workflows with Razor Pages, EF Core, SQLite, and owner-only write access.">
+  <meta name="author" content="Tanvir Ahmed Arnab">
+  <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#172033">
   <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://www.tanvirahmedarnab.com/game-bug-tracker.html">
@@ -12,7 +14,10 @@
   <meta property="og:description" content="Game Bug Tracker is a public-demo-safe ASP.NET Core bug tracker for game production workflows with Razor Pages, EF Core, SQLite, and owner-only write access.">
   <meta property="og:url" content="https://www.tanvirahmedarnab.com/game-bug-tracker.html">
   <meta property="og:site_name" content="Tanvir Ahmed Arnab">
+  <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://www.tanvirahmedarnab.com/assets/social/og-site.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Monochrome social card for Tanvir Ahmed Arnab featuring the site name and the roles developer, musician, and writer.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Game Bug Tracker | Tanvir Ahmed Arnab">
@@ -23,6 +28,37 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32x32.png">
   <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Game Bug Tracker | Tanvir Ahmed Arnab",
+      "url": "https://www.tanvirahmedarnab.com/game-bug-tracker.html",
+      "description": "Game Bug Tracker is a public-demo-safe ASP.NET Core bug tracker for game production workflows with Razor Pages, EF Core, SQLite, and owner-only write access.",
+      "mainEntity": {
+        "@type": "SoftwareSourceCode",
+        "name": "Game Bug Tracker",
+        "description": "A public-demo-safe ASP.NET Core bug tracker for game production workflows with owner-only write access and seeded data.",
+        "codeRepository": "https://github.com/TanvirAhmedArnab/game-bug-tracker",
+        "programmingLanguage": [
+          "C#",
+          "ASP.NET Core",
+          "SQLite"
+        ],
+        "author": {
+          "@type": "Person",
+          "name": "Tanvir Ahmed Arnab",
+          "url": "https://www.tanvirahmedarnab.com/"
+        }
+      },
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Tanvir Ahmed Arnab",
+        "url": "https://www.tanvirahmedarnab.com/"
+      },
+      "inLanguage": "en"
+    }
+  </script>
   <title>Game Bug Tracker | Tanvir Ahmed Arnab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +71,7 @@
   <header class="site-header">
     <div class="inner">
       <a class="brand brand--sigil" href="index.html" aria-label="Tanvir Ahmed Arnab home">
-        <img class="brand-mark brand-mark-sigil" src="assets/branding/taa-circle-mark.svg" alt="">
+        <img class="brand-mark brand-mark-sigil" src="assets/branding/taa-circle-mark.svg" alt="" width="64" height="64">
         <span class="brand-lockup">
           <span class="brand-name">Tanvir Ahmed Arnab</span>
           <span class="brand-role">developer / musician / writer</span>
@@ -92,7 +128,7 @@
         </div>
         <aside class="tracker-hero-shot reveal">
           <figure>
-            <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/home-page.webp" alt="Featured Game Bug Tracker screenshot showing the public demo home page with primary actions and version-1 explanation.">
+            <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/home-page.webp" alt="Featured Game Bug Tracker screenshot showing the public demo home page with primary actions and version-1 explanation." width="1672" height="941">
             <figcaption><strong>Homepage preview.</strong> Public demo overview with direct entry points into the tracker. Click to expand.</figcaption>
           </figure>
         </aside>
@@ -126,19 +162,19 @@
             <p>Click any screenshot to expand it for a closer look.</p>
             <div class="gallery-grid gallery-grid-two">
               <figure>
-                <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/home-page.webp" alt="Game Bug Tracker home page showing the public demo explanation and main call to action." loading="lazy" decoding="async">
+                <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/home-page.webp" alt="Game Bug Tracker home page showing the public demo explanation and main call to action." width="1672" height="941" loading="lazy" decoding="async">
                 <figcaption><strong>Home page.</strong> Introduces the demo model, V1 scope, and main entry points.</figcaption>
               </figure>
               <figure>
-                <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/bug-report-list.webp" alt="Game Bug Tracker bug list showing report titles, severity, status, and created dates." loading="lazy" decoding="async">
+                <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/bug-report-list.webp" alt="Game Bug Tracker bug list showing report titles, severity, status, and created dates." width="1672" height="941" loading="lazy" decoding="async">
                 <figcaption><strong>Bug list.</strong> Shows active reports with severity, status, and created date for quick scanning.</figcaption>
               </figure>
               <figure>
-                <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/bug-details.webp" alt="Game Bug Tracker bug details page showing severity, status, created date, and full description." loading="lazy" decoding="async">
+                <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/bug-details.webp" alt="Game Bug Tracker bug details page showing severity, status, created date, and full description." width="1672" height="941" loading="lazy" decoding="async">
                 <figcaption><strong>Bug details.</strong> Presents a single report with full context, status, and description.</figcaption>
               </figure>
               <figure>
-                <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/owner-sign-in.webp" alt="Game Bug Tracker owner sign-in page explaining that public visitors can browse while only the owner can create or edit reports." loading="lazy" decoding="async">
+                <img class="zoomable-shot" data-zoomable src="assets/projects/game-bug-tracker/owner-sign-in.webp" alt="Game Bug Tracker owner sign-in page explaining that public visitors can browse while only the owner can create or edit reports." width="1672" height="941" loading="lazy" decoding="async">
                 <figcaption><strong>Owner sign-in.</strong> Protects write access while keeping the tracker publicly viewable.</figcaption>
               </figure>
             </div>
