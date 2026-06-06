@@ -56,6 +56,8 @@ if (revealItems.length) {
   if (prefersReducedMotion) {
     revealItems.forEach((item) => item.classList.add("is-visible"));
   } else {
+    const revealCutoff = window.innerHeight * 0.94;
+
     revealItems.forEach((item, index) => {
       item.style.transitionDelay = `${Math.min((index % 4) * 70, 210)}ms`;
     });
@@ -70,18 +72,28 @@ if (revealItems.length) {
         });
       },
       {
-        threshold: 0.15,
-        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.08,
+        rootMargin: "0px 0px -24px 0px",
       },
     );
 
-    revealItems.forEach((item) => observer.observe(item));
+    revealItems.forEach((item) => {
+      const bounds = item.getBoundingClientRect();
+      const isInitiallyVisible = bounds.bottom > 0 && bounds.top < revealCutoff;
+
+      if (isInitiallyVisible) {
+        item.classList.add("is-visible");
+        return;
+      }
+
+      observer.observe(item);
+    });
   }
 }
 
 const previewRoots = Array.from(document.querySelectorAll("[data-chapter-preview]"));
 
-previewRoots.forEach((previewRoot) => {
+previewRoots.forEach((previewRoot, rootIndex) => {
   const previewButtons = Array.from(previewRoot.querySelectorAll("[data-preview-target]"));
   const previewPanels = Array.from(previewRoot.querySelectorAll("[data-preview-panel]"));
   const prevButton = previewRoot.querySelector("[data-preview-prev]");
@@ -96,7 +108,36 @@ previewRoots.forEach((previewRoot) => {
     previewButtons.findIndex((button) => button.classList.contains("is-active")),
   );
 
-  const setActivePreview = (nextIndex) => {
+  const panelById = new Map(
+    previewPanels
+      .filter((panel) => panel.id)
+      .map((panel) => [panel.id, panel]),
+  );
+
+  const tabList = previewButtons[0]?.closest("[role='tablist'], .preview-nav, .certification-list");
+  if (tabList && !tabList.getAttribute("role")) {
+    tabList.setAttribute("role", "tablist");
+  }
+
+  previewButtons.forEach((button, index) => {
+    const targetId = button.dataset.previewTarget;
+    const panel = (targetId && panelById.get(targetId)) || previewPanels[index];
+
+    if (!button.id) {
+      button.id = `preview-tab-${rootIndex + 1}-${index + 1}`;
+    }
+
+    button.setAttribute("role", "tab");
+
+    if (panel?.id) {
+      button.setAttribute("aria-controls", panel.id);
+      panel.setAttribute("role", panel.getAttribute("role") || "tabpanel");
+      panel.setAttribute("aria-labelledby", button.id);
+    }
+  });
+
+  const setActivePreview = (nextIndex, options = {}) => {
+    const { focus = false } = options;
     const safeIndex = (nextIndex + previewPanels.length) % previewPanels.length;
     activeIndex = safeIndex;
 
@@ -112,10 +153,39 @@ previewRoots.forEach((previewRoot) => {
       panel.classList.toggle("is-active", isActive);
       panel.hidden = !isActive;
     });
+
+    if (focus) {
+      previewButtons[safeIndex]?.focus();
+    }
   };
 
   previewButtons.forEach((button, index) => {
     button.addEventListener("click", () => setActivePreview(index));
+
+    button.addEventListener("keydown", (event) => {
+      switch (event.key) {
+        case "ArrowRight":
+        case "ArrowDown":
+          event.preventDefault();
+          setActivePreview(index + 1, { focus: true });
+          break;
+        case "ArrowLeft":
+        case "ArrowUp":
+          event.preventDefault();
+          setActivePreview(index - 1, { focus: true });
+          break;
+        case "Home":
+          event.preventDefault();
+          setActivePreview(0, { focus: true });
+          break;
+        case "End":
+          event.preventDefault();
+          setActivePreview(previewButtons.length - 1, { focus: true });
+          break;
+        default:
+          break;
+      }
+    });
   });
 
   if (prevButton) {
