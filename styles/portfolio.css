@@ -190,23 +190,71 @@
 }
 
 .portfolio-page .certification-browser {
+  --certification-visible-count: 10;
+  --certification-list-row-height: 6.15rem;
+  --certification-list-gap: 0.75rem;
+  --certification-panel-chrome: 4.85rem;
+  --certification-panel-height: calc(
+    (var(--certification-visible-count) * var(--certification-list-row-height)) +
+    ((var(--certification-visible-count) - 1) * var(--certification-list-gap)) +
+    var(--certification-panel-chrome)
+  );
+  position: relative;
   display: grid;
   grid-template-columns: minmax(16rem, 0.64fr) minmax(0, 1.36fr);
-  gap: 1rem;
-  align-items: start;
+  gap: 0;
+  align-items: stretch;
   min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(40, 194, 209, 0.22);
+  border-radius: 1.55rem;
+  background:
+    linear-gradient(180deg, rgba(23, 32, 51, 0.96) 0%, rgba(17, 24, 39, 0.94) 100%);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.24);
+}
+
+.portfolio-page .certification-browser::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 28%),
+    linear-gradient(90deg, rgba(242, 242, 242, 0.025) 1px, transparent 1px),
+    linear-gradient(rgba(242, 242, 242, 0.025) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92), transparent 92%);
+  pointer-events: none;
+}
+
+.portfolio-page .certification-browser::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 0.32rem;
+  background: linear-gradient(90deg, #7EE081 0%, #28C2D1 52%, #F0C674 100%);
+  opacity: 0.98;
 }
 
 .portfolio-page .certification-list-card,
 .portfolio-page .certification-detail-card {
   height: 100%;
   min-width: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .portfolio-page .certification-list-card {
   display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
   gap: 1rem;
   align-content: start;
+  min-height: var(--certification-panel-height);
+  max-height: var(--certification-panel-height);
+  overflow: hidden;
+  border-right: 1px solid rgba(40, 194, 209, 0.16);
 }
 
 .portfolio-page .certification-list-card h3 {
@@ -216,13 +264,24 @@
 .portfolio-page .certification-list {
   display: grid;
   gap: 0.8rem;
+  min-height: 0;
+  max-height: calc(
+    (var(--certification-visible-count) * var(--certification-list-row-height)) +
+    ((var(--certification-visible-count) - 1) * var(--certification-list-gap))
+  );
+  overflow-y: auto;
+  padding-right: 0.45rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(40, 194, 209, 0.42) rgba(8, 13, 28, 0.18);
 }
 
 .portfolio-page .certification-list-item {
   display: grid;
   gap: 0.35rem;
+  align-content: start;
   width: 100%;
-  padding: 1rem 1.05rem;
+  min-height: var(--certification-list-row-height);
+  padding: 1.05rem 1.05rem 1rem;
   text-align: left;
   border-radius: 1rem;
   border: 1px solid rgba(40, 194, 209, 0.16);
@@ -247,10 +306,16 @@
 }
 
 .portfolio-page .certification-list-title {
+  display: -webkit-box;
   font-family: "Chakra Petch", "Sora", sans-serif;
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.42;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-height: calc(2 * 1.42em);
+  padding-bottom: 0.08rem;
 }
 
 .portfolio-page .certification-list-meta {
@@ -259,11 +324,13 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-family: "IBM Plex Mono", monospace;
+  line-height: 1.2;
 }
 
 .portfolio-page .certification-detail-column {
   display: grid;
   min-width: 0;
+  min-height: var(--certification-panel-height);
 }
 
 .portfolio-page .certification-detail-column > .preview-panel {
@@ -272,6 +339,7 @@
 
 .portfolio-page .certification-detail-column > .preview-panel.is-active {
   display: grid;
+  min-height: var(--certification-panel-height);
 }
 
 .portfolio-page .certification-detail-column > .preview-panel[hidden] {
@@ -281,6 +349,18 @@
 .portfolio-page .certification-detail-card {
   display: grid;
   gap: 1.1rem;
+  align-content: start;
+  min-height: var(--certification-panel-height);
+  max-height: var(--certification-panel-height);
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(40, 194, 209, 0.42) rgba(8, 13, 28, 0.18);
+}
+
+.portfolio-page .certification-list-card::after,
+.portfolio-page .certification-detail-card::after {
+  display: none;
 }
 
 .portfolio-page .certification-preview-frame {
@@ -389,9 +469,51 @@
   background: rgba(11, 18, 30, 0.76);
 }
 
+.portfolio-page .certification-list::-webkit-scrollbar,
+.portfolio-page .certification-detail-card::-webkit-scrollbar {
+  width: 0.72rem;
+}
+
+.portfolio-page .certification-list::-webkit-scrollbar-track,
+.portfolio-page .certification-detail-card::-webkit-scrollbar-track {
+  background: rgba(8, 13, 28, 0.18);
+  border-radius: 999px;
+}
+
+.portfolio-page .certification-list::-webkit-scrollbar-thumb,
+.portfolio-page .certification-detail-card::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(126, 224, 129, 0.45), rgba(40, 194, 209, 0.55));
+  border-radius: 999px;
+  border: 2px solid rgba(8, 13, 28, 0.18);
+}
+
 @media (max-width: 1180px) {
   .portfolio-page .certification-browser {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .portfolio-page .certification-list-card,
+  .portfolio-page .certification-detail-column,
+  .portfolio-page .certification-detail-column > .preview-panel.is-active,
+  .portfolio-page .certification-detail-card {
+    min-height: 0;
+    max-height: none;
+  }
+
+  .portfolio-page .certification-list {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .portfolio-page .certification-list-card {
+    border-right: 0;
+    border-bottom: 1px solid rgba(40, 194, 209, 0.16);
+  }
+
+  .portfolio-page .certification-detail-card {
+    overflow: visible;
   }
 
   .portfolio-page .certification-meta {

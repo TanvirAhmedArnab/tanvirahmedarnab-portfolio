@@ -98,6 +98,7 @@ previewRoots.forEach((previewRoot, rootIndex) => {
   const previewPanels = Array.from(previewRoot.querySelectorAll("[data-preview-panel]"));
   const prevButton = previewRoot.querySelector("[data-preview-prev]");
   const nextButton = previewRoot.querySelector("[data-preview-next]");
+  const isCertificationBrowser = previewRoot.classList.contains("certification-browser");
 
   if (!previewButtons.length || !previewPanels.length) {
     return;
@@ -152,7 +153,18 @@ previewRoots.forEach((previewRoot, rootIndex) => {
       const isActive = index === safeIndex;
       panel.classList.toggle("is-active", isActive);
       panel.hidden = !isActive;
+
+      if (isActive && isCertificationBrowser) {
+        panel.scrollTop = 0;
+      }
     });
+
+    if (isCertificationBrowser) {
+      previewButtons[safeIndex]?.scrollIntoView({
+        block: "nearest",
+        inline: "nearest",
+      });
+    }
 
     if (focus) {
       previewButtons[safeIndex]?.focus();
