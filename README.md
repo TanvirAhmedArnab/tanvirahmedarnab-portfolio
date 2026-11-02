@@ -18,7 +18,7 @@ The site is intentionally static: `HTML`, `CSS`, and `JavaScript` only. That kee
 - Home / character dossier overview
 - `Game Bug Tracker` case study
 - `GenericRPG in C#` publishing project page
-- plain HTML resume page
+- support-focused HTML resume page and PDF download, alongside the wider creative portfolio
 - custom `404` page
 
 ## Repository structure
@@ -84,6 +84,8 @@ The current repository is published directly from the main GitHub Pages site sou
 ## Local editing
 
 There is no build step required.
+
+The recruiter-facing `resume.html` and `assets/taarn-support-resume.pdf` target entry-level software and product support. The earlier PDF is retained at its existing path. Rebuild the support PDF with `python scripts/build-support-resume.py` (requires ReportLab), then render and visually review both pages before publishing. Keep its facts consistent with the LinkedIn profile; do not add unverified professional technical experience.
 
 1. Edit the site files directly.
 2. Refresh the browser.
