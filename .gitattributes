@@ -1,0 +1,2 @@
+# Preserve PDF offsets and binary content across Windows checkouts.
+*.pdf binary
